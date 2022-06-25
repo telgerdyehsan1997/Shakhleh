@@ -1,0 +1,4 @@
+Product Code,Product name,Commodity code export,Commodity code import,Additional code,Quota,VAT,Licenced,Export licence,Licence override
+ABS00001,Changed,12345678,12,,777777,A,FALSE,,
+ABS00003,Passed,12345678,14,,123456,Z,TRUE,123ERT,
+ABS00004,Failed,FFFFFF,12,,54567,B,FALSE,,

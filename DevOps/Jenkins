@@ -1,0 +1,124 @@
+pipeline 
+{
+    parameters 
+    {
+        string(name: "branch" , defaultValue : 'UAT')
+    }
+    environment 
+    {   
+        BUILD_VERSION="v_${BUILD_NUMBER}"
+        GIT_REPOSITORY = "git@bitbucket.org:geeks-ltd/channel.ports.git"
+        DESTINATION_PATH = "C:\\Projects\\v_${BUILD_NUMBER}"
+        IIS_WEBSITE_NAME = "ChannelPorts"
+    }
+    agent any
+    stages{             
+            stage('Clone sources') 
+            {
+                steps
+                    {
+                        script
+                            {                        
+                                git branch:params.branch, credentialsId: "JENKINS_CP_GIT_CREDENTIALS", url: GIT_REPOSITORY
+                            }
+                    }                
+            }
+            
+            stage('Delete the GCOP References')
+            {
+                steps 
+                {
+                    script 
+                        {
+                            bat 'nuget sources'
+                            bat 'for /r %%i in (.\\*.csproj) do (type %%i | find /v "GCop" > %%i_temp && move /y %%i_temp %%i)'
+                        }
+                }
+            } 
+           
+            stage('Build the source code')
+            {
+                steps 
+                {
+                    script 
+                        {
+                              bat 'Build.bat'
+                        }
+                }
+            }
+            
+            stage('Publish the website')
+            {
+                steps 
+                {
+                    script 
+                        {
+                          dir("$WORKSPACE\\Website")
+                            {
+                                bat 'dotnet restore'
+                                bat 'dotnet publish -o %DESTINATION_PATH%'     
+                            }
+                        }
+                }
+            }
+            
+            stage('Check build')
+            {
+                steps 
+                {
+                    script 
+                    {
+                        dir(DESTINATION_PATH)
+                        {
+                            bat '''if exist "Website.dll" (
+                                echo Build Succeeded.
+                                ) else (
+                                echo Build Failed.
+                                exit /b %errorlevel%
+                                )'''                        
+                        }
+                    }
+                }
+            }
+            
+            stage('Stop IIS')
+            {
+                steps 
+                {
+                    script 
+                    {
+                        dir('C:\\Windows\\System32\\inetsrv')
+                        {
+                            bat '''appcmd stop sites "%IIS_WEBSITE_NAME%"'''
+                        }
+                    }
+                }
+            }            
+            stage('Update IIS')
+            {
+                steps 
+                {
+                    script 
+                    {
+                        dir('C:\\Windows\\System32\\inetsrv')
+                        {
+                            bat '''appcmd set site /site.name:"%IIS_WEBSITE_NAME%"  /application[path='/'].virtualDirectory[path='/'].physicalPath:"%DESTINATION_PATH%"'''
+                        }
+                    }
+                }
+            }
+
+ 
+
+        }
+    post
+    {
+        always
+        {
+             dir('C:\\Windows\\System32\\inetsrv')
+                {
+                    bat '''appcmd start sites "%IIS_WEBSITE_NAME%"'''
+                }
+        }
+    }
+}

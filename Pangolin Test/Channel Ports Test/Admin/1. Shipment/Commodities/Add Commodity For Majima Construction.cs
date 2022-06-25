@@ -1,0 +1,52 @@
+﻿using Pangolin;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Channel_Ports_Test
+{
+    [TestClass]
+    public class AddCommodityForMajimaConstruction : UITest
+    {
+        [PangolinTestMethod]
+        public override void RunTest()
+        {
+            var shipment = new Constants.ShipmentFactory().CreateMajimaConstructionShipmentOutOfUK();
+            var consignment = new Constants.ConsignmentFactory().AddMajimaConstructionConsignmentOutOfUK();
+            var commodity = new Constants.CommodityFactory().AddMajimaConstructionCommodityOutOfUK();
+
+            Run<AddConsignmentToMajimaConstruction_OutOfUK>();
+            LoginAs<ChannelPortsAdmin>();
+
+            //Finds the Shipment
+            this.FindShipment(shipment.TrackingNumber);
+
+            //Navigate to Commodity Page for Shipment
+            AtRow(shipment.TrackingNumber).Column("Consignments").ClickLink("1");
+
+            ExpectRow(consignment.ConsignmentNumber);
+            AtRow(consignment.ConsignmentNumber).Column("Commodities").ClickLink("0");
+
+            ExpectLink("New Commodity");
+            ClickLink("New Commodity");
+
+            ExpectHeader("Commodity Details");
+
+            //Adds the Commodity
+            ClickHeader("Commodity Details");
+            ClickField("Product Code");
+            System.Threading.Thread.Sleep(1000);
+            Expect(What.Contains, commodity.Product);
+            System.Threading.Thread.Sleep(1000);
+            Click(What.Contains, commodity.Product);
+            Set("Gross weight").To(commodity.GrossWeight);
+            Set("Net weight").To(commodity.NetWeight);
+            Set("Second quantity").To(commodity.SecondQuantity);
+            Set("Value").To(commodity.Value);
+            Set("Number of packages for this commodity code (if known)").To(commodity.NumberOfPackages);
+            this.ClickAndWait("Country of destination", commodity.Country);
+            ClickButton("Save");
+
+            //Asserts that Commodity has been saved
+            ExpectRow(consignment.InvoiceCurrency);
+        }
+    }
+}

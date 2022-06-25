@@ -1,0 +1,18 @@
+Publishing to IIS 
+
+- sourced from: https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/
+- go to appropriate runtime https://www.microsoft.com/net/download/all
+- download and run Hosting Bundle Installer
+- run in admin cmd prompt "net stop was /y"
+- when it is finished run "net start w3svc"
+- set the project up in IIS as normal
+- point it to the folder "Publish" in the root of the project (doesnt exist yet but it will soon)
+- on the application pool > basic settings change .NET CLR version to no managed code
+- on the website in IIS double click "configuration editor" under "Management" section
+- put "system.webServer/aspNetCore" in the section input
+- select "ApplicationHost.config ..." in the From drop down
+- in the environmentVariables section click the "..." to open the popup
+- click add, on right hand side, enter "ASPNETCORE_ENVIRONMENT" as name and "Development" as value
+- close the pop up when added and click apply on the right
+- rerun publish.bat as admin whenever you want to deploy
+- ensure visual studio is closed when running publish.bat

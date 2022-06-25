@@ -1,0 +1,39 @@
+﻿.btn-primary {
+    &, &:hover, &:focus, &:active {
+        background-color: $primary !important;
+        border-color: $primary !important;
+        transition: 0.3s;
+    }
+}
+.btn-primary, .btn-secondary {
+    &:hover {
+        box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.28), 0 4px 15px 0 rgba(0, 0, 0, 0.25);
+        transform: scale(1.05);
+        transition: 0.3s;
+    }
+}
+
+[name="Delete"], [name="Edit"], [name="Item_IsDeactivated_Unarchive_Archive"] {
+    &, &:hover, &:focus, &:active {
+        color: $primary;
+        font-weight: 600;
+        border-color: $primary;
+        text-decoration: none;
+        min-width: 100px;
+        text-decoration: none;
+        background: none;
+        background-color: transparent;
+        border: none;
+        padding-right: 0px;
+        padding-left: 10px;
+        box-shadow: none;
+    }
+}
+
+.buttons-row {
+    .buttons {
+        .btn.btn-secondary {
+            margin-right: 10px;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <OutputPath>..\lib\</OutputPath>
+    <RootNamespace>Model</RootNamespace>
+    <NoWarn>1701;1702;1705;NU1701</NoWarn>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MSharp" Version="5.2.198" />
+    <PackageReference Include="Olive" Version="2.1.279" />
+    <PackageReference Include="Olive.Entities" Version="2.1.159" />
+  </ItemGroup>
+  <Target Name="Generate code" AfterTargets="AfterBuild">
+    <Exec Condition="'$(MSHARP_BUILD)' != 'FULL'" WorkingDirectory="$(TargetDir)" Command="dotnet msharp.dsl.dll /build /model" />
+    <Exec Condition="'$(MSHARP_BUILD)' != 'FULL'" WorkingDirectory="$(TargetDir)" Command="start /min &quot;&quot; msharp /diagnose" />
+  </Target>
+</Project>

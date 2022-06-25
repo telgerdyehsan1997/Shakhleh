@@ -1,0 +1,9 @@
+diff a/Pangolin Tests/Channel Ports Test/Channel Ports Test.csproj b/Pangolin Tests/Channel Ports Test/Channel Ports Test.csproj	(rejected hunks)
+@@ -175,6 +175,7 @@
+     <Compile Include="Admin\2. Companies\Reference\3. Contact Groups\Manage Contact Groups.cs" />
+     <Compile Include="Admin\2. Companies\Reference\3. Contact Groups\Unarchive contact group꞉ Import.cs" />
+     <Compile Include="Admin\2. Companies\Reference\5. Anchillaries\Ancillaries not visible to non-admin.cs" />
++    <Compile Include="Admin\2. Companies\Reference\5. Anchillaries\Edit Company Ancillaries - Truckers Ltd.cs" />
+     <Compile Include="Admin\2. Companies\Reference\5. Anchillaries\Use Bespoke Company Ancillaries.cs" />
+     <Compile Include="Admin\2. Companies\Reference\6. Products\Add Product without existing commodity codes.cs" />
+     <Compile Include="Admin\2. Companies\Reference\6. Products\Admin Adds Product - iPad %28export%29.cs" />

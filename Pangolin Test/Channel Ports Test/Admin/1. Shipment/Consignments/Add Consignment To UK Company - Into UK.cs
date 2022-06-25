@@ -1,0 +1,52 @@
+﻿using Pangolin;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Channel_Ports_Test
+{
+    [TestClass]
+    public class AddConsignmentToUKCompany_IntoUK : UITest
+    {
+        [PangolinTestMethod]
+        public override void RunTest()
+        {
+            var trackingNumber = "R0721000001";
+            var consignment = new Constants.ConsignmentFactory().AddUKCompanyConsignmentIntoUK();
+
+            Run<NewShipment_UKCompany_IntoUK>();
+            LoginAs<ChannelPortsAdmin>();
+
+            //Navigates to Shipment to add Consignment
+            this.FindShipment(trackingNumber);
+            AtRow(trackingNumber).Column("Consignments").ClickLink("0");
+
+            ExpectLink("New Consignment");
+            ClickLink("New Consignment");
+
+            ExpectHeader("Consignment Details");
+            ClickHeader("Consignment Details");
+            System.Threading.Thread.Sleep(1000);
+
+            //Adds the Consignment
+            this.ClickAndWait("Partner name", consignment.PartnerName);
+            Set("Total packages").To(consignment.TotalPackages);
+            Set("Total gross weight").To(consignment.TotalGrossWeight);
+            Set("Total net weight").To(consignment.TotalNetWeight);
+            this.ClickAndWait("Invoice currency", consignment.InvoiceCurrency);
+            Set("Invoice number").To(consignment.InvoiceNumber);
+            Set("Total value").To(consignment.TotalValue);
+            Set("Terms of Sale").To(consignment.TermsOfSale);
+            Click(What.Contains, "Save");
+            ExpectLink("New Commodity");
+
+            //Asserts that Consignment has been saved
+            ClickLink("Shipments");
+            ExpectHeader("Shipments");
+            ExpectRow(trackingNumber);
+            this.FindShipment(trackingNumber);
+            AtRow(trackingNumber).Column("Consignments").Expect("1");
+            AtRow(trackingNumber).Column("Consignments").ClickLink("1");
+            ExpectLink("New Consignment");
+            ExpectRow(consignment.ConsignmentNumber);
+        }
+    }
+}

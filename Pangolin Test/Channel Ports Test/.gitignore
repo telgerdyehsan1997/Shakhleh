@@ -1,0 +1,8 @@
+# Pangolin files
+/PangolinTestResults
+/bin
+/obj
+/packages
+/GCopReport.json
+/GCop/GCop.json
+/Screenshots

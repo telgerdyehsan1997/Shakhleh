@@ -1,0 +1,3 @@
+Type,Customer account number,Company name,Country,Post code,Address line 1,Address line 2,Town/City,EORI number,Branch identifier,AEO number,TSP,CFSP,Payment code,Deferment number,Representation type,Guarantee number,Guarantee type,TIN,PIN
+Customer,R543234,Duplicate Inc,GR,LRT 6RD,910 Main Street,,Berlin,,BR123,12345678T09876500R00,8574637R819283G00000,FALSE,Y,1234567,TRUE,,1,,
+Customer,R543234,Another one Inc,GR,LRT 6RD,910 Main Street,,Berlin,,BR123,12345678T09876500R00,8574637R819283G00000,FALSE,Y,1234567,TRUE,,1,,

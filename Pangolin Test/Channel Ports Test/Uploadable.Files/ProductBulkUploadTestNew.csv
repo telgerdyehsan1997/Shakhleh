@@ -1,0 +1,11 @@
+Product Code,Product name,Commodity code export,Commodity code import,Additional code,Quota,VAT,Licenced,Export licence,Licence override
+ABS00001,Update product,12345678,12,,777777,A,FALSE,,
+ABS00003,New Product,12345678,14,,123456,Z,TRUE,123ERT,
+ABS00004,Invalid CC,22222222,12,,123456,Z,FALSE,,
+ABS00005,Invalid AC,12345678,12,123A,123456,Z,,,
+ABS00015,Invalid AC 2,12345678,12,123,123456,Z,,,
+ABS00006,Invalid Quota,12345678,12,,12345A,Z,,,
+ABS00016,Invalid Quota 2,12345678,12,,12345,Z,,,
+ABS00007,Invalid VAT,12345678,12,,,B,,,
+ABS00008,Invalid Licensed,12345678,12,,,Z,TRUTH,,
+ABS00009,Invalid EL,12345678,12,,,Z,FALSE,123,

@@ -1,0 +1,30 @@
+﻿
+.typeahead__list{
+    overflow: hidden;
+    overflow-y: auto;
+    max-height: 350px;
+}
+
+
+span.boostrap_cancel-button {
+    display: inline;
+    position: absolute;
+    z-index: 100;
+    cursor: pointer;
+    font-size: 30px;
+    top: -6px !important;
+    right: -20px !important;
+
+    &:hover{
+        font-weight:bold;
+    }
+}
+
+
+@media(max-width: 992px){
+span.boostrap_cancel-button  {
+    right: 7px !important;
+    font-size: 30px;
+    top: -36px !important;
+}
+}

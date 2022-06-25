@@ -1,0 +1,90 @@
+﻿@import "imports/common";
+@import "imports/rgrid";
+@import "controls/controls";
+
+/* Responsive Grid */
+@include media-breakpoint-down(md) {
+    .r-grid {
+        @include make-r-grid-flex-card-view;
+    }
+}
+legend {
+    font-size: 1rem;
+}
+.add-company {
+    .group-control {
+        left: 68px;
+        max-width: none;
+        width: 299px;
+        max-width: none;
+        flex: none;
+    }
+}
+
+.modal-content {
+    width: 150%;
+    right: 15%;
+
+    h2 {
+        margin-bottom: 1.5rem;
+        margin-top: -15px;
+    }
+
+    form .control-label {
+        flex: 1 0 24.66667% !important;
+        max-width: 26.66667% !important;
+    }
+
+    .form-group:not(.required-item) {
+        .control-label:not(.licensed-field) {
+            padding-top: 7px !important;
+        }
+    }
+
+    .radio-list {
+        padding-top: 5px !important;
+    }
+
+    .download-link-header {
+        font-size: initial;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .r-grid {
+        @include make-r-grid-table-view;
+    }
+}
+
+.forgot-password-form {
+    .form-control {
+        width: 358px !important;
+    }
+    .control-label {
+        padding-top: 5px !important;
+        max-width: 16% !important;
+    }
+}
+
+form .file-upload .progress input.form-control { width: 46% !important; }
+
+@media (min-width: 992px) {
+    form .control-label {
+        flex: 0 0 16.66667% !important;
+        max-width: 16.66667% !important;
+    }
+    }
+
+@media screen and (min-width: 992px) {
+    .modal-body {
+        .container-fluid .page .content {
+            flex: 0 0 100%;
+            max-width: 100%;
+
+            .form-body .form-group {
+                .control-label, .group-control { flex: 0 0 50%; max-width: 50%; }
+            }
+            .buttons-row .buttons { flex: 0 0 100%; max-width: 100%; }
+        }
+    }
+}

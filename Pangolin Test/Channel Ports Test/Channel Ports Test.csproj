@@ -1,0 +1,1085 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- <Import Project="..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.props" Condition="Exists('..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.props')" /> -->
+  <Import Project="..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.props" Condition="Exists('..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{34E50770-982E-48D2-A848-9CFA1B84E555}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Channel_Ports_Test</RootNamespace>
+    <AssemblyName>Channel Ports Test</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AngleSharp, Version=0.9.9.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
+      <HintPath>..\packages\AngleSharp.0.9.9\lib\net45\AngleSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="CsvHelper, Version=21.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.21.2.0\lib\net45\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.2.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.2\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Configuration, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.6.0.0\lib\net461\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.6.0.0\lib\net461\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.FileExtensions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.FileExtensions.6.0.0\lib\net461\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Json.6.0.0\lib\net461\Microsoft.Extensions.Configuration.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.2.2.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Physical.6.0.0\lib\net461\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileSystemGlobbing.6.0.0\lib\net461\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.6.0.0\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTest.TestFramework.1.4.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTest.TestFramework.1.4.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.9.6.4\lib\net45\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.9.6.4\lib\net45\Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.9.6.4\lib\net45\Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.9.6.4\lib\net45\Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="MSharp.Framework, Version=4.0.108.0, Culture=neutral, PublicKeyToken=b8f6365a003d114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSharp.Framework.4.0.110\lib\net45\MSharp.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="MSharp.Framework.Core, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b8f6365a003d114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSharp.Framework.Core.4.0.106\lib\netstandard2.0\MSharp.Framework.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Nito.AsyncEx, Version=4.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.4.0.1\lib\net45\Nito.AsyncEx.dll</HintPath>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Concurrent, Version=4.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.4.0.1\lib\net45\Nito.AsyncEx.Concurrent.dll</HintPath>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Enlightenment, Version=4.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.4.0.1\lib\net45\Nito.AsyncEx.Enlightenment.dll</HintPath>
+    </Reference>
+    <Reference Include="Pangolin, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Pangolin.2.5.2\lib\net45\Pangolin.dll</HintPath>
+    </Reference>
+    <Reference Include="Roslyn.Compilers, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Roslyn.Compilers.Common.1.2.20906.2\lib\net45\Roslyn.Compilers.dll</HintPath>
+    </Reference>
+    <Reference Include="Roslyn.Compilers.CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Roslyn.Compilers.CSharp.1.2.20906.2\lib\net45\Roslyn.Compilers.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SchwabenCode.QuickIO, Version=2.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickIO.NET.2.6.2.0\lib\net45\SchwabenCode.QuickIO.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.5.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Data.SqlClient, Version=4.5.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.6.1\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.5.1\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.5.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.4.5.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.5.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.6.0.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.141.0\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\1. Shipment\Add Shipment - CFSP - ChannelPorts CFSP.cs" />
+    <Compile Include="Admin\1. Shipment\Add Shipment - CFSP - SFD Only Disabled.cs" />
+    <Compile Include="Admin\1. Shipment\Add Shipment - CFSP - SFD Only Enabled.cs" />
+    <Compile Include="Admin\1. Shipment\Add Shipment For Majima Construction - Into UK.cs" />
+    <Compile Include="Admin\1. Shipment\Add Shipment For Majima Construction - Out Of UK.cs" />
+    <Compile Include="Admin\1. Shipment\AddShipment_CFSP_INVPort.cs" />
+    <Compile Include="Admin\1. Shipment\Admin Creates Shipment With CFSP Company.cs" />
+    <Compile Include="Admin\1. Shipment\Archive Draft NCTS Shipment And Check Mailbox.cs" />
+    <Compile Include="Admin\1. Shipment\Archive Draft Shipment and Check Emails.cs" />
+    <Compile Include="Admin\1. Shipment\Archive\Admin Attempts To Archive Cleared Shipment With Same Tracking Number.cs" />
+    <Compile Include="Admin\1. Shipment\Archive\Admin attempts to Archive Cleared Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Add NCTS Shipment With Duplicate EAD MRN - Import Multiple Commodities.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Add NCTS Shipment With Multiple Commodities.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Add Shipment Into UK ASM Accepted - With DDP Option Own.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Add Shipment With Duplicate EAD MRN And Import EAD Commodities .cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Admin Transmit CFSP Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Complete And Transmit UK Company Shipment - Duty Payment.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Duplicate EAD MRN - Assert Multiple Commodities Not Added.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Duplicate EAD MRN - Assert Updated Message.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Majima Construction - Transmit Shipment Into UK.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Majima Construction - Transmit Shipment Out OF UK.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\RoW - Transmit And Complete Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Transmit Carrier Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Transmit CFSP ChannelPorts Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Transmit CFSP Non SFD Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Transmit Shipment Into UK - Licence Included.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Transmit Shipment Into UK - Paper Licence.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Transmit Shipment With Multiple Invoices - Into UK.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Transmit Truckers Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\UK Company Confirms Duty Payment Using Overdraft.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Add Commodities To CFSP ChannelPorts Consignment.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Add Commodities To CFSP SFD Consignment.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Add Commodities To Consignment With Multiple Invoice Numbers.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Add Commodity - Licence Included.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Add Commodity - Paper Licence - Into UK.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Add Commodity For Majima Construction - Into UK - Preference No.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Add Commodity To UK Company Consignment.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Commodities - Assert That Licence Status Code Is Read Only.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\RoW - Add Commodity.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\RPTID - Assert 6 Digit Validation.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\RPTID - Assert EORI Number Validation.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add Consignment CFSP SFD Only Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add Consignment ChannelPorts CFSP Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add Consignment to Majima Construction - Out Of UK.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add Consignment To UK Company - Into UK.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\AddConsignmentToMajimaConstruction - Multiple Invoice Numbers.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Partner Gets Created Via Consignment Page.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\RoW - New Consignment.cs" />
+    <Compile Include="Admin\1. Shipment\New Shipment - UK Company - Into UK.cs" />
+    <Compile Include="Admin\1. Shipment\RoW - New Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\Tracking Number\Admin Manually Updates Shipment Status To Processing Error.cs" />
+    <Compile Include="Admin\1. Shipment\Tracking Number\Admin Uploads E9 To Shipment - Into The UK.cs" />
+    <Compile Include="Admin\1. Shipment\Tracking Number\Shipment Into UK - Send Copy Documents.cs" />
+    <Compile Include="Admin\1. Shipment\Tracking Number\UK Company - Shipment Into UK - View Tax Amount.cs" />
+    <Compile Include="Admin\1. Shipment\Tracking Number\Update Shipment Into UK - Cleared.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipment %28Into UK%29\Send LRN To Driver.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipment %28Into UK%29\Send LRN To Driver꞉ Assert That Same Number Cannot Be Used Twice.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipment %28Into UK%29\Send LRN To Driver꞉ No Country Code Set.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Add Bulk Consignment.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Admin - Confirm Guarantor logic In Form.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Assert Guarantee Length Field Appears When Multiple Selected.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Assert That Customer Is Guarantor.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Assert That Guarantor Is UK Trader.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Guarantee Length Only Selectable If Authoriased Location Has Guarantee Lengths.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\NCTS Shipment Reference - Assert Actions.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Reference\Shipment Reference - Assert Actions.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Transmit Safety And Security Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\Assert Consignment Search Filter Active Text Visible.cs" />
+    <Compile Include="Admin\1. Shipment\Assert Search Filter Active Text Visible.cs" />
+    <Compile Include="Admin\1. Shipment\Assert Shipment Actions.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Add Commodities To Safety And Security Consignment Into UK.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Add Commodities To Safety And Security Consignment.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Add Commodity For Majima Construction - Into UK.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Add Commodity For Majima Construction.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Add Commodity To SFD Consignment.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Admin Adds Commodities to CFSP Consignment - Sequence Number.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Commodities - Assert Health Certificate Fields.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Commodities Helper.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add Consignment To Majima Construction - Into UK.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add Consignment To Safety And Security Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add Draft Consignment To Draft Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add Draft Consignment To NCTS Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add SFD Consignment To Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Admin Adds Consignment To CFSP Shipment - Sequence Number.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Admin Enables EIDR For CFSP Consignment.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\New Consignment - Safety And Security Into UK.cs" />
+    <Compile Include="Admin\1. Shipment\Create Draft NCTS Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\Create Draft Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\GVMS Only User Asserts GVMS Page.cs" />
+    <Compile Include="Admin\1. Shipment\Majima Construction - Assert Duty Is Not Payable Due To Negative Deposit.cs" />
+    <Compile Include="Admin\1. Shipment\Majima Construction Confirms Duty Payable.cs" />
+    <Compile Include="Admin\1. Shipment\New NCTS Shipment - Authorised Location.cs" />
+    <Compile Include="Admin\1. Shipment\New Shipment Into UK_SafetyAndSecurityEnabled.cs" />
+    <Compile Include="Admin\1. Shipment\New Shipment Out Of UK - Safety And Security Enabled.cs" />
+    <Compile Include="Admin\1. Shipment\Shipment Helpers\NCTS Shipment Helper.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\NCTS Shipment - Assert Guarantor Logic.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\NCTS Shipment - Assert Other Company Is Guarantor.cs" />
+    <Compile Include="Admin\1. Shipment\Confirm Added Route and Deleted Port fo Arrival Deparure Columns.cs" />
+    <Compile Include="Admin\1. Shipment\AddAllShipmentStatuses_Pre_Condition.cs" />
+    <Compile Include="Admin\1. Shipment\Add another Shipment for truckers after more than 1 month.cs" />
+    <Compile Include="Admin\1. Shipment\Add another Shipment for truckers within 1 month.cs" />
+    <Compile Include="Admin\1. Shipment\Add another Shipment for WWL 1 month later.cs" />
+    <Compile Include="Admin\1. Shipment\Add another Shipment for WWL after more than 1 month.cs" />
+    <Compile Include="Admin\1. Shipment\Add another Shipment for WWL within 1 months.cs" />
+    <Compile Include="Admin\1. Shipment\Add another Shipment for Truckers 1 month later.cs" />
+    <Compile Include="Admin\1. Shipment\Add New Shipment for Truckers ltd.cs" />
+    <Compile Include="Admin\1. Shipment\Add Shipment for Truckers Ltd - Out of UK.cs" />
+    <Compile Include="Admin\1. Shipment\Add Shipment for WWL.cs" />
+    <Compile Include="Admin\1. Shipment\Add Shipment with Special CPC consignment for Truckers.cs" />
+    <Compile Include="Admin\1. Shipment\Add Shipment With Special CPC for Truckers.cs" />
+    <Compile Include="Admin\1. Shipment\Admin Add Couple Of Shipments For Different Companies.cs" />
+    <Compile Include="Admin\1. Shipment\Admin Adds Two Shipments.cs" />
+    <Compile Include="Admin\1. Shipment\Admin cannot edit submitted Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\Admin cannot use URL to access commodities list.cs" />
+    <Compile Include="Admin\1. Shipment\Admin cannot use URL to access consignments list.cs" />
+    <Compile Include="Admin\1. Shipment\Admin cannot use URL to add consignment to submitted Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\Admin cannot use URL to edit commodity in submitted Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\Admin cannot use URL to edit consignment in submitted Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\Admin cannot use URL to edit submitted Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\Admin edits shipment to not require notifying additional parties.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Add Route With Company And Contact - Create New Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Add Shipent NCTS Out of UK ASM Acc.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Add Shipment With Duplicate EAD MRN.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Admin Add Three Commodities With Preference.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Add Shipment Into UK with 2 commodities ASM Acc.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Add Shipment Into UK with 2 commodities.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Add Shipment Out of UK with NCTS ticked.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Edit And Transmit EAD Out of UK_ASM ACCEPTED.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Edit and Transmit Shipment Into UK ASM Acc.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Edit NCTS Shipment Out of UK Status - Check Email.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\NCTSASMACCEmailCheck.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\NCTSASMAcceptedPrep.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipment %28Into UK%29\Edit Shipment To Have Duplicated EAD MRN - Assert Duplicate EAD Popup.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Admin - Add Multiple Bulk NCTS Shipments %28Our of UK%29.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Admin_AddConsignmentToNCTSShipment_OutOfUkWithJustOneAuthorisedLocation.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Check Bulk Shipment Consignment Not Unique .cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Check Shipment Guarantee Length Defaults To 8.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\NCTSShipmentOutOfUKArchiveAndUseMRNAgain.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Search For NCTS Shipment Using New Filters.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\Testing Client API\With Importer consignment is not able to be transmitted.cs" />
+    <Compile Include="Admin\1. Shipment\Auhtorized Location Defaults When company has one location.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Add Commodities For Truckers LTD USD EUR.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Add Commodities For Truckers LTDGBP.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\AdminCheckPreferenceColumnTypes.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Confirmation message for No Preference when EU.cs" />
+    <Compile Include="Admin\1. Shipment\Confirm Added Route and Deleted Port fo Arrival Deparure Columns.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add 2nd consignment with one commodity.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add Consignment And Check╱Update Progress History.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add Consignment For Truckers Limited - USD EUR.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add Consignment For Truckers Limited GBP.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add consignments with one commodity.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\AdminCheckAndAddsFileUnderView.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\AdminChecksGrossWeightOfConsignment.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Delete Consignment.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Change Consignment To With Importer.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Customer To Be Shown As The Declarant Using EORI if Different To UK Trader.cs" />
+    <Compile Include="Admin\1. Shipment\NCTS Shipment - Assert Gross And Net Weight Can%27t Be 0.cs" />
+    <Compile Include="Admin\1. Shipment\New Shipment - Assert Route Field Shows Correct Ports.cs" />
+    <Compile Include="Admin\1. Shipment\New Shipment - Assert Route Field when NCTS Company Selected.cs" />
+    <Compile Include="Admin\1. Shipment\Safety And Security - Assert Always.cs" />
+    <Compile Include="Admin\1. Shipment\Safety And Security - Assert Sometimes.cs" />
+    <Compile Include="Admin\1. Shipment\Search NCTS Shipment By Company.cs" />
+    <Compile Include="Admin\1. Shipment\Search Shipments By Company.cs" />
+    <Compile Include="Admin\1. Shipment\Shipment Helpers\Shipment Helpers.cs" />
+    <Compile Include="Admin\1. Shipment\Shipment lists shows todays shipments by default.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add consignment for Alpha Ltd that uses Truckers Ltd.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Consignment Lists Show Weight And Value Totals In Footer.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Total Net Weight Cannot Be Greater Than Total Gross Weight.cs" />
+    <Compile Include="Admin\1. Shipment\Edit Shipment To Add Contact.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Add a commodity with 4 different companies used.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Add New Product To Commodities.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\AddCommodityToAConsignment.cs" />
+    <Compile Include="Admin\1. Shipment\Commodities\Manage Commodity.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add 2nd consignment to Truckers ltd.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add another consignment to WWL.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add consignment for WWL.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add Mismatch Consignment To Truckers Ltd.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Create gross weight mismatch.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add Companies in consignments form.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add Company Via Consignments Page꞉ Delta Transport Ltd.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Add Consignment To Truckers Ltd.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\AddConsignment.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Complete Consignments for Truckers ltd.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Edit Consignment.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Manage Consignments.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Total packages for a consignment can%27t be 0.cs" />
+    <Compile Include="Admin\1. Shipment\Contacts for other companies not visible.cs" />
+    <Compile Include="Admin\1. Shipment\Groups for other companies not visible.cs" />
+    <Compile Include="Admin\1. Shipment\Check Shipment Date filter.cs" />
+    <Compile Include="Admin\1. Shipment\Shipment Page - Assert Safety And Security Field Appears.cs" />
+    <Compile Include="Admin\1. Shipment\Shipments - Assert Search Filters Save When Navigating Away From Page.cs" />
+    <Compile Include="Admin\1. Shipment\Shipments - Assert Search Filters Save When User Logs Out.cs" />
+    <Compile Include="Admin\1. Shipment\Shipments Page - Assert GVMS.cs" />
+    <Compile Include="Admin\1. Shipment\Submit Shipment for Truckers ltd.cs" />
+    <Compile Include="Admin\1. Shipment\Tracking Number Suffixes Should Only Reset Once At Start Of Each Month.cs" />
+    <Compile Include="Admin\1. Shipment\Tracking Number\Admin Manually Updates Shipment From Queried To Cleared.cs" />
+    <Compile Include="Admin\1. Shipment\Tracking Number\Admin Manually Updates Shipment From Quota To Awaiting Arrival.cs" />
+    <Compile Include="Admin\1. Shipment\Tracking Number\Admin Manually Updates Shipment Status To Manual Quota.cs" />
+    <Compile Include="Admin\1. Shipment\Tracking Number\Admin Manually Updates Shipment Status To Queried.cs" />
+    <Compile Include="Admin\1. Shipment\Tracking Number\Manage Tracking Number Commodities.cs" />
+    <Compile Include="Admin\1. Shipment\Tracking Number\Manage Tracking Number.cs" />
+    <Compile Include="Admin\1. Shipment\Tracking Number\View EAD Consignment Logs Page - Into UK.cs" />
+    <Compile Include="Admin\1. Shipment\Tracking Number\View EAD Consignment Logs Page - Out Of UK.cs" />
+    <Compile Include="Admin\1. Shipment\Set Send NCTS Message Via ASM to false.cs" />
+    <Compile Include="Admin\1. Shipment\Transmit Shipment For Truckers LTD.cs" />
+    <Compile Include="Admin\1. Shipment\Transmit Shipment For Truckers LTD - EUR USD Exchange rates.cs" />
+    <Compile Include="Admin\1. Shipment\AddAllShipmentStatuses.cs" />
+    <Compile Include="Admin\1. Shipment\Transmit NCTS Shipment For Truckers LTD.cs" />
+    <Compile Include="Admin\1. Shipment\ViewGVMSTransmissionLog.cs" />
+    <Compile Include="Admin\2. Companies\Accounting Information\Add Account Number And Sort Code To Acounting Information.cs" />
+    <Compile Include="Admin\2. Companies\Accounting Information\Assert That Account Number And Sort Codes Fields Present.cs" />
+    <Compile Include="Admin\2. Companies\Accounting Information\UK Company - Add Overdraft.cs" />
+    <Compile Include="Admin\2. Companies\Add An Authorised Location To Majima Construction.cs" />
+    <Compile Include="Admin\2. Companies\Add Authorised Locations To Company Truckers.cs" />
+    <Compile Include="Admin\2. Companies\Add Company - CFSP Set To Own#.cs" />
+    <Compile Include="Admin\2. Companies\Add Company꞉ P And L UK LTD.cs" />
+    <Compile Include="Admin\2. Companies\Add Company꞉ UK Company - Deferment By Deposit.cs" />
+    <Compile Include="Admin\2. Companies\Admin Adds Contact To CFSP Company.cs" />
+    <Compile Include="Admin\2. Companies\Edit ChannelPorts - Add Payment Information.cs" />
+    <Compile Include="Admin\2. Companies\Edit Company - CFSP - Set To ChannelPorts.cs" />
+    <Compile Include="Admin\2. Companies\Edit Company - CFSP Own - Enable SFD.cs" />
+    <Compile Include="Admin\2. Companies\Reference\10. Deposits\New Deposit - UK Company.cs" />
+    <Compile Include="Admin\2. Companies\Reference\2. Contacts\New Company User For UK Company꞉ Jim Milton.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Add 30 Products for Majima Construction.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Add Product For Majima Construction - RoW.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Add Product For UK Company - Keyboard.cs" />
+    <Compile Include="Admin\3. Settings\10. Global Settings\Set CFSP Monthly Repost Recipients.cs" />
+    <Compile Include="Admin\3. Settings\10. Global Settings\Set CP CFSP Month End Email Address.cs" />
+    <Compile Include="Admin\3. Settings\11. Licences\Add Licence - RPTID Licence - Into UK.cs" />
+    <Compile Include="Admin\3. Settings\11. Licences\Add Licence Status Code - Into UK.cs" />
+    <Compile Include="Admin\3. Settings\11. Licences\Add Licence Status Code - Paper - Into UK.cs" />
+    <Compile Include="Admin\3. Settings\11. Licences\Add Paper Licence - Into UK.cs" />
+    <Compile Include="Admin\3. Settings\11. Licences\Assert That Chief Document Code Has Been Changed.cs" />
+    <Compile Include="Admin\3. Settings\12. Ports\Add UK Port - Barking Rail Terminal - Inventory.cs" />
+    <Compile Include="Admin\3. Settings\13. Routes\Add Route - Barking Rail To Calais.cs" />
+    <Compile Include="Admin\3. Settings\14. Offices of Transits\Create New Office of Transit - France.cs" />
+    <Compile Include="Admin\3. Settings\21. Banner Message\Set Banner Message.cs" />
+    <Compile Include="Admin\3. Settings\22. RoW Quotas\Import RoW Quotas.cs" />
+    <Compile Include="Admin\3. Settings\5. Commodity Codes\RoW - Import Commodity Codes.cs" />
+    <Compile Include="Admin\3. Settings\Default Tax Lines\New Tax Line - A00.cs" />
+    <Compile Include="Admin\4. Accounting\CFSP Reports\ChannelPorts CFSP_Approve And Send Report.cs" />
+    <Compile Include="Admin\4. Accounting\CFSP Reports\ChannelPortsCFSP_Generate CFSP Report.cs" />
+    <Compile Include="Admin\5. Dashboard\NCTS On Site\View NCTS On Site Page.cs" />
+    <Compile Include="Admin\5. Dashboard\Support Tickets\Admin Raises Duplicate Support Ticket - Dashboard.cs" />
+    <Compile Include="Admin\5. Dashboard\Support Tickets\Admin Raises Duplicate Support Ticket - Main Page.cs" />
+    <Compile Include="Admin\5. Dashboard\Support Tickets\Broadcast Message To Companies.cs" />
+    <Compile Include="Admin\2. Companies\New Company - GVMS Only.cs" />
+    <Compile Include="Admin\5. Dashboard\Support Tickets\Persistant Casing In Broadcast Email Subject Field.cs" />
+    <Compile Include="Admin\2. Companies\Add Company with one authorised locations꞉ Beta.cs" />
+    <Compile Include="Admin\2. Companies\Add Company with authorised locations꞉ Beta.cs" />
+    <Compile Include="Admin\2. Companies\Add Company꞉ Check Duplicate Validation On Deferment Number.cs" />
+    <Compile Include="Admin\2. Companies\Add Company꞉ Majima Construction - Def Number Starts With 2.cs" />
+    <Compile Include="Admin\2. Companies\Add Kazuma Kiryu To Majima Construction.cs" />
+    <Compile Include="Admin\2. Companies\Admin Adds Different Company Guarantor To Truckers.cs" />
+    <Compile Include="Admin\2. Companies\Companies Helper.cs" />
+    <Compile Include="Admin\2. Companies\Reference\1. Details\Company Details꞉ Assert GVMS Appears when Out of UK Ticked.cs" />
+    <Compile Include="Admin\2. Companies\Reference\1. Details\Company Details꞉ Assert Safety Inbound Defaults To No.cs" />
+    <Compile Include="Admin\2. Companies\Reference\1. Details\Company Details꞉ Assert Status Change Notification Email Field.cs" />
+    <Compile Include="Admin\2. Companies\Reference\1. Details\Company Details꞉ Assert VAT Code Overide.cs" />
+    <Compile Include="Admin\2. Companies\Reference\1. Details\Company Detail꞉ Assert Authorisation Number.cs" />
+    <Compile Include="Admin\2. Companies\Reference\10. Deposits\Add Negative Deposit To Majima Construction.cs" />
+    <Compile Include="Admin\2. Companies\Reference\10. Deposits\Admin Navigates To New Deposits Page.cs" />
+    <Compile Include="Admin\2. Companies\Reference\10. Deposits\New Deposit - Majima Construction.cs" />
+    <Compile Include="Admin\2. Companies\Reference\10. Deposits\New Deposit - Truckers LTD - Archive Deposit.cs" />
+    <Compile Include="Admin\2. Companies\Reference\2. Contacts\Add Company User for Beta꞉ Jenny.cs" />
+    <Compile Include="Admin\2. Companies\Reference\2. Contacts\Add Company User For GVMS Only.cs" />
+    <Compile Include="Admin\2. Companies\Reference\2. Contacts\Add Company User to Majima Construction꞉ Majima.cs" />
+    <Compile Include="Admin\2. Companies\Reference\2. Contacts\Add New Contact For GeeksQA - Test Contact.cs" />
+    <Compile Include="Admin\2. Companies\Reference\2. Contacts\Add New Contact For CFSPOwnTestRafalQA.cs" />
+    <Compile Include="Admin\2. Companies\Reference\2. Contacts\Archive Contact - Alan Smith.cs" />
+    <Compile Include="Admin\2. Companies\Reference\2. Contacts\Ordering Company Users By Name for WWL.cs" />
+    <Compile Include="Admin\2. Companies\Reference\3. Contact Groups\Archive Contact - Check Contact Group Value.cs" />
+    <Compile Include="Admin\2. Companies\Reference\3. Contact Groups\New Contact Group - Truckers.cs" />
+    <Compile Include="Admin\2. Companies\Reference\3. Contact Groups\Truckers - Add Contact To Contact Group.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Add product for CFSP Own Test꞉ Monitor.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Add product for GeeksQA With Commodity Code And Eu Quota.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Add Product For Majima Construction - Additional Code.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Add product for Majima Construction.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Add product for Majima Construction꞉ Multiple VAT Rates.cs" />
+    <Compile Include="Admin\2. Companies\Search For Company With Special Characters꞉ P And L.cs" />
+    <Compile Include="Admin\2. Companies\Truckers Uses ChannelPorts Guarantee.cs" />
+    <Compile Include="Admin\2. Companies\View UK Traders Partners For Company Truckers.cs" />
+    <Compile Include="Admin\2. Companies\Add Company꞉ Europa EORI .cs" />
+    <Compile Include="Admin\2. Companies\Add Company꞉ Alpha.cs" />
+    <Compile Include="Admin\2. Companies\Add Company꞉ Delta.cs" />
+    <Compile Include="Admin\2. Companies\Add Company꞉ Omega.cs" />
+    <Compile Include="Admin\2. Companies\Add Multiple Companies And Check Order.cs" />
+    <Compile Include="Admin\2. Companies\Add remaining details to Delta transport.cs" />
+    <Compile Include="Admin\2. Companies\Add Warehouse1 as Truckers Authorised Location.cs" />
+    <Compile Include="Admin\2. Companies\Add Stop24 as Truckers Authorised Location.cs" />
+    <Compile Include="Admin\2. Companies\Admin Sets Company Type As Other.cs" />
+    <Compile Include="Admin\2. Companies\Admin Adds Company Truckers Ltd.cs" />
+    <Compile Include="Admin\2. Companies\Admin Checks If Type Defaults Based on Company.cs" />
+    <Compile Include="Admin\2. Companies\Admin Edit Company Worldwide Logistics Ltd to NCTS.cs" />
+    <Compile Include="Admin\2. Companies\Admin Adds Company Worldwide Logistics Ltd.cs" />
+    <Compile Include="Admin\2. Companies\Archive Company - Truckers Ltd.cs" />
+    <Compile Include="Admin\2. Companies\Admin Changes Truckers Ltd Company Type.cs" />
+    <Compile Include="Admin\2. Companies\Archived company not visible in Advice and Consignment forms.cs" />
+    <Compile Include="Admin\2. Companies\Bulk Upload꞉ Company not added due to same account number.cs" />
+    <Compile Include="Admin\2. Companies\BulkUploadCompany.cs" />
+    <Compile Include="Admin\2. Companies\Check Company Bulk Upload History.cs" />
+    <Compile Include="Admin\2. Companies\Add Company API Settings .cs" />
+    <Compile Include="Admin\2. Companies\Edit Company - EORI and TIN validation.cs" />
+    <Compile Include="Admin\2. Companies\Edit Truckers to be forwarder.cs" />
+    <Compile Include="Admin\2. Companies\Reference\2. Contacts\Add Company User for WWL꞉ Richard Smith.cs" />
+    <Compile Include="Admin\2. Companies\Reference\2. Contacts\AddNewCompanyUserRaf.cs" />
+    <Compile Include="Admin\2. Companies\Reference\2. Contacts\Add New Contact For GeeksQARafalQA - Copy.cs" />
+    <Compile Include="Admin\2. Companies\Reference\2. Contacts\Add New Contact For Truckers - ALan Smith.cs" />
+    <Compile Include="Admin\2. Companies\Reference\3. Contact Groups\Archived contact group not visible in advice form.cs" />
+    <Compile Include="Admin\2. Companies\Reference\5. Anchillaries\Add Bespoke Company Ancillaries.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Add product for GeeksQA.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Archived product not visible in commodity form.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\BulkUploadProducts.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Check Product Bulk Upload History.cs" />
+    <Compile Include="Admin\2. Companies\Reference\7. Special CPCs\Add CPCs to Omega.cs" />
+    <Compile Include="Admin\2. Companies\Reference\7. Special CPCs\Add Special CPCs to Truckers Ltd.cs" />
+    <Compile Include="Admin\2. Companies\Add Company API Settings Raf.cs" />
+    <Compile Include="Admin\2. Companies\Admin Adds Company Geeks QA.cs" />
+    <Compile Include="Admin\2. Companies\Reference\8. API Settings\API Username Is Unique.cs" />
+    <Compile Include="Admin\2. Companies\Reference\8. API Settings\Set Company API Settings꞉ WWL.cs" />
+    <Compile Include="Admin\2. Companies\Reference\9. Accounting Information\Activate Account꞉ Truckers Ltd.cs" />
+    <Compile Include="Admin\2. Companies\Reference\9. Accounting Information\Add Accounting Information꞉ Truckers Ltd.cs" />
+    <Compile Include="Admin\2. Companies\Reference\9. Accounting Information\Put Account on Hold꞉ Truckers Ltd.cs" />
+    <Compile Include="Admin\2. Companies\Reference\Charges\AdminAddsNewChargeToCompany.cs" />
+    <Compile Include="Admin\2. Companies\Reference\Charges\AdminCheckAccessToCharges.cs" />
+    <Compile Include="Admin\2. Companies\Reference\Charges\AdminCheckAccessToChargesWithoutAdminPermission.cs" />
+    <Compile Include="Admin\2. Companies\Reference\Charges\AdminCheckChargePageDetails.cs" />
+    <Compile Include="Admin\3. Settings\1. Users\Add User To Contact Group.cs" />
+    <Compile Include="Admin\3. Settings\1. Users\AddAccountsDepartmentToUser.cs" />
+    <Compile Include="Admin\3. Settings\1. Users\Archived user not visible in advice form and contact group checklist.cs" />
+    <Compile Include="Admin\3. Settings\1. Users\Archived user not visible in customer advice form.cs" />
+    <Compile Include="Admin\3. Settings\1. Users\Must Have At Least One Admin Assigned.cs" />
+    <Compile Include="Admin\3. Settings\19. Health Certificates\Archive Health Certificate.cs" />
+    <Compile Include="Admin\3. Settings\19. Health Certificates\Assert Health Certificate Code Validation.cs" />
+    <Compile Include="Admin\3. Settings\10. Global Settings\Assign Default Declarant To Another Company.cs" />
+    <Compile Include="Admin\3. Settings\10. Global Settings\Assign Worldwide Logistics Ltd As Default Declarant.cs" />
+    <Compile Include="Admin\3. Settings\10. Global Settings\Default Declarant Cannot Be An Archived Company.cs" />
+    <Compile Include="Admin\2. Companies\Edit Companies.cs" />
+    <Compile Include="Admin\2. Companies\Non-Admin Add Company Delta Corporation.cs" />
+    <Compile Include="Admin\2. Companies\Reference\2. Contacts\Add Company User for WWL꞉ Jenny.cs" />
+    <Compile Include="Admin\2. Companies\Reference\2. Contacts\Archive Company User꞉ John.cs" />
+    <Compile Include="Admin\2. Companies\Reference\2. Contacts\Create New Company User - John Smith.cs" />
+    <Compile Include="Admin\2. Companies\Reference\2. Contacts\Edit Company User - John Smith.cs" />
+    <Compile Include="Admin\2. Companies\Reference\2. Contacts\Unarchive Company User꞉ John.cs" />
+    <Compile Include="Admin\2. Companies\Reference\3. Contact Groups\Add contact group for WWL.cs" />
+    <Compile Include="Admin\2. Companies\Reference\3. Contact Groups\Add New Contact Group - Export.cs" />
+    <Compile Include="Admin\2. Companies\Reference\3. Contact Groups\Add New Contact Group - Import.cs" />
+    <Compile Include="Admin\2. Companies\Reference\3. Contact Groups\Archive Contact Group - Import.cs" />
+    <Compile Include="Admin\2. Companies\Reference\3. Contact Groups\Contacts\Add Contacts To Import.cs" />
+    <Compile Include="Admin\2. Companies\Reference\3. Contact Groups\Contacts\Manage contact group contacts.cs" />
+    <Compile Include="Admin\2. Companies\Reference\3. Contact Groups\Edit Contact Group - Import.cs" />
+    <Compile Include="Admin\2. Companies\Reference\3. Contact Groups\Manage Contact Groups.cs" />
+    <Compile Include="Admin\2. Companies\Reference\3. Contact Groups\Unarchive contact group꞉ Import.cs" />
+    <Compile Include="Admin\2. Companies\Reference\5. Anchillaries\Ancillaries not visible to non-admin.cs" />
+    <Compile Include="Admin\2. Companies\Reference\5. Anchillaries\Edit Company Ancillaries - Truckers Ltd.cs" />
+    <Compile Include="Admin\2. Companies\Reference\5. Anchillaries\Use Bespoke Company Ancillaries.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Add product for Alpha꞉ Mice.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Add product for Delta꞉ Aliens.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Add product for Omega꞉ Apples.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Add product for WWL꞉ Meat.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Add Product without existing commodity codes.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Admin Adds Product - iPad %28export%29.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Admin Adds Product꞉ iPhone %28import%29.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Archive company product.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Bulk upload company products.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Manage Products.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Edit Products.cs" />
+    <Compile Include="Admin\2. Companies\Reference\1. Details\View Company.cs" />
+    <Compile Include="Admin\2. Companies\Manage Companies.cs" />
+    <Compile Include="Admin\2. Companies\Reference\2. Contacts\Manage Company Users.cs" />
+    <Compile Include="Admin\2. Companies\Reference\4. Notes\Add Company Note.cs" />
+    <Compile Include="Admin\2. Companies\Reference\6. Products\Unarchive company product.cs" />
+    <Compile Include="Admin\2. Companies\Unarchive Company - Truckers Ltd.cs" />
+    <Compile Include="Admin\2. Companies\View Company - Worldwide Logistics Ltd.cs" />
+    <Compile Include="Admin\3. Settings\1. Users\Archive User꞉ Norman.cs" />
+    <Compile Include="Admin\3. Settings\1. Users\Create New Admin User - Alice Spat.cs" />
+    <Compile Include="Admin\3. Settings\1. Users\Create New Non-Admin User - Norman Freeman.cs" />
+    <Compile Include="Admin\3. Settings\1. Users\Manage Users.cs" />
+    <Compile Include="Admin\3. Settings\1. Users\Edit User - Alice.cs" />
+    <Compile Include="Admin\3. Settings\1. Users\Unarchive User꞉ Norman.cs" />
+    <Compile Include="Admin\3. Settings\19. Health Certificates\Edit Health Certificate Code.cs" />
+    <Compile Include="Admin\3. Settings\19. Health Certificates\Set Health Certificate Code.cs" />
+    <Compile Include="Admin\3. Settings\10. Global Settings\Set NCTS High Value Threshold To 300K.cs" />
+    <Compile Include="Admin\3. Settings\10. Global Settings\Set UCN.cs" />
+    <Compile Include="Admin\3. Settings\10. Global Settings\Set Auto Clear Time 2 Minutes.cs" />
+    <Compile Include="Admin\3. Settings\11. Licences\Add Licence꞉ Arts Council Licence.cs" />
+    <Compile Include="Admin\3. Settings\11. Licences\Manage Licences.cs" />
+    <Compile Include="Admin\3. Settings\12. Ports\Add Non-UK Port꞉ Amsterdam.cs" />
+    <Compile Include="Admin\3. Settings\12. Ports\Add Non-UK With DTI Port꞉ Amsterdam.cs" />
+    <Compile Include="Admin\3. Settings\12. Ports\Add Port꞉ Goole2.cs" />
+    <Compile Include="Admin\3. Settings\12. Ports\Add Port꞉ Goole.cs" />
+    <Compile Include="Admin\3. Settings\12. Ports\Add Non-UK Port꞉ Valencia.cs" />
+    <Compile Include="Admin\3. Settings\12. Ports\Add Non-UK Port꞉ Calais.cs" />
+    <Compile Include="Admin\3. Settings\12. Ports\Add UK-Port꞉ GVMS And Inventory.cs" />
+    <Compile Include="Admin\3. Settings\12. Ports\Manage Ports.cs" />
+    <Compile Include="Admin\3. Settings\12. Ports\Ports Helper.cs" />
+    <Compile Include="Admin\3. Settings\13. Routes\Add route Blackpool and Calais.cs" />
+    <Compile Include="Admin\3. Settings\13. Routes\Add route Portsmouth to Amsterdam.cs" />
+    <Compile Include="Admin\3. Settings\13. Routes\Add route꞉ Portsmouth to Calais.cs" />
+    <Compile Include="Admin\3. Settings\13. Routes\Add route꞉ Southampton and Valencia.cs" />
+    <Compile Include="Admin\3. Settings\13. Routes\Archive route꞉ Southampton and Valencia.cs" />
+    <Compile Include="Admin\3. Settings\13. Routes\Assert Itineraries page.cs" />
+    <Compile Include="Admin\3. Settings\13. Routes\Assert New Itineraries Page.cs" />
+    <Compile Include="Admin\3. Settings\13. Routes\Create New Itinerary - Blackpool To Calais.cs" />
+    <Compile Include="Admin\3. Settings\13. Routes\Edit route꞉ Southampton and Valencia.cs" />
+    <Compile Include="Admin\3. Settings\13. Routes\Itinerary - Assert That Blank Itinerary Can%27t Be Set.cs" />
+    <Compile Include="Admin\3. Settings\13. Routes\Manage routes.cs" />
+    <Compile Include="Admin\3. Settings\13. Routes\Routes Helper.cs" />
+    <Compile Include="Admin\3. Settings\14. Offices of Transits\Bulk Import\Download Import Template.cs" />
+    <Compile Include="Admin\3. Settings\14. Offices of Transits\Bulk Import\Update Import Transit Offices From File.cs" />
+    <Compile Include="Admin\3. Settings\14. Offices of Transits\Bulk Import\Import Transit Offices From File.cs" />
+    <Compile Include="Admin\3. Settings\14. Offices of Transits\Bulk Import\Import Transit Offices With Errors.cs" />
+    <Compile Include="Admin\3. Settings\14. Offices of Transits\Create New Office of Transit - Italy.cs" />
+    <Compile Include="Admin\3. Settings\14. Offices of Transits\Create New Office of Transit PL.cs" />
+    <Compile Include="Admin\3. Settings\14. Offices of Transits\OfficeOfTransitES.cs" />
+    <Compile Include="Admin\3. Settings\15. Authorised Locations\Add authorised location꞉ Warehouse 1.cs" />
+    <Compile Include="Admin\3. Settings\15. Authorised Locations\Add authorised location꞉ warehouse 2.cs" />
+    <Compile Include="Admin\3. Settings\15. Authorised Locations\archive authorised location꞉ warehouse 2.cs" />
+    <Compile Include="Admin\3. Settings\15. Authorised Locations\Edit authorised location꞉ warehouse 2.cs" />
+    <Compile Include="Admin\3. Settings\14. Offices of Transits\Create New Office of Transit.cs" />
+    <Compile Include="Admin\3. Settings\14. Offices of Transits\Manage Offices of Transit.cs" />
+    <Compile Include="Admin\3. Settings\15. Authorised Locations\Guarantee Length\AddGuaranteeLength8DaysForWareHouse1.cs" />
+    <Compile Include="Admin\3. Settings\15. Authorised Locations\Guarantee Length\AddGuaranteeLength10DaysForWareHouse1.cs" />
+    <Compile Include="Admin\3. Settings\15. Authorised Locations\Guarantee Length\Archive Guarantee Length - Assert Guarantee Length Changes.cs" />
+    <Compile Include="Admin\3. Settings\15. Authorised Locations\Guarantee Length\Authorised Locations Should Have Default Guarantee Length.cs" />
+    <Compile Include="Admin\3. Settings\16. Payment Type\Add PaymentType꞉ A.cs" />
+    <Compile Include="Admin\3. Settings\16. Payment Type\Add PaymentType꞉ B.cs" />
+    <Compile Include="Admin\3. Settings\16. Payment Type\Manage PaymentType.cs" />
+    <Compile Include="Admin\3. Settings\17.VAT Rates\Add VAT Rates꞉ Standard rate.cs" />
+    <Compile Include="Admin\3. Settings\17.VAT Rates\Admin Checks VAT Rate Details.cs" />
+    <Compile Include="Admin\3. Settings\18. ICS System Code\ICS System - Generate URL.cs" />
+    <Compile Include="Admin\3. Settings\19. Health Certificates\Unarchive Health Certificate.cs" />
+    <Compile Include="Admin\3. Settings\2. Countries\Admin Adds CPC and Default Tax Line.cs" />
+    <Compile Include="Admin\3. Settings\2. Countries\Archive country꞉ UK.cs" />
+    <Compile Include="Admin\3. Settings\2. Countries\Archived country not visible in consignment and company forms.cs" />
+    <Compile Include="Admin\3. Settings\2. Countries\Check archived CPC is not dipslayed for countries.cs" />
+    <Compile Include="Admin\3. Settings\2. Countries\Create New Country - France.cs" />
+    <Compile Include="Admin\3. Settings\2. Countries\Create New Country - Japan.cs" />
+    <Compile Include="Admin\3. Settings\2. Countries\Create New Country - United Kingdom.cs" />
+    <Compile Include="Admin\3. Settings\2. Countries\Manage Countries.cs" />
+    <Compile Include="Admin\3. Settings\2. Countries\Unarchive country꞉ UK.cs" />
+    <Compile Include="Admin\3. Settings\2. Countries\Update Country With EU27 Flag - France.cs" />
+    <Compile Include="Admin\3. Settings\2. Countries\Update Country With CPC Preference - France.cs" />
+    <Compile Include="Admin\3. Settings\20. Carriers\Carrier Gets Added Through Shipment Page.cs" />
+    <Compile Include="Admin\3. Settings\20. Carriers\New Carrier - Amazon.cs" />
+    <Compile Include="Admin\3. Settings\20. Carriers\View Carrier Page.cs" />
+    <Compile Include="Admin\3. Settings\3. Default Terms of Sale\Archive Terms Of Sale - Check Consignments.cs" />
+    <Compile Include="Admin\3. Settings\3. Default Terms of Sale\Create New Terms Of Sale - EXO - DDP.cs" />
+    <Compile Include="Admin\3. Settings\3. Default Terms of Sale\Create New Terms Of Sale - EXO.cs" />
+    <Compile Include="Admin\3. Settings\3. Default Terms of Sale\Create New Terms of Sale - FAS.cs" />
+    <Compile Include="Admin\3. Settings\3. Default Terms of Sale\Create New Terms of Sale - FCA.cs" />
+    <Compile Include="Admin\3. Settings\3. Default Terms of Sale\Edit Terms Of Sale.cs" />
+    <Compile Include="Admin\3. Settings\4. Ancillaries\Attempt to add more than 5dp for insurance charge.cs" />
+    <Compile Include="Admin\3. Settings\4. Ancillaries\Manage Ancillaries.cs" />
+    <Compile Include="Admin\3. Settings\4. Ancillaries\Set Ancillaries for UK.cs" />
+    <Compile Include="Admin\3. Settings\5. Commodity Codes\Cannot Upload Old Commodity Code Import Version.cs" />
+    <Compile Include="Admin\3. Settings\5. Commodity Codes\Commodity Code Import Should Not Use Archived Second Quantity Descriptions.cs" />
+    <Compile Include="Admin\3. Settings\5. Commodity Codes\Import Commodity Code - Check EU Quota Validation.cs" />
+    <Compile Include="Admin\3. Settings\5. Commodity Codes\Import Commodity Code.cs" />
+    <Compile Include="Admin\3. Settings\5. Commodity Codes\Import Commodity Codes - EU Quota Pref.cs" />
+    <Compile Include="Admin\3. Settings\5. Commodity Codes\Import Commodity Codes With Multiple VAT Rates.cs" />
+    <Compile Include="Admin\3. Settings\5. Commodity Codes\Upload Commodity Code With Eu Quota.cs" />
+    <Compile Include="Admin\3. Settings\5. Commodity Codes\Upload Commodity Code With Control.cs" />
+    <Compile Include="Admin\3. Settings\5. Commodity Codes\Upload Commodity Code.cs" />
+    <Compile Include="Admin\3. Settings\6. Second Quantity Descriptions\Archive Second Quantity Description - Litres.cs" />
+    <Compile Include="Admin\3. Settings\6. Second Quantity Descriptions\Create New Second Quantity Description - Litres.cs" />
+    <Compile Include="Admin\3. Settings\6. Second Quantity Descriptions\Create New Second Quantity Description - SquareMetres.cs" />
+    <Compile Include="Admin\3. Settings\6. Second Quantity Descriptions\Manage Second Quantity Descriptions.cs" />
+    <Compile Include="Admin\3. Settings\6. Second Quantity Descriptions\Edit Second Quantity Description.cs" />
+    <Compile Include="Admin\3. Settings\6. Second Quantity Descriptions\Unarchive Second Quantity Description - Litres.cs" />
+    <Compile Include="Admin\3. Settings\7. CPC\Archive CPC.cs" />
+    <Compile Include="Admin\3. Settings\7. CPC\Cannot Archive CPC If Being Used By A Country.cs" />
+    <Compile Include="Admin\3. Settings\7. CPC\CPC must be 7 characters.cs" />
+    <Compile Include="Admin\3. Settings\7. CPC\Create new CPC_12345.cs" />
+    <Compile Include="Admin\3. Settings\7. CPC\Create new CPC_54321.cs" />
+    <Compile Include="Admin\3. Settings\7. CPC\Manage CPC.cs" />
+    <Compile Include="Admin\3. Settings\7. CPC\Unarchive CPC.cs" />
+    <Compile Include="Admin\3. Settings\8. Currencies\Archive Currency AUD.cs" />
+    <Compile Include="Admin\3. Settings\8. Currencies\Create New Currency - AUD.cs" />
+    <Compile Include="Admin\3. Settings\8. Currencies\Create New Currency - JPY.cs" />
+    <Compile Include="Admin\3. Settings\8. Currencies\Create New Curreny - EUR.cs" />
+    <Compile Include="Admin\3. Settings\8. Currencies\Manage Currencies.cs" />
+    <Compile Include="Admin\3. Settings\8. Currencies\Unarchive Currency AUD.cs" />
+    <Compile Include="Admin\3. Settings\9. Email Templates\Edit Email Template.cs" />
+    <Compile Include="Admin\3. Settings\Admin Runs Background Task To Delete Emails Older Then 7 Days Old.cs" />
+    <Compile Include="Admin\3. Settings\Check Reference Data.cs" />
+    <Compile Include="Admin\3. Settings\Exchange rate\Admin Adds Exchange Rates.cs" />
+    <Compile Include="Admin\3. Settings\Exchange rate\Admin Manually Updates Exchange Rate.cs" />
+    <Compile Include="Admin\3. Settings\Exchange rate\Admin Pulls Exchange Rates From HMRC.cs" />
+    <Compile Include="Admin\3. Settings\Exchange rate\Checking Invoice currency data source.cs" />
+    <Compile Include="Admin\3. Settings\Non-Admin Cannot See Admin Sections.cs" />
+    <Compile Include="Admin\1. Shipment\Admin cannot use URL to add commodity to submitted Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\Consignment weight values round up correctly.cs" />
+    <Compile Include="Admin\3. Settings\2. Countries\Update Country With MFN Code - France.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\ASM Accepted\Add Shipment Into UK ASM Accepted.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipment %28Into UK%29\Add a 2nd NCTS Shipment %28Into UK%29.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipment %28Into UK%29\Add new NCTS Shipment %28Into UK%29.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipment %28Into UK%29\Confirm out turn.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipment %28Into UK%29\Manage NCTS Shipments %28Into UK%29.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipment %28Into UK%29\View NCTS In Logs Page.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Add New Bulk Shipment - Commodities Found via ERN.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Admin - Add a 2nd NCTS Shipments %28Out of UK%29 with group notifications .cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Admin - Add Consignment To NCTS Shipment %28Out of uk%29 with no authorised location GB000060.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Admin - Add new Bulk NCTS Shipments %28Out of UK%29.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Admin - Add new NCTS Shipments %28Out of UK%29.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Admin - Archive NCTS Shipments %28Out of UK%29.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Admin - Edit NCTS Shipments %28Out of UK%29.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Admin Tries To Edit Completed NCTS Shipment Out.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Admin Tries to Edit In Progress NCTS Shipment Out of UK.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Admin Tries to Edit Rejected NCTS Shipment Out of UK.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Admin_AddConsignmentToNCTSShipment_OutOfUkWithStop24AuthorisedLocation.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Check date filter for NCTS Shipments %28Out of uk%29.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Check Vehicle and Trailer Number Validations.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Commodities\Admin - Add a 2nd commodity.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Commodities\Admin - Complete NCTS Out Consignment.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Commodities\Admin - Edit number of packages.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Commodities\Admin - Add a commodity.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Commodities\Admin - Delete a commodity.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Commodities\Admin - Edit a commodity.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Consignments\Admin - Add a 2nd consignment to an NCTS Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Consignments\Admin - Add a consignment to an NCTS Shipment.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Consignments\Admin - Delete consignment.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Consignments\Admin - Edit Consignment.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Consignments\Admin_AddConsignmentToNCTSShipment_OutOfUkWithWarehouse1AuthorisedLocation.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Consignments\NCTS Consignment Mandatory field check.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Reference\Logs\Admin- Download log file.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Reference\Logs\Admin-Import a file into the logs.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Reference\Logs\View NCTS Out Consignment Logs Page.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\Testing Client API\AddNCTSShipmentOutOfUK%28API%29.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\Testing Client API\AddShipmentIntoUK%28API%29.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\Testing Client API\AddShipmentOutOfUK%28API%29.cs" />
+    <Compile Include="Admin\3. Settings\Settings Helper.cs" />
+    <Compile Include="Admin\3. Settings\Status Email Notifications\Enable Status Email Notifications - ChannelPorts.cs" />
+    <Compile Include="Admin\3. Settings\Status Email Notifications\Enable Status Email Notifications - Customer.cs" />
+    <Compile Include="Admin\4. Accounting\7. VAT Rates\Add Vat Rate - Test.cs" />
+    <Compile Include="Admin\4. Accounting\4. Exchequer Codes\Edit Exchequer Code꞉ 666554.cs" />
+    <Compile Include="Admin\4. Accounting\5. Default Licenses\Add Default License꞉ Basic.cs" />
+    <Compile Include="Admin\4. Accounting\5. Default Licenses\Edit Default License꞉ Basic.cs" />
+    <Compile Include="Admin\4. Accounting\6. Bank Details\Add Bank Details.cs" />
+    <Compile Include="Admin\4. Accounting\AliceAdminAccessingAccountingLinks.cs" />
+    <Compile Include="Admin\5. Dashboard\Accounting Notifications\Assert That Shipment With Customs Populates On Page.cs" />
+    <Compile Include="Admin\5. Dashboard\Accounting Notifications\Assert The Cleared Shipment Is Closed.cs" />
+    <Compile Include="Admin\5. Dashboard\Error Notifications\Assert That Awaiting Arrival Shipment Is Closed.cs" />
+    <Compile Include="Admin\5. Dashboard\Error Notifications\Assert That Manual Quota Shipment Populates On Page.cs" />
+    <Compile Include="Admin\5. Dashboard\Support Tickets\Admin Checks Customer Raised Support Ticket.cs" />
+    <Compile Include="Admin\5. Dashboard\Support Tickets\Admin Claims Support Ticket.cs" />
+    <Compile Include="Admin\5. Dashboard\Support Tickets\Admin Closes Support Ticket.cs" />
+    <Compile Include="Admin\5. Dashboard\Support Tickets\Admin Highlights Support Ticket To Supervisor.cs" />
+    <Compile Include="Admin\5. Dashboard\Support Tickets\Admin Places Support Ticket On Hold.cs" />
+    <Compile Include="Admin\5. Dashboard\Support Tickets\Admin Responds To Customer Ticket.cs" />
+    <Compile Include="Admin\5. Dashboard\Support Tickets\Admin Unclaims Support Ticket.cs" />
+    <Compile Include="Admin\5. Dashboard\Support Tickets\Dashboard Helper.cs" />
+    <Compile Include="Admin\5. Dashboard\Support Tickets\Raise Response To Ticket.cs" />
+    <Compile Include="Admin\5. Dashboard\Support Tickets\Rise Ticket Support.cs" />
+    <Compile Include="Admin\5. Dashboard\Support Tickets\Support Tickets List.cs" />
+    <Compile Include="Constants\BulkConsignment.cs" />
+    <Compile Include="Constants\Carrier.cs" />
+    <Compile Include="Constants\Commodity.cs" />
+    <Compile Include="Constants\Company.cs" />
+    <Compile Include="Constants\Consignment.cs" />
+    <Compile Include="Constants\Data Factories\CarrierFactory.cs" />
+    <Compile Include="Constants\Data Factories\CommodityFactory.cs" />
+    <Compile Include="Constants\Data Factories\ConsignmentFactory.cs" />
+    <Compile Include="Constants\Data Factories\NCTSShipmentFactory.cs" />
+    <Compile Include="Constants\Data Factories\ShipmentFactory.cs" />
+    <Compile Include="Constants\Data Factories\TicketFactory.cs" />
+    <Compile Include="Constants\NCTSConsignment.cs" />
+    <Compile Include="Constants\NCTSShipment.cs" />
+    <Compile Include="Constants\Shipment.cs" />
+    <Compile Include="Constants\Ticket.cs" />
+    <Compile Include="Customers\Broadcasted Messages\Company User Logs In To View Broadcasted Messages.cs" />
+    <Compile Include="Customers\Commodities\Customer - Complete EAD Consignment.cs" />
+    <Compile Include="Customers\Commodities\Customer - Complete NCTS Out EAD Consignment.cs" />
+    <Compile Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Consignments\Try to complete shipment with non matching commodity value.cs" />
+    <Compile Include="Customers\Commodities\Jenny Smith adds only 1 Commodity on a Consigment for WWL.cs" />
+    <Compile Include="Customers\Commodities\Jenny Smith adds Commodities on a Consigment for WWL.cs" />
+    <Compile Include="Admin\1. Shipment\Consignments\Complete Shipment With No Commodity Weights.cs" />
+    <Compile Include="Admin\5. Dashboard\Support Tickets\Assert CC Emails Receive Closed Notification.cs" />
+    <Compile Include="Customers\Dashboard\Assert CC Emails Receive Response Notification.cs" />
+    <Compile Include="Customers\Dashboard\Customer Adds Additional CC to Ticket.cs" />
+    <Compile Include="Customers\Dashboard\Customer Adds Ticket For Existing Tracking Number - Main Page.cs" />
+    <Compile Include="Customers\Dashboard\Customer Adds Ticket For Existing Tracking Number Via Dashboard - Closed Previously.cs" />
+    <Compile Include="Customers\Dashboard\Customer Checks CC Column.cs" />
+    <Compile Include="Customers\Dashboard\Customer Removes CC From Ticket.cs" />
+    <Compile Include="Customers\Dashboard\Goro Majima Adds Response To Ticket.cs" />
+    <Compile Include="Customers\Dashboard\Goro Majima Raises Support Ticket Without Tracking Number.cs" />
+    <Compile Include="Customers\Dashboard\Goro Majima Views Admin Response.cs" />
+    <Compile Include="Customers\Dashboard\Goro Majima Views Closed Support Ticket.cs" />
+    <Compile Include="Customers\Dashboard\Support Ticket Raised With CC Added.cs" />
+    <Compile Include="Customers\Deposits\Manage deposits.cs" />
+    <Compile Include="Customers\Duty Calculator\Duty Calculator - Assert Multiple VAT Rates.cs" />
+    <Compile Include="Customers\Duty Calculator\Duty Calculator - Preference Type Visibility And Options Check.cs" />
+    <Compile Include="Customers\Duty Calculator\Duty Calculator - Commodity VAT and Duty Estimation Check.cs" />
+    <Compile Include="Customers\Duty Calculator\Duty Calculator - Total VAT and Duty Estimation Check.cs" />
+    <Compile Include="Customers\Duty Calculator\Duty Calculator - Vat Rate Visibility Check.cs" />
+    <Compile Include="Customers\Duty Calculator\Duty Calculator - Insurance Amount Visibility Check.cs" />
+    <Compile Include="Customers\Duty Calculator\Duty Calculator - Currency and Freight Amount And Importer Paying Insurance Charges Visibility Check.cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Add EADMRN Known New Bulk Consignment.cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Add New Bulk Consignment.cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Add new Bulk NCTS shipment Out of UK .cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Add New NCTS Shipment Out - Commodity Value Over 300000.cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Admin Releases Shipment With Value Over 300000.cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Customer Tries To Edit Completed NCTS Shipment Out of UK.cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Add EADMRN Known Consignment to NCTS out of UK Shipment.cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Check NCTS shipment out date filter for customer.cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Customer Tries To Edit In Progress NCTS Shipment Out Of Uk.cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Customer Tries To Edit Rejected NCTS Shipment Out Of UK.cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Edit NCTS Shipment With Value Over 300k - Assert That Progress Updates.cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Edit number of packages in commodity known MRNEAD.cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Edit number of packages.cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Manage Bulk Shipment.cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\New Contact\Add new contact in the NCTS shipment form.cs" />
+    <Compile Include="Customers\Rafal Sets Filters - Asserts That They Save When Navigating Away.cs" />
+    <Compile Include="Customers\Reference\Customer Checks Actions For Shipment Details.cs" />
+    <Compile Include="Customers\Settings\ContactGroups\Add contact group from Customer Panel.cs" />
+    <Compile Include="Customers\Settings\Contacts\Add New Contact from Customer Panel - Alan Smith.cs" />
+    <Compile Include="Customers\Settings\Record\Edit Company Info from Customer Panel.cs" />
+    <Compile Include="Customers\Settings\Status Email Notifications\Majima Construction - Goro Majima Sets Status Notifications.cs" />
+    <Compile Include="Customers\Settings\Users\Edit Company User from Customer Panel꞉ Jenny.cs" />
+    <Compile Include="Customers\Shipment Out of UK\Check shipment out of uk date filter for customer.cs" />
+    <Compile Include="Customers\Dashboard\Customer Attempts To Raise Ticket For Duplicate Shipment Through Dashboard.cs" />
+    <Compile Include="Customers\Shipment Out of UK\Customer Attempts To Raise Ticket For Duplicate Shipment.cs" />
+    <Compile Include="Customers\Dashboard\Goro Majima Raises Support Ticket.cs" />
+    <Compile Include="Customers\Shipment Out of UK\Jenny Smith Adds Shipment for WWL - Out Of UK.cs" />
+    <Compile Include="Customers\Shipment Out of UK\Jenny Smith Views EAD Consignment Logs Page - Out Of UK.cs" />
+    <Compile Include="Customers\Shipments Into UK\Add Contact in Shipment Details.cs" />
+    <Compile Include="Customers\Shipments Into UK\Archive Shipment as customer.cs" />
+    <Compile Include="Customers\Shipments Into UK\Assert That Processing Error Displays As Transmitted For Company User.cs" />
+    <Compile Include="Customers\Shipments Into UK\Check shipment into uk date filter for customer.cs" />
+    <Compile Include="Customers\Shipments Into UK\Customer Checks If Shipment Is With Customs.cs" />
+    <Compile Include="Customers\Shipments Into UK\Customer edits shipment to not require notifying additional parties.cs" />
+    <Compile Include="Customers\John Smiths shipment list shows todays shipments by default.cs" />
+    <Compile Include="Customers\John Smith cannot use URL to access commodities list.cs" />
+    <Compile Include="Customers\John Smith cannot use URL to access consignments list.cs" />
+    <Compile Include="Customers\John Smith cannot use URL to add commodity to submitted Shipment.cs" />
+    <Compile Include="Customers\John Smith cannot use URL to edit consignment in submitted Shipment.cs" />
+    <Compile Include="Customers\John Smith cannot use URL to add consignment to submitted Shipment.cs" />
+    <Compile Include="Customers\John Smith cannot use URL to edit commodity in submitted Shipment.cs" />
+    <Compile Include="Customers\Consignments\Add Company in consignment꞉ Exact match creates association.cs" />
+    <Compile Include="Customers\Consignments\GDPR Company Visibility\Default declarant can be used in consignment.cs" />
+    <Compile Include="Customers\Shipments Into UK\John Smith Resolves Weight  mismatch.cs" />
+    <Compile Include="Customers\Shipments Into UK\John Smith Resolves Consignment and Commodity mismatch.cs" />
+    <Compile Include="Customers\John Smith cannot use URL to edit submitted Shipment.cs" />
+    <Compile Include="Customers\Commodities\Customer cannot complete commodities unless all╱no weights.cs" />
+    <Compile Include="Customers\Commodities\Edit Customer Shipment - Commodities.cs" />
+    <Compile Include="Customers\Commodities\John Smith Adds Commodity To Consignment.cs" />
+    <Compile Include="Customers\Commodities\John Smith Adds New Product For Commodities.cs" />
+    <Compile Include="Customers\Commodities\Manage Customer Shipment - Commodities.cs" />
+    <Compile Include="Customers\Consignments\Add Company in Company Consignment form.cs" />
+    <Compile Include="Customers\Consignments\Add consignment with 3 added companies.cs" />
+    <Compile Include="Customers\Consignments\Add consignment with added companies as WWL.cs" />
+    <Compile Include="Customers\Consignments\Archived currency not visible in customer consignment form.cs" />
+    <Compile Include="Customers\Consignments\Archived country not visible in customer consignment form.cs" />
+    <Compile Include="Customers\Consignments\GDPR Company Visibility\Companies added by WWL not visible for Truckers.cs" />
+    <Compile Include="Customers\Consignments\GDPR Company Visibility\Companies previously added by Truckers can be used in consignment.cs" />
+    <Compile Include="Customers\Consignments\GDPR Company Visibility\Companies used by admin for Truckers can be used in consignment.cs" />
+    <Compile Include="Customers\Consignments\GDPR Company Visibility\Company added by admin but not yet added to Truckers not visible to truckers.cs" />
+    <Compile Include="Customers\Consignments\GDPR Company Visibility\Truckers used in consignment for WWL so WWL not visible.cs" />
+    <Compile Include="Customers\Consignments\Jenny adds second consignment for WWL.cs" />
+    <Compile Include="Customers\Consignments\Jenny can select previously added company for consignment.cs" />
+    <Compile Include="Customers\Consignments\Jenny can select previously used company for consignment.cs" />
+    <Compile Include="Customers\Consignments\Jenny Smith Adds Consignment for WWL.cs" />
+    <Compile Include="Customers\Consignments\John adds second consignment for Truckers ltd.cs" />
+    <Compile Include="Customers\Consignments\John Smith Adds Consignment To Shipment For Truckers Ltd.cs" />
+    <Compile Include="Customers\Consignments\Manage Customer Consignments.cs" />
+    <Compile Include="Customers\Consignments\Total packages must not be 0 when customer adds consignment.cs" />
+    <Compile Include="Customers\Shipments Into UK\John Smith cannot edit submitted Shipment.cs" />
+    <Compile Include="Customers\Customer submits Shipment.cs" />
+    <Compile Include="Customers\A submits Shipment with consigmment and commodity weight mismatch.cs" />
+    <Compile Include="Customers\Shipment Out of UK\Jenny Smith Adds Another Shipment On Next Month For WWL - Out Of UK.cs" />
+    <Compile Include="Customers\Shipments Into UK\Jenny Smith Adds Another Shipment On Next Month For WWL - Into UK.cs" />
+    <Compile Include="Customers\Shipments Into UK\Jenny Smith Adds Another Shipment Within Same Month for WWL - Into UK.cs" />
+    <Compile Include="Customers\Shipment Out of UK\Jenny Smith Adds Another Shipment Within Same Month for WWL - Out Of UK.cs" />
+    <Compile Include="Customers\Shipments Into UK\Jenny Smith Adds Shipment for WWL - Into UK.cs" />
+    <Compile Include="Customers\Shipments Into UK\Jenny Smith Cannot See Or Edit Shipment For Another Company.cs" />
+    <Compile Include="Customers\Shipments Into UK\Jenny Smith Edits Existing Shipment.cs" />
+    <Compile Include="Customers\Shipments Into UK\Jenny Smith Validates Shipment Fields And Cancels Adding Shipment.cs" />
+    <Compile Include="Customers\John Smith Creates A Customer Account.cs" />
+    <Compile Include="Customers\Shipments Into UK\John Smith Views EAD Consignment Logs Page - Into UK.cs" />
+    <Compile Include="Customers\Shipments Into UK\Manage Customer Shipment.cs" />
+    <Compile Include="Customers\Shipments Into UK\John Smith Adds Shipment For Truckers Ltd.cs" />
+    <Compile Include="Customers\Shipments Into UK\John Smith Adds Commodities With Weight Values Only Part Completed.cs" />
+    <Compile Include="Customers\Shipments Into UK\John Smith Adds Commodity To Consignment - iPhone.cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Add 2nd Consignment to NCTS Shipment.cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Add New Consignment to NCTS Shipment.cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Add new NCTS shipment Out of UK with Group notifications .cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Add new NCTS shipment Out of UK.cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Archive NCTS Shipment Out of UK.cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Edit NCTS shipment.cs" />
+    <Compile Include="Customers\NCTS Shipments Out of UK\Manage NCTS shipments.cs" />
+    <Compile Include="Customers\Reference\Manage Customer Tracking Number - Commodities.cs" />
+    <Compile Include="Customers\Reference\Manage Customer Tracking Number.cs" />
+    <Compile Include="Customers\Shipments Into UK\Rafal Sets Filters - Asserts That They Save When Logging Out And In.cs" />
+    <Compile Include="Customers\Shipments Into UK\Unarchive Shipment as customer.cs" />
+    <Compile Include="ErrorReports\DeleteErrorReports.cs" />
+    <Compile Include="Helpers\Add 30 commodities to WWL - Out of UK Shipment.cs" />
+    <Compile Include="Helpers\Add 29 commodities to WWL - Out of UK Shipment.cs" />
+    <Compile Include="Helpers\Attempt to add 100 commodities to WWL.cs" />
+    <Compile Include="Helpers\Attempt to add 100 commodities to Truckers Ltd Shipment.cs" />
+    <Compile Include="Helpers\Background Task Helper.cs" />
+    <Compile Include="Helpers\Uitilities.cs" />
+    <Compile Include="Login\Forgot Password.cs" />
+    <Compile Include="Login\Login Page.cs" />
+    <Compile Include="Objects\Response Objects.cs" />
+    <Compile Include="Objects\Ticket Objects.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Constants\UI Constants\Company Constants.cs" />
+    <Compile Include="Constants\UI Constants\Port Constants.cs" />
+    <Compile Include="Constants\UI Constants\Shipment Constants.cs" />
+    <Compile Include="Undischarged\0. Login\UD Forgot Password.cs" />
+    <Compile Include="Undischarged\0. Login\UD Login Page.cs" />
+    <Compile Include="Undischarged\1. Admin\2. Customers\Add Customer - New.cs" />
+    <Compile Include="Undischarged\1. Admin\2. Customers\Add Customer - Recognised.cs" />
+    <Compile Include="Undischarged\1. Admin\2. Customers\Archive Customer.cs" />
+    <Compile Include="Undischarged\1. Admin\2. Customers\Cancel Edit Customer.cs" />
+    <Compile Include="Undischarged\1. Admin\2. Customers\Edit Customer.cs" />
+    <Compile Include="Undischarged\1. Admin\2. Customers\Email Recipients\Add Customer Email Recipient Aviation and Gym.cs" />
+    <Compile Include="Undischarged\1. Admin\2. Customers\Email Recipients\Add Customer Email Recipient Aviation.cs" />
+    <Compile Include="Undischarged\1. Admin\2. Customers\Email Recipients\Archive Customer Email Recipient Aviation.cs" />
+    <Compile Include="Undischarged\1. Admin\2. Customers\Email Recipients\Cancel Edit Customer Email Recipient Aviation.cs" />
+    <Compile Include="Undischarged\1. Admin\2. Customers\Email Recipients\Customer Email Recipient Search By Name.cs" />
+    <Compile Include="Undischarged\1. Admin\2. Customers\Email Recipients\Edit Customer Email Recipient Aviation.cs" />
+    <Compile Include="Undischarged\1. Admin\2. Customers\Pagination Admin Customer.cs" />
+    <Compile Include="Undischarged\1. Admin\2. Customers\Search Admin Customer.cs" />
+    <Compile Include="Undischarged\1. Admin\3. Audit Log\Manage Admin Audit Log.cs" />
+    <Compile Include="Undischarged\1. Admin\3. Audit Log\Pagination Admin Audit Log.cs" />
+    <Compile Include="Undischarged\1. Admin\3. Audit Log\Search Admin Audit Log.cs" />
+    <Compile Include="Undischarged\1. Admin\4. Settings\1. Users\Add New Undischarged User - Robert Jones.cs" />
+    <Compile Include="Undischarged\1. Admin\4. Settings\1. Users\Add New User - Admin Robert Jones.cs" />
+    <Compile Include="Undischarged\1. Admin\4. Settings\1. Users\Add New User - Robert Jones.cs" />
+    <Compile Include="Undischarged\1. Admin\4. Settings\1. Users\Archive User_RobertJones.cs" />
+    <Compile Include="Undischarged\1. Admin\4. Settings\1. Users\Edit User_Robert Jones To Max Rosenbrand.cs" />
+    <Compile Include="Undischarged\1. Admin\4. Settings\1. Users\UD Manage Users.cs" />
+    <Compile Include="Undischarged\1. Admin\4. Settings\1. Users\UD Pagination Users.cs" />
+    <Compile Include="Undischarged\1. Admin\4. Settings\1. Users\UD Users Page.cs" />
+    <Compile Include="Undischarged\1. Admin\4. Settings\2. Email Templates\UD Edit Email Templates.cs" />
+    <Compile Include="Undischarged\1. Admin\4. Settings\2. Email Templates\UD Email Templates List.cs" />
+    <Compile Include="Undischarged\1. Admin\4. Settings\3. Global Settings\Global Setting Cancel.cs" />
+    <Compile Include="Undischarged\1. Admin\4. Settings\3. Global Settings\Global Setting Save.cs" />
+    <Compile Include="Undischarged\1. Admin\4. Settings\3. Global Settings\Global Settings - Assert Mandatory Validation.cs" />
+    <Compile Include="Undischarged\1. Admin\4. Settings\4. Charge Bands\Edit Charge Band.cs" />
+    <Compile Include="Undischarged\1. Admin\4. Settings\6. VAT Rates\Edit VAT Rate.cs" />
+    <Compile Include="Undischarged\1. Admin\4. Settings\UD Settings Helper.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Add New Undischarged NCTS.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Add Undischarged NCTS Filling Form - Amazon.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Add Undischarged NCTS Filling Form - Microsoft.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Edit Admin Undischarged NCTS-Amazon.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Undischarged NCTS CustomsPro Number\1. Undischarged NCTS CustomsPro Evidence Tab- 123.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Undischarged NCTS CustomsPro Number\2. Undischarged NCTS CustomsPro HMRC Documents Tab- 123.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Undischarged NCTS CustomsPro Number\3. Undischarged NCTS CustomsPro Charges Tab- 123.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Undischarged NCTS CustomsPro Number\Evidence\Add NCTS Evidence.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Undischarged NCTS CustomsPro Number\Evidence\Delete NCTS Evidence.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Undischarged NCTS CustomsPro Number\Evidence\Download NCTS Evidence.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Undischarged NCTS CustomsPro Number\Evidence\Edit NCTS Evidence.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Manage Admin Undischarged NCTS.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Search Admin Undischarged NCTS-123.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Status Admin Undischarged NCTS.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Undischarged NCTS CustomsPro Number\Manage Undischarged NCTS CustomsPro NCTS Details- 123.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Undischarged NCTS CustomsPro Number\Undischarged NCTS Details Charges- 123.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Undischarged NCTS CustomsPro Number\Undischarged NCTS Details Discharge- 123.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Undischarged NCTS CustomsPro Number\Undischarged NCTS Details Provide Additional Information- 123.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Undischarged NCTS CustomsPro Number\Undischarged NCTS Details RTBH- 123.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Undischarged NCTS CustomsPro Number\Undischarged NCTS Details Stage1- 123.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Undischarged NCTS CustomsPro Number\Undischarged NCTS Details Stage2- 123.cs" />
+    <Compile Include="Undischarged\1. Admin\1. Undischarged NCTS\Undischarged NCTS CustomsPro Number\Undischarged NCTS Details Threat of Charges- 123.cs" />
+    <Compile Include="Undischarged\4. External Upload\Delete External Upload- Evidence 1.cs" />
+    <Compile Include="Undischarged\4. External Upload\Download External Upload- Doc1.cs" />
+    <Compile Include="Undischarged\4. External Upload\Edit External Upload- Evidence 1.cs" />
+    <Compile Include="Undischarged\4. External Upload\Manage External Upload.cs" />
+    <Compile Include="Undischarged\4. External Upload\Submit External Upload.cs" />
+    <Compile Include="Undischarged\4. External Upload\Upload External Upload- Doc1.cs" />
+    <Compile Include="Users\Alice Spat Admin.cs" />
+    <Compile Include="Users\Channel Ports Admin.cs" />
+    <Compile Include="Users\GeeksQAUser.cs" />
+    <Compile Include="Users\Jenny Smith Customer.cs" />
+    <Compile Include="Users\John Smith Customer.cs" />
+    <Compile Include="Users\LogInHelper.cs" />
+    <Compile Include="Users\Norman non-admin.cs" />
+    <Compile Include="Users\Richard Smith Customer.cs" />
+    <Compile Include="Users\Undischarged Channel Ports Admin.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Admin\1. Shipment\Consignments\Add Consignment For Truckers Limited GBP.cs.rej" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EmbeddedResource Include="Uploadable.Files\ET2012 V1 as amended on 250716.doc" />
+    <EmbeddedResource Include="Uploadable.Files\Commodity.csv" />
+    <EmbeddedResource Include="Uploadable.Files\BulkUploadTest.csv" />
+    <EmbeddedResource Include="Uploadable.Files\BulkUploadTestNew.csv" />
+    <EmbeddedResource Include="Uploadable.Files\Duplicate company.csv" />
+    <EmbeddedResource Include="Uploadable.Files\Commodity %28old template%29.csv" />
+    <EmbeddedResource Include="Uploadable.Files\OfficeTransitTest.csv" />
+    <EmbeddedResource Include="Uploadable.Files\Commodititysuccess.csv" />
+    <EmbeddedResource Include="Uploadable.Files\ExchangeRates.csv" />
+    <EmbeddedResource Include="Uploadable.Files\OfficeTransitTestEmpty.csv" />
+    <EmbeddedResource Include="Uploadable.Files\OfficeTransitTestUpdate.csv" />
+    <EmbeddedResource Include="Uploadable.Files\OfficeTransitTestUpdate2.csv" />
+    <EmbeddedResource Include="Uploadable.Files\OfficeTransitTestUpdate3 - duplicate records.csv" />
+    <EmbeddedResource Include="Uploadable.Files\OfficeTransitTestUpdate4.csv" />
+    <EmbeddedResource Include="Uploadable.Files\ProductBulkUploadTest.csv" />
+    <EmbeddedResource Include="Uploadable.Files\ROWCommodityTest.csv" />
+    <EmbeddedResource Include="Uploadable.Files\ROWTest.csv" />
+    <EmbeddedResource Include="Uploadable.Files\Two same in import.csv" />
+    <EmbeddedResource Include="Uploadable.Files\ProductBulkUploadTestNew.csv" />
+    <EmbeddedResource Include="Uploadable.Files\TransitOfficeBulkUploadWithErrors.csv" />
+    <EmbeddedResource Include="Uploadable.Files\TransitOfficeBulkUploadFailure.csv" />
+    <EmbeddedResource Include="Uploadable.Files\CommoditiesAllWithControl.csv" />
+    <EmbeddedResource Include="Uploadable.Files\Commodity_2021-05-18_GeeksTest2_another.csv" />
+    <None Include="packages.config" />
+    <EmbeddedResource Include="Uploadable.Files\Commodity_2022-01-04.csv" />
+    <EmbeddedResource Include="Uploadable.Files\EuQuotaNumberValidation.csv" />
+    <EmbeddedResource Include="Uploadable.Files\CommodityWithEuQuota.csv" />
+    <EmbeddedResource Include="Uploadable.Files\CommodityMultipleVATRates.csv" />
+    <EmbeddedResource Include="Uploadable.Files\Commodity_2022-04-26_beta.csv" />
+    <EmbeddedResource Include="Uploadable.Files\Into The UK.zip" />
+    <EmbeddedResource Include="Uploadable.Files\QuotaFromMeasures_2022-04-22c.csv" />
+    <EmbeddedResource Include="Uploadable.Files\QuotaFromMeasures_2022-04-22c  - Added By Ehsan.csv" />
+    <EmbeddedResource Include="Uploadable.Files\Commodity_2022-06-16_DEV.csv" />
+    <EmbeddedResource Include="Uploadable.Files\QuotaFromMeasures_2022-06-21.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Admin\1. Shipment\ASM\NCTS Shipments %28Out of UK%29\Reference\Commodities\" />
+    <Folder Include="Admin\1. Shipment\Reference\Invoices\" />
+    <Folder Include="Customers\New Entry\" />
+    <Folder Include="Customers\Reference\Invoices\" />
+    <Folder Include="Undischarged\1. Admin\4. Settings\5. HMRC Emails\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Uploadable.Files\Example.png" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+  </Target>
+  <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Import Project="..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.GeckoDriver.0.29.0\build\Selenium.WebDriver.GeckoDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.GeckoDriver.0.29.0\build\Selenium.WebDriver.GeckoDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.IEDriver.3.150.1.2\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.3.150.1.2\build\Selenium.WebDriver.IEDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.102.0.5005.6102\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.102.0.5005.6102\build\Selenium.WebDriver.ChromeDriver.targets')" />
+  <!-- <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.88.0.4324.9600\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.88.0.4324.9600\build\Selenium.WebDriver.ChromeDriver.targets')" /> -->
+  <!-- <Import Project="..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets')" /> -->
+</Project>

@@ -1,0 +1,74 @@
+﻿@{
+    Layout = Request.IsAjaxCall() ? null : "~/Views/Layouts/FrontEnd.Container.cshtml";
+}
+@{
+    var leftMenu = ViewData["LeftMenu"].ToStringOrEmpty();
+    var topMenu = ViewData["TopMenu"].ToStringOrEmpty();
+    var subMenu = ViewData["SubMenu"].ToStringOrEmpty();
+    var headerModule = ViewData["HeaderModule"].ToStringOrEmpty();
+    var subHeaderModule = ViewData["SubHeaderModule"].ToStringOrEmpty();
+}
+
+<main>
+    <header> @await Component.InvokeAsync(typeof(Header)) </header>
+
+    <div class="container-fluid">
+        <div class="page">
+            @if (leftMenu.HasValue())
+            {
+                if (ViewData["LeftMenu"].ToString() != "DashboardMenu")
+                {
+                    <div class="side-bar">
+                        @await Component.InvokeAsync(ViewData["LeftMenu"].ToString())
+                    </div>
+                }
+                else if (ViewData["LeftMenu"].ToString() == "DashboardMenu" && User.IsInRole("Customer"))
+                {
+                    leftMenu = null;
+                }
+                else
+                {
+                    <div class="side-bar">
+                        @await Component.InvokeAsync(ViewData["LeftMenu"].ToString())
+                    </div>
+
+                }
+            }
+        <div class="content @("full".OnlyWhen(leftMenu.IsEmpty()))">
+
+            @if (headerModule.HasValue())
+            {
+                <div class="content-wrapper header-wrapper">
+                    @await Component.InvokeAsync(ViewData["HeaderModule"].ToString())
+                </div>
+            }
+
+            @if (subHeaderModule.HasValue())
+            {
+                <div class="content-wrapper header-wrapper">
+                    @await Component.InvokeAsync(ViewData["SubHeaderModule"].ToString())
+                </div>
+            }
+
+            @if (topMenu.HasValue())
+            {
+                @await Component.InvokeAsync(ViewData["TopMenu"].ToString())
+            }
+
+            @RenderBody()
+        </div>
+        </div>
+    </div>
+
+    <footer>@await Component.InvokeAsync(typeof(Footer))</footer>
+
+    @if (!Request.IsAjaxRequest())
+    {
+        <script src="/lib/requirejs/require.js" data-main="/scripts/references.js?v=@Settings.ResourceVersion"></script>
+    }
+
+    @Html.RegisterDynamicScriptFiles()
+    @RenderSection("scripts", required: false)
+    @Html.DevCommandsWidget()
+    @Html.RegisterStartupActions()
+</main>

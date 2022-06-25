@@ -1,0 +1,4 @@
+Country Code,Country Name,Reference,Name,Departure,Destination,Transit,Nearest Office,Alias
+SP,Spain,ES002541,,X,X,X,Spanish-Andorran frontier,Spain office
+FR,France,1R002510,DCNJ PORTA,X,X,X,French-Andorran frontier,France office
+UK,England,FR002511,CENTRAL CUSTOMS OFFICE,,,,Inland Office,Inland Office

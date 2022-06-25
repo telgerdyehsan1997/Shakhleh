@@ -1,0 +1,1 @@
+call msharp-build -notools %1

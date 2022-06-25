@@ -1,0 +1,1 @@
+alter table [dbo].[Companies] alter column GuarantorType uniqueidentifier  NULL
