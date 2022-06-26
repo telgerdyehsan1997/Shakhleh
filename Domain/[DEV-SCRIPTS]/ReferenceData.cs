@@ -48,20 +48,20 @@ namespace Domain
 
         async Task CreateUsers()
         {
-//            var pass = SecurePassword.Create("test");
-//            await Create(new ChannelPortsUser
-//            {
-//#pragma warning disable GCop646 // Email addresses should not be hard-coded. Move this to Settings table or Config file.
-//                Email = "admin@uat.co",
-//#pragma warning restore GCop646 // Email addresses should not be hard-coded. Move this to Settings table or Config file.
-//                FirstName = "Geeks",
-//                LastName = "Admin",
-//                Password = pass.Password,
-//                Salt = pass.Salt,
-//                IsAdmin = true,
-//                MobileNumber = "08004002343",
-//                ID = "90fa6886-d141-4a2e-8679-fc129958904c".To<Guid>()
-//            });
+            var pass = SecurePassword.Create("test");
+            await Create(new AdminUser
+            {
+#pragma warning disable GCop646 // Email addresses should not be hard-coded. Move this to Settings table or Config file.
+                Email = "admin@uat.co",
+#pragma warning restore GCop646 // Email addresses should not be hard-coded. Move this to Settings table or Config file.
+                FirstName = "Ehsan",
+                LastName = "Admin",
+                Password = pass.Password,
+                Salt = pass.Salt,
+                IsAdmin = true,
+                MobileNumber = "08004002343",
+                ID = "90fa6886-d141-4a2e-8679-fc129958904c".To<Guid>()
+            });
 
         }
         async Task CreateEmailTemplates()
