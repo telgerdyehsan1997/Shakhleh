@@ -29,37 +29,37 @@ namespace Domain
             ApiInstance = new SMSApi(config);
         }
 
-        public async Task<MFAStatus> Dispatch(MFAMessage sms)
-        {
-            var body = $"Your ChannelPorts authentication code is {sms.MFAKey}";
+        //public async Task<MFAStatus> Dispatch(MFAMessage sms)
+        //{
+        //    var body = $"Your ChannelPorts authentication code is {sms.MFAKey}";
 
-            var listOfSms = new List<SmsMessage>
-            {
-                new SmsMessage(
-                    to: sms.To,
-                    body: body
-                )
-            };
-            try
-            {
-                var smsCollection = new SmsMessageCollection(listOfSms);
-                var response = await ApiInstance.SmsSendPostAsync(smsCollection);
-                var result = JsonConvert.DeserializeObject<SmsResponse>(response);
+        //    var listOfSms = new List<SmsMessage>
+        //    {
+        //        new SmsMessage(
+        //            to: sms.To,
+        //            body: body
+        //        )
+        //    };
+        //    try
+        //    {
+        //        var smsCollection = new SmsMessageCollection(listOfSms);
+        //        var response = await ApiInstance.SmsSendPostAsync(smsCollection);
+        //        var result = JsonConvert.DeserializeObject<SmsResponse>(response);
 
-                await Database.Update(sms, t =>
-                {
-                    t.ResponseCode = result.http_code.ToString();
-                    t.Sent = true;
-                });
-                const int code = 200;
-                return result.http_code == code ? MFAStatus.Sent : MFAStatus.Faield;
-            }
-            catch (Exception ex)
-            {
-                Log.For<MFAMessage>().Error(ex);
-                return MFAStatus.Faield;
-            }
-        }
+        //        await Database.Update(sms, t =>
+        //        {
+        //            t.ResponseCode = result.http_code.ToString();
+        //            t.Sent = true;
+        //        });
+        //        const int code = 200;
+        //        return result.http_code == code ? MFAStatus.Sent : MFAStatus.Faield;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Log.For<MFAMessage>().Error(ex);
+        //        return MFAStatus.Faield;
+        //    }
+        //}
 
     }
 

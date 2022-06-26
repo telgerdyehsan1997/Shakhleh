@@ -52,7 +52,7 @@
 
             if (_config.GetValue<bool>("Automated.Tasks:Enabled"))
             {
-                app.UseScheduledTasks<TaskManager>();
+                //app.UseScheduledTasks<TaskManager>();
                 app.UseScheduledTasks<CustomTaskManager>();
             }
 
@@ -114,16 +114,12 @@
         options.Cookie.IsEssential = true;
             });
 
-            services.Configure<RouteOptions>(routeOptions => routeOptions.ConstraintMap.Add("LRN", typeof(LRNPatternRouteCheker)));
 
             services.AddDataAccess(x => x.SqlServer());
 
             services.AddDatabaseLogger();
             services.AddScheduledTasks();
             services.AddEmail();
-            if (_config.GetValue<bool>("Email:Api:Enable"))
-                services.Replace<IEmailDispatcher, ClickSendDispatcher>(ServiceLifetime.Singleton);
-            services.AddAzureBlobStorageProvider();
 
             if (Environment.IsDevelopment())
                 services.AddDevCommands(x => x.AddTempDatabase<SqlServerManager, ReferenceData>());
@@ -187,32 +183,11 @@
 
         public IServiceCollection AddApplicationDependencies(IServiceCollection services)
         {
-            services.AddTransient(typeof(IEADShipmentService), typeof(EADShipmentService));
-            services.AddTransient(typeof(APIHandler.IEORIService), typeof(APIHandler.EORIService));
-            services.AddTransient(typeof(IShipmentService), typeof(ShipmentService));
-            services.AddTransient(typeof(ILookupService), typeof(LookupService));
-            services.AddTransient(typeof(IZipDownloadService), typeof(ZipDownloadService));
-            services.AddTransient(typeof(IFileProcessorService), typeof(FileProcessorService));
 
             services.AddSingleton(typeof(IJWTProvider), typeof(JWTProvider));
-            services.AddTransient(typeof(IASMMapper), typeof(ASMMapper));
-            services.AddTransient<APIHandler.IASMService, APIHandler.ASMService>();
-            services.AddTransient(typeof(IASMResponseService), typeof(ASMResponseService));
-            services.AddTransient(typeof(IStatusManagementService), typeof(StatusManagementService));
-            services.AddTransient(typeof(IFileErrorAttachViewModelService), typeof(FileErrorAttachViewModelService));
             services.AddSingleton<ISmsService, SmsService>();
-            services.AddSingleton<IMFAService, MFAService>();
-            services.AddSingleton<ILrnToDriverService, LrnToDriverService>();
             services.AddTransient<IHtml2PdfConverter, Html2PdfConverter>();
-            services.AddTransient<IInvoicePdfGenerator, InvoicePdfGenerator>();
-            services.AddTransient<IInvoiceExcelGenerator, InvoiceExcelGenerator>();
-            services.AddTransient<IInvoiceService, InvoiceService>();
-            services.AddTransient<IExchequerService, ExchequerService>();
-            services.AddTransient<ICommodityImportService, CommodityImportService>();
-            services.AddTransient<IBroadcastingMessage, BroadcastingMessage>();
             services.AddTransient<IArchiveLogService, ArchiveLogService>();
-            services.AddTransient<IDocumentService, DocumentService>();
-            services.AddTransient(typeof(IExChangeRateService), typeof(ExChangeRateService));
 
             return services;
         }

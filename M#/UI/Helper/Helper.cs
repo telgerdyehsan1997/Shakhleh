@@ -31,29 +31,6 @@ public static class Helper
         return listModule.Search(x => (x as Domain.IArchivable).IsDeactivated).Label("Status").Control(ControlType.HorizontalRadioButtons).DefaultValueExpression("false");
     }
 
-    public static PropertyFilterElement<Domain.Shipment> AddAdminProgressFilter(this ListModule<Domain.Shipment> @this)
-    {
-        return @this.Search(x => x.Progress).Label("Progress")
-            .AsCollapsibleCheckBoxList()
-            .DataSource("Database.GetList<Progress>().ExceptNull().Distinct(x => x.AdminDisplay)")
-            .MemoryFilterCode(@"if (info.Progress.Any())
-            {
-                result = result.Where(x => x.Progress.AdminDisplay.IsAnyOf(info.Progress.Select(p => p.AdminDisplay)));
-            }")
-            .DisplayExpression("item.AdminDisplay");
-    }
-    public static PropertyFilterElement<Domain.Shipment> AddClientProgressFilter(this ListModule<Domain.Shipment> @this)
-    {
-        return @this.Search(x => x.Progress).Label("Progress")
-            .AsCollapsibleCheckBoxList()
-            .DataSource("Database.GetList<Progress>().ExceptNull().Distinct(x => x.ClientDisplay)")
-            .MemoryFilterCode(@"if (info.Progress.Any())
-            {
-                result = result.Where(x => x.Progress.ClientDisplay.IsAnyOf(info.Progress.Select(p => p.ClientDisplay)));
-            }")
-            .DisplayExpression("item.ClientDisplay");
-    }
-
     public static TModule AddDependency<TModule>(this TModule module, Type serviceType, string propertyName = null)
     where TModule : Module
     {

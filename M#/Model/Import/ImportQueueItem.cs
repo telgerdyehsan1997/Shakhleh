@@ -14,9 +14,6 @@ namespace Domain
             Associate<ImportStatus>("Import status").Name("Status").Mandatory().Default("Pending");
             InverseAssociate<ImportError>("Errors", inverseOf: "ImportQueueItem");
             Associate<ImportType>("Type");
-
-            Associate<Company>("Company");
-            Associate<Consignment>("Consignment");
         }
     }
 }

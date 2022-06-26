@@ -9,7 +9,6 @@ namespace Domain
             DatabaseMode(DatabaseOption.Transient);
             String("EORI number").Mandatory();
             String("Email address").Mandatory();
-            Associate<Shipment>("Shipment").Mandatory();
         }
     }
 }

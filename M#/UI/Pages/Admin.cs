@@ -9,6 +9,5 @@ public class AdminPage : RootPage
 
         Add<Modules.MainMenu>();
 
-        OnStart(x => x.Go<Admin.ShipmentPage>().RunServerSide());
     }
 }

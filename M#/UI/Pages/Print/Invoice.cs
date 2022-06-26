@@ -7,9 +7,6 @@ public class InvoicePage : SubPage<PrintPage>
     {
         Layout(Layouts.Print);
         //add print module
-        Add<Modules.InvoicePrintHeader>();
-        Add<Modules.InvoiceChargePrintList>();
-        Add<Modules.InvoiceTransactionPrintList>();
-        Add<Modules.InvoicePrintFooter>();
+        //Add<Modules.InvoicePrintHeader>();
     }
 }

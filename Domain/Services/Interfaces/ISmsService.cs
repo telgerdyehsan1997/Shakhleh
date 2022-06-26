@@ -7,6 +7,6 @@ namespace Domain
 {
     public interface ISmsService
     {
-        Task<MFAStatus> Dispatch(MFAMessage sms);
+        //Task<MFAStatus> Dispatch(MFAMessage sms);
     }
 }

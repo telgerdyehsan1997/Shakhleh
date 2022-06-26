@@ -9,12 +9,9 @@
     using System.Threading.Tasks;
     using Olive.Web;
     using System.Security.Claims;
-    using Domain.AEB.DTOs;
     using System.Reflection;
     using System.ComponentModel;
     using System.Xml.Serialization;
-    using System.Text;
-    using System.Xml;
     using System.IO;
     using RestSharp;
     using Newtonsoft.Json;
@@ -48,8 +45,6 @@
         }
         public static async Task<string> GetContactNumber(Guid id)
         {
-            var companyUser = await Database.Of<CompanyUser>().Where(x => x.ID == id).FirstOrDefault();
-            var contact = await Database.Of<Contact>().Where(x => x.ID == id).FirstOrDefault();
             var person = await Database.Of<Person>().Where(x => x.ID == id).FirstOrDefault();
 
             var contactNumber = "";
@@ -57,23 +52,8 @@
             if (person != null)
                 contactNumber = person.MobileNumber;
 
-            if (contact != null)
-                contactNumber = contact.TelephoneNumber;
-
-            if (companyUser != null)
-                contactNumber = companyUser.TelephoneNumber;
-
             return contactNumber;
         }
-        public static DateAndZoneDTO ToDateAndZoneDTO(this DateTime date)
-        {
-            return new DateAndZoneDTO
-            {
-                DateInTimezone = $"{date:yyyy-MM-dd HH:mm:ss}",
-                Timezone = TimeZone.CurrentTimeZone.StandardName
-            };
-        }
-
         public static int GetNumberOfDecimalPlaces(this decimal number) => BitConverter.GetBytes(decimal.GetBits(number)[3])[2];
 
         public static string GetDescription<T>(this T enumerationValue)

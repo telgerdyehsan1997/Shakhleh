@@ -23,10 +23,6 @@ namespace Controllers
         [NonAction]
         public User GetUser() => User.Extract<User>();
 
-        public CompanyUser CompanyUser => GetUser() as CompanyUser;
-        public ChannelPortsUser ChannelPortsUser => GetUser() as ChannelPortsUser;
-
-
         [NonAction]
         internal string SaveInSession(string item, string fieldname)
         {
@@ -55,7 +51,5 @@ namespace ViewComponents
         /// </summary>
         public User GetUser() => Context.Current.Http().User.Extract<User>();
 
-        public CompanyUser CompanyUser => GetUser() as CompanyUser;
-        public ChannelPortsUser ChannelPortsUser => GetUser() as ChannelPortsUser;
     }
 }

@@ -14,7 +14,6 @@ namespace Domain
             Int("Into UK tracking number").Default("1").DefaultFormatString("{0:000000}");
             Int("Out of UK tracking number").Default("1").DefaultFormatString("{0:000000}");
             DateTime("Date suffixes were last reset");
-            Associate<Company>("Default declarant");
 
             String("IntoUK Document Code");
             String("IntoUK Document Status");

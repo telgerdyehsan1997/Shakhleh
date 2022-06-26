@@ -22,19 +22,19 @@ namespace Modules
                 x.ShowPleaseWait();
                 x.CSharp("info.Item = await Domain.User.FindByEmail(info.Email);");
                 x.If("info.Item == null || (info.Item as IArchivable).IsDeactivated").CSharp(@" Notify(""The email or password was incorrect"", ""error""); return View(info); ");
-                x.If("info.Item is CompanyUser").CSharp(@"if(((CompanyUser)info.Item)?.Company.IsOnHold == true){Notify(""Your company is currently on hold"", ""error""); return View(info);}");
+                //x.If("info.Item is CompanyUser").CSharp(@"if(((CompanyUser)info.Item)?.Company.IsOnHold == true){Notify(""Your company is currently on hold"", ""error""); return View(info);}");
                 x.CSharp("var isAuthenticated = SecurePassword.Verify(info.Password, info.Item.Password, info.Item.Salt);");
 
                 x.If("!isAuthenticated")
                    .CSharp(@"Notify(""The email or password was incorrect"", ""error""); return View(info);");
                 x.CSharp("await info.Item.LogOn(); ");
-                x.CSharp(@"var searchURL = await Database.GetList<SearchUrlCookie>().Where(x => x.UserId == info.Item);
-                            await Database.Delete(searchURL); ");
+                //x.CSharp(@"var searchURL = await Database.GetList<SearchUrlCookie>().Where(x => x.UserId == info.Item);
+                //            await Database.Delete(searchURL); ");
                 x.If(CommonCriterion.RequestHas_ReturnUrl).ReturnToPreviousPage();
                 x.Go<Login.DispatchPage>();
             });
 
-            Reference<ContentBlockView>();
+            //Reference<ContentBlockView>();
         }
     }
 }

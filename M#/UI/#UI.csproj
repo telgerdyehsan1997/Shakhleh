@@ -15,9 +15,9 @@
     <ProjectReference Include="..\..\Domain\Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Modules\Api\" />
-    <Folder Include="Pages\Admin\Accounting\VATRates\" />
+    <Folder Include="Pages\Admin\" />
     <Folder Include="Pages\Api\" />
+    <Folder Include="Pages\Share\Utils\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SchemaExtensions.cs" />

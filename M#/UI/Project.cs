@@ -12,8 +12,6 @@ namespace MSharp
         internal static ProjectRole Admin => ProjectRole.Of("Admin");
         internal static ProjectRole SuperAdmin => ProjectRole.Of("Super Admin");
         internal static ProjectRole Customer => ProjectRole.Of("Customer");
-        internal static ProjectRole Undischarged => ProjectRole.Of("Undischarged");
-        internal static ProjectRole UndischargedAdmin => ProjectRole.Of("Undischarged Admin");
     }
     
     partial class Layouts

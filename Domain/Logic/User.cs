@@ -41,8 +41,8 @@ namespace Domain
         {
             await base.OnSaved(e);
 
-            if (e.Mode == SaveMode.Insert)
-                await PasswordResetService.RequestNewUserTicket(this);
+            //if (e.Mode == SaveMode.Insert)
+            //    await PasswordResetService.RequestNewUserTicket(this);
         }
 
         /// <summary>

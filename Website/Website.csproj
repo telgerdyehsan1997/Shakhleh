@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Connected Services\" />
+    <Folder Include="Views\Pages\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="wnvhtmltopdf">

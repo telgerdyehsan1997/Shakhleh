@@ -50,42 +50,5 @@
         [Route("temp-file/{key}")]
         public Task<ActionResult> DownloadTempFile(string key) => FileRequestService.Download(key);
 
-        [Route("message")]
-        public async Task<ActionResult> SendMessage()
-        {
-            var service = Context.Current.GetService<IBroadcastingMessage>();
-            await service.SendBroadCastMessages();
-            return Ok();
-        }
-        [Route("update")]
-        public async Task<ActionResult> UpdateConsigment()
-        {
-            var service = Context.Current.GetService<IEADShipmentService>();
-            await service.UpdateInToUKType();
-            return Ok();
-        }
-        [Route("gvms")]
-        public async Task<ActionResult> Sendgvms()
-        {
-            var service = Context.Current.GetService<IEADShipmentService>();
-            await service.TransmitGVMS();
-            return Ok();
-        }
-
-        [Route("withImport")]
-        public async Task<ActionResult> SendwithImport()
-        {
-            var service = Context.Current.GetService<IEADShipmentService>();
-            await service.ArchiveWithImporter();
-            return Ok();
-        }
-
-        [Route("remove")]
-        public async Task<ActionResult> RemovedUnConfirmResponse()
-        {
-            var service = Context.Current.GetService<IBroadcastingMessage>();
-            await service.RemovedUnConfirmResponse();
-            return Ok();
-        }
     }
 }

@@ -21,58 +21,14 @@
         PasswordResetService(User user) { User = user; }
 
         /// <summary>
-        /// Creates a new Request New User Ticket for the specified user.
-        /// </summary>
-        public static async Task RequestNewUserTicket(User user)
-        {
-            var service = new PasswordResetService(user);
-
-            using (var scope = Database.CreateTransactionScope())
-            {
-                await service.CreateTicket();
-                await service.SendNewUserEmail();
-
-                scope.Complete();
-            }
-        }
-
-        /// <summary>
-        /// Sends an email to the specified user using the New User email template.
-        /// </summary>
-        async Task SendNewUserEmail()
-        {
-            await EmailTemplate.WelcomeEmail.Send(User, new
-            {
-                UserName = User.Name,
-                Link = $"<a href='{GetSetPasswordUrl()}'> Set Your Password </a>",
-            });
-        }
-
-
-        /// <summary>
-        /// Creates a new Password Reset Ticket for the specified user.
-        /// </summary>
-        public static async Task RequestTicket(User user)
-        {
-            var service = new PasswordResetService(user);
-
-            using (var scope = Database.CreateTransactionScope())
-            {
-                await service.CreateTicket();
-                await service.SendEmail();
-                scope.Complete();
-            }
-        }
-
-        /// <summary>
         /// Completes the password recovery process.
         /// </summary>
         public static async Task Complete(PasswordResetTicket ticket, string newPassword)
         {
             if (newPassword.IsEmpty()) throw new ArgumentNullException(nameof(newPassword));
 
-            if (ticket.IsExpired)
-                throw new ValidationException("This ticket has expired. Please request a new ticket.");
+            //if (ticket.IsExpired)
+            //    throw new ValidationException("This ticket has expired. Please request a new ticket.");
 
             if (ticket.IsUsed) throw new ValidationException("This ticket has been used once. Please request a new ticket.");
 
@@ -89,17 +45,6 @@
 
         Task CreateTicket() => Database.Save(Ticket = new PasswordResetTicket { User = User });
 
-        /// <summary>
-        /// Sends an email to the specified user using the Recover Email email template.
-        /// </summary>
-        async Task SendEmail()
-        {
-            await EmailTemplate.RecoverPassword.Send(User, new
-            {
-                USERNAME = User.Name,
-                LINK = $"<a href='{GetResetPasswordUrl()}'> Reset Your Password </a>",
-            });
-        }
 
         string GetResetPasswordUrl() => Context.Current.Request().GetAbsoluteUrl("/password/reset/" + Ticket.ID);
 

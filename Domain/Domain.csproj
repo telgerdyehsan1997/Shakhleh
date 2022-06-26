@@ -46,4 +46,8 @@
   <ItemGroup>
     <ProjectReference Include="..\APIHandler\APIHandler.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+    <Folder Include="Integrations\" />
+  </ItemGroup>
 </Project>

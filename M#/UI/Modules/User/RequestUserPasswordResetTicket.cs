@@ -23,7 +23,7 @@ namespace Modules
                 x.If("user == null")
                     .MessageBox("Invalid email address. Please try again.")
                     .AndExit();
-                x.CSharp("await PasswordResetService.RequestTicket(user);");
+                //x.CSharp("await PasswordResetService.RequestTicket(user);");
                 x.GentleMessage("Change Password instructions have been sent to your email address.");
                 x.CloseModal();
                 //x.Display(@"<h2> Forgot Your Password </h2>

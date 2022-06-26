@@ -7,7 +7,6 @@ namespace Share.Archive
         public ArchivePopUpPage()
         {
             Layout(Layouts.FrontEndModal);
-            Add<Modules.ArchiveLogForm>();
         }
     }
 }
