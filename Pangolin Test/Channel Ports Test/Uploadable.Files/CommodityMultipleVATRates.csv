@@ -1,4 +1,0 @@
-﻿Commodity Code (export),Commodity Code (import),Second quantity,Third quantity,VAT,Full rate of duty,Specific Rate,MFN full rate,MFN add duty,N851 - PHC,N852 - CED,N853 - CVD,ESA - TRQ,FAR - PREF,FAR - TRQ,GSP - PREF,GSP - TRQ,IND - PREF,IND - TRQ,INO - PREF,INO - TRQ,GS+-PREF,GS+-TRQ,LDC - PREF,LDC - TRQ,ISR - PREF,ISR - TRQ,PAL - PREF,PAL - TRQ,SWI - PREF,SWI - TRQ,LIC99,Control,EU Quota,Other Quota,Box 44(1),Box 44(2),Quota
-1012100,0,30,,"S,Z,A",0,0,0,,1,1,1,,0,,0,,0,,0,,0,,0,,0,,0,,0,,Y,,,TRUE,,,
-1012910,0,30,,"S,Z",0,0,0,,1,1,1,,0,,0,,0,,0,,0,,0,,0,,0,,0,,,,TRUE,TRUE,,,
-1012990,0,30,,S,10,0,0,,1,1,1,,0,,0,,0,,0,,0,,0,,0,,0,,0,,Y,,,TRUE,,,
