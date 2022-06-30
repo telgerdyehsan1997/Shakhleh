@@ -2,14 +2,14 @@ pipeline
 {
     parameters 
     {
-        string(name: "branch" , defaultValue : 'UAT')
+        string(name: "branch" , defaultValue : 'main')
     }
     environment 
     {   
         BUILD_VERSION="v_${BUILD_NUMBER}"
-        GIT_REPOSITORY = "git@bitbucket.org:geeks-ltd/channel.ports.git"
+        GIT_REPOSITORY = "https://github.com/telgerdyehsan1997/Shakhleh.git"
         DESTINATION_PATH = "C:\\Projects\\v_${BUILD_NUMBER}"
-        IIS_WEBSITE_NAME = "ChannelPorts"
+        IIS_WEBSITE_NAME = "Shakhleh"
     }
     agent any
     stages{             
