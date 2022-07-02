@@ -7,35 +7,21 @@ namespace Modules
     {
         public MainMenu()
         {
-            AjaxRedirect().IsViewComponent().UlCssClass("nav navbar-nav dropped-submenu");
-            //ViewModelProperty<CompanyUser>("CustomerUser");
-            //OnBound("loading company user info to know if it's an admin or not").Code(@"
-            //        info.CustomerUser = new CompanyUser();
-            //        if (User.IsInRole(""Customer""))
-            //        {
-            //            info.CustomerUser = await Database.FirstOrDefault<CompanyUser>(x => x.ID == Guid.Parse(User.GetId()));
-            //        }");
+            SubItemBehaviour(MenuSubItemBehaviour.ExpandCollapse);
+            AjaxRedirect().WrapInForm(false);
+            Using("Olive.Security");
+            IsViewComponent().UlCssClass("nav flex-column");
+            RootCssClass("sidebar-menu");
 
-            Item("Login")
-                .Icon(FA.UnlockAlt)
-                .VisibleIf(AppRole.Anonymous)
-                .OnClick(x => x.Go<LoginPage>());
-
-            //Item("Shipments").VisibleIf(AppRole.Admin)
-            //    .OnClick(x =>
-            //{
-            //    x.Go<Admin.ShipmentPage>();
-            //});
-
-
-            Item("Logout")
-               .VisibleIf(CommonCriterion.IsUserLoggedIn)
-               .CssClass("menu-item")
-               .OnClick(x =>
-               {
-                   x.CSharp("await Olive.Security.OAuth.Instance.LogOff();");
-                   x.Go<LoginPage>();
-               });
+            Link("Logout")
+                 .CssClass("align-bottom logout")
+                 .ValidateAntiForgeryToken(false)
+                 .VisibleIf(CommonCriterion.IsUserLoggedIn)
+                 .OnClick(x =>
+                 {
+                     x.CSharp("await OAuth.Instance.LogOff();");
+                     x.Go<LoginPage>();
+                 });
         }
     }
 }

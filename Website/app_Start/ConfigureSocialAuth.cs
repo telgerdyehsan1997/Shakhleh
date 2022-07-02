@@ -1,4 +1,4 @@
-﻿using Olive;
+using Olive;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 

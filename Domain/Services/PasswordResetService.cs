@@ -1,4 +1,4 @@
-﻿namespace Domain
+namespace Domain
 {
     using System;
     using System.Web;
@@ -21,14 +21,29 @@
         PasswordResetService(User user) { User = user; }
 
         /// <summary>
+        /// Creates a new Password Reset Ticket for the specified user.
+        /// </summary>
+        public static async Task RequestTicket(User user)
+        {
+            var service = new PasswordResetService(user);
+
+            using (var scope = Database.CreateTransactionScope())
+            {
+                await service.CreateTicket();
+                service.SendEmail();
+                scope.Complete();
+            }
+        }
+
+        /// <summary>
         /// Completes the password recovery process.
         /// </summary>
         public static async Task Complete(PasswordResetTicket ticket, string newPassword)
         {
             if (newPassword.IsEmpty()) throw new ArgumentNullException(nameof(newPassword));
 
-            //if (ticket.IsExpired)
-            //    throw new ValidationException("This ticket has expired. Please request a new ticket.");
+            if (ticket.IsExpired)
+                throw new ValidationException("This ticket has expired. Please request a new ticket.");
 
             if (ticket.IsUsed) throw new ValidationException("This ticket has been used once. Please request a new ticket.");
 
@@ -45,14 +60,19 @@
 
         Task CreateTicket() => Database.Save(Ticket = new PasswordResetTicket { User = User });
 
+        void SendEmail()
+        {
+            // TODO: Invoke the email service's API to send it.
+
+            //EmailTemplate.RecoverPassword.Send(User, new
+            //{
+            //    UserId = User.Name,
+            //    Link = $"<a href='{GetResetPasswordUrl()}'> Reset Your Password </a>",
+            //});
+        }
 
         string GetResetPasswordUrl() => Context.Current.Request().GetAbsoluteUrl("/password/reset/" + Ticket.ID);
 
-        string GetSetPasswordUrl() => Context.Current.Request().GetAbsoluteUrl("/password/set/" + Ticket.ID);
-
-        /// <summary>
-        /// Saves and encrypts password provided by the user.
-        /// </summary>
         Task UpdatePassword(string clearTextPassword)
         {
             var pass = SecurePassword.Create(clearTextPassword);

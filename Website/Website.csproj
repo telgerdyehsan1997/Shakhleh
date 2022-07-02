@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PreserveCompilationContext>true</PreserveCompilationContext>
-    <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
-    <TypeScriptToolsVersion>4.1</TypeScriptToolsVersion>
+    <MvcRazorCompileOnPublish>true</MvcRazorCompileOnPublish>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <TieredCompilation>true</TieredCompilation>
   </PropertyGroup>
@@ -14,8 +14,6 @@
   <PropertyGroup>
     <DefaultItemExcludes>node_modules\**;$(DefaultItemExcludes)</DefaultItemExcludes>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
-    <RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
-    <RunAnalyzersDuringLiveAnalysis>True</RunAnalyzersDuringLiveAnalysis>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="App_Data\**" />
@@ -24,97 +22,44 @@
     <None Remove="App_Data\**" />
   </ItemGroup>
   <ItemGroup>
-    <Content Remove="wwwroot\scripts\components\company-autoset.ts" />
-    <Content Remove="wwwroot\scripts\components\consignment-form.ts" />
     <Content Remove="wwwroot\scripts\components\CustomModule1.ts" />
-    <Content Remove="wwwroot\scripts\components\datepicker-util.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="Templates\AuthorisedLocationsImport.csv" />
-    <None Remove="Templates\CommodityImport.csv" />
-    <None Remove="Templates\TransitOfficeBulkUpload.csv" />
   </ItemGroup>
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\styles\FrontEnd-Modal.css" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Templates\AuthorisedLocationsImport.csv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Templates\CommodityImport.csv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Templates\TransitOfficeBulkUpload.csv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EmbeddedResource Include="wwwroot\scripts\components\company-autoset.ts">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="GCop.All.Geeks" Version="2.7.8" />
-    <PackageReference Include="Hangfire" Version="1.7.22" />
-    <PackageReference Include="Hangfire.MaximumConcurrentExecutions" Version="1.1.0" />
-    <PackageReference Include="Hangfire.MemoryStorage" Version="1.7.0" />
-    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.7" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.26" />
-    <PackageReference Include="Microsoft.OpenApi" Version="1.2.3" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="Olive" Version="2.1.279" />
-    <PackageReference Include="Olive.Audit" Version="2.1.109" />
+    <PackageReference Include="Captcha" Version="4.4.2" />
+    <PackageReference Include="Hangfire" Version="1.7.20" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="3.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.MicrosoftAccount" Version="3.1.10" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Olive" Version="2.1.287" />
+    <PackageReference Include="Olive.Audit" Version="2.1.116" />
     <PackageReference Include="Olive.Audit.DatabaseLogger" Version="2.1.107" />
-    <PackageReference Include="Olive.Blob.Azure" Version="3.1.105" />
     <PackageReference Include="Olive.CSV" Version="2.1.111" />
     <PackageReference Include="Olive.Drawing" Version="2.1.109" />
-    <PackageReference Include="Olive.Email" Version="3.1.107" />
     <PackageReference Include="Olive.Encryption" Version="2.2.107" />
-    <PackageReference Include="Olive.Entities" Version="2.1.159" />
-    <PackageReference Include="Olive.Entities.Data" Version="2.1.173" />
+    <PackageReference Include="Olive.Entities" Version="2.1.161" />
+    <PackageReference Include="Olive.Entities.Data" Version="2.1.179" />
     <PackageReference Include="Olive.Entities.Data.SqlServer" Version="2.1.118" />
     <PackageReference Include="Olive.Export" Version="2.1.109" />
     <PackageReference Include="Olive.Hangfire" Version="3.1.106" />
-    <PackageReference Include="Olive.Integration" Version="1.0.7" />
-    <PackageReference Include="Olive.Mvc" Version="3.1.129" />
+    <PackageReference Include="Olive.Mvc" Version="3.1.133" />
     <PackageReference Include="Olive.Mvc.Paging" Version="3.1.103" />
-    <PackageReference Include="Olive.Mvc.Testing" Version="3.1.106" />
     <PackageReference Include="Olive.PDF" Version="2.1.110" />
     <PackageReference Include="Olive.Mvc.Security" Version="3.1.108" />
     <PackageReference Include="Olive.Security.Auth0" Version="3.1.104" />
     <PackageReference Include="Olive.Security.Impersonation" Version="3.1.104" />
     <PackageReference Include="Olive.Testing" Version="3.1.103" />
     <PackageReference Include="Olive.Web" Version="3.1.107" />
-    <PackageReference Include="Olive.GlobalSearch.Source" Version="1.0.41" />
     <PackageReference Include="SkiaSharp" Version="2.80.2" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.4" />
-    <PackageReference Include="System.ServiceModel.Duplex" Version="4.8.1" />
-    <PackageReference Include="System.ServiceModel.Http" Version="4.8.1" />
-    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.8.1" />
-    <PackageReference Include="System.ServiceModel.Security" Version="4.8.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.2" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="wwwroot\scripts\components\consignment-form.ts" />
-    <TypeScriptCompile Include="wwwroot\scripts\components\datepicker-util.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Connected Services\" />
-    <Folder Include="Views\Pages\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="wnvhtmltopdf">
-      <HintPath>..\Lib\wnvhtmltopdf.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="wnvinternal.dat">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <TypeScriptCompile Include="wwwroot\scripts\components\CustomModule1.ts" />
   </ItemGroup>
   <UsingTask AssemblyFile="wwwroot\Styles\build\SassCompiler.exe" TaskName="WebCompiler.CompilerBuildTask" />
   <UsingTask AssemblyFile="wwwroot\Styles\build\SassCompiler.exe" TaskName="WebCompiler.CompilerCleanTask" />

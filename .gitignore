@@ -100,7 +100,6 @@ Website/App_Data/
 Website/App_Documents/
 Website/Images/TextButtons/
 
-
 !Website/App_Documents/ImportTemplate.File/
 
 @Database.Files.lnk
@@ -124,7 +123,7 @@ TestResults/
 Website/Modules/
 Website/@Modules/
 Website/@TempImageFiles/
-Website/App_Code/TaskManager.cs
+Website/app_start/TaskManager.cs
 Website/Pages/
 Website/vwd.webinfo
 Website/Web.SiteMap
@@ -150,56 +149,22 @@ Website/Controllers/Pages/
 Website/Controllers/Modules/
 
 Website/wwwroot/styles/**/*.css
-Website/wwwroot/styles/readme.txt
+!Website/wwwroot/styles/readme.txt
 Website/wwwroot/fonts/*
-Website/wwwroot/fonts/readme.txt
-
-Website/wwwroot/scripts/*.js
-Website/wwwroot/scripts/*.map
+!Website/wwwroot/fonts/readme.txt
 Website/wwwroot/scripts/**/*.js
-Website/wwwroot/scripts/**/*.map
-!Website/wwwroot/scripts/ckeditor_config.js	
+!Website/wwwroot/scripts/readme.txt
 
-						   
+!Website/wwwroot/scripts/ckeditor_config.js
+!Website/wwwroot/scripts/references.js
+
+
 /packages/
 .vs/
 
 M#/Current/Stats.json
 M#/lib/*
-!M#/lib/netcoreapp2.1/MSharp.DSL.runtimeconfig.json
-
-DB/Tables/*
-
-gcop.json
-gcopreport.json
-GCopLog.txt
-
-Website/wwwroot/styles/*.css
-Website/@Temp.File.Uploads/
-Website/Blob/
-
-# Pangolin
-Pangolin Tests/bin
-Pangolin Tests/.vs
-Pangolin Tests/obj
-Pangolin Tests/packages
-Pangolin Tests/UAL.UI.Tests.csproj.user
-
-# Pangolin snapshots
-*.result.xml
-/node_modules/.yarn-integrity
-/yarn.lock
-
-!Website/wwwroot/styles/build/SassCompiler.exe
-/Website/.config/dotnet-tools.json
-/Website/Properties/PublishProfiles/FolderProfile.pubxml
-/Website/Properties/PublishProfiles/FolderProfile1.pubxml
-/Website/Properties/PublishProfiles/FolderProfile2.pubxml
-/Website/Properties/PublishProfiles/FolderProfile3.pubxml
-/Pangolin Test/packages/Pangolin.2.2.8/lib/net45
-/Pangolin Test/packages/Pangolin.2.2.8
-/Pangolin Test/packages
-/Visual Studio 2019/Visualizers/attribcache140.bin
-/Pangolin Tests/Channel Ports Test/Screenshots
-/Scripts/12_#149431.sql.bak
-/Scripts/28_152014.sql.bak
+!M#/lib/netcoreapp*/
+M#/lib/netcoreapp*/*
+!M#/lib/netcoreapp*/MSharp.DSL.runtimeconfig.json
+M#/UI/SchemaExtensions.cs

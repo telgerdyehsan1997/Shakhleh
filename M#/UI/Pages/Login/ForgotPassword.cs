@@ -7,7 +7,6 @@ namespace Login
     {
         public ForgotPasswordPage()
         {
-            Layout(Layouts.FrontEndModal);
             Add<Modules.RequestUserPasswordResetTicket>();
         }
     }

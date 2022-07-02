@@ -7,7 +7,7 @@ namespace Modules
     {
         public ConfirmPasswordReset()
         {
-            HeaderText("@item.FirstName @item.LastName").Markup("@ContentBlock.PasswordSuccessfullyReset.Content");
+            HeaderText("@item Details");
 
             Link("Proceed to the login page.").OnClick(x => x.Go<LoginPage>());
         }

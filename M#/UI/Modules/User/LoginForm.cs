@@ -6,35 +6,54 @@ namespace Modules
     {
         public LoginForm()
         {
-            SupportsAdd(false).Using("Olive.Security")
+            SupportsAdd(false).Using(new[] { "Olive.Security", "BotDetect.Web.Mvc" })
                 .SupportsEdit(false)
-                .HeaderText("Please Login")
+                .HeaderText("Login")
+                .IsViewComponent()
                 .DataSource("await Domain.User.FindByEmail(info.Email)");
 
-            Field(x => x.Email).Label("Email").WatermarkText("Your email");
-            Field(x => x.Password).Label("Password").Mandatory().WatermarkText("Your password");
+            Field(x => x.Email).WatermarkText("Your email");
+            Field(x => x.Password).Mandatory().WatermarkText("Your password");
+            CustomField().ControlMarkup(@"
+                <div>
+	                @{var loginCaptcha = Website.CaptchaHelper.GetLoginCaptcha();}
+	                <captcha mvc-captcha=""loginCaptcha"" class=""center""/>
+	                <div class=""actions"">
+		                <input asp-for=""CaptchaCode"" placeholder=""Captcha code"" />
+	                </div>
+                </div>")
+                .VisibleIf("info.ShowCaptcha");
 
-            Link("Forgot password").CssClass("text-info float-left").OnClick(x => x.Go<Login.ForgotPasswordPage>().Target(OpenIn.PopupWindow));
-            Button("Login").ValidateAntiForgeryToken(false).CssClass("w-20 btn-login mb-2 float-right")
-            .OnClick(x =>
-            {
-                x.RunInTransaction(false);
-                x.ShowPleaseWait();
-                x.CSharp("info.Item = await Domain.User.FindByEmail(info.Email);");
-                x.If("info.Item == null || (info.Item as IArchivable).IsDeactivated").CSharp(@" Notify(""The email or password was incorrect"", ""error""); return View(info); ");
-                //x.If("info.Item is CompanyUser").CSharp(@"if(((CompanyUser)info.Item)?.Company.IsOnHold == true){Notify(""Your company is currently on hold"", ""error""); return View(info);}");
-                x.CSharp("var isAuthenticated = SecurePassword.Verify(info.Password, info.Item.Password, info.Item.Salt);");
+            Button("Login").ValidateAntiForgeryToken(false).CssClass("w-100 btn-login mb-2")
+                .OnClick(x =>
+                {
+                    x.RunInTransaction(false);
+                    x.ShowPleaseWait();
 
-                x.If("!isAuthenticated")
-                   .CSharp(@"Notify(""The email or password was incorrect"", ""error""); return View(info);");
-                x.CSharp("await info.Item.LogOn(); ");
-                //x.CSharp(@"var searchURL = await Database.GetList<SearchUrlCookie>().Where(x => x.UserId == info.Item);
-                //            await Database.Delete(searchURL); ");
-                x.If(CommonCriterion.RequestHas_ReturnUrl).ReturnToPreviousPage();
-                x.Go<Login.DispatchPage>();
-            });
+                    x.CSharp(@"var mvcCaptcha = Website.CaptchaHelper.GetLoginCaptcha();");
+                    x.If("info.ShowCaptcha && !mvcCaptcha.Validate(info.CaptchaCode, Request.Param(mvcCaptcha.ValidatingInstanceKey))")
+                      .CSharp(@"Notify(""Invalid Captcha. Please try again."", ""error"");
+                            info.ShowCaptcha = await LogonFailure.MustShowCaptcha(info.Email, Request.GetIPAddress());
+                            return View(info);");
 
-            //Reference<ContentBlockView>();
+                    x.CSharp("var user = await Domain.User.FindByEmail(info.Email);");
+                    x.If("user != null && user.IsDeactivated")
+                     .CSharp(@"Notify(""Your account is deactivated. Please contact an administrator."", ""error"");
+                        return View(info); ");
+                    x.If("user == null || !SecurePassword.Verify(info.Password, user.Password, user.Salt)")
+                     .CSharp(@"Notify(""Invalid username and/or password. Please try again."", ""error"");
+                        info.ShowCaptcha = await LogonFailure.MustShowCaptcha(info.Email, Request.GetIPAddress());
+                        return View(info); ");
+                    x.CSharp("await user.LogOn();");
+                    x.CSharp("await LogonFailure.Remove(info.Email, Request.GetIPAddress());");
+                    x.If("Url.ReturnUrl().HasValue() && Url.ReturnUrl() != Url.Index(\"Login\")").ReturnToPreviousPage();
+                    x.Go<Login.DispatchPage>().RunServerSide();
+                });
+
+            Link("Forgot password?").CssClass("text-info").OnClick(x => x.Go<Login.ForgotPasswordPage>());
+
+            ViewModelProperty<bool>("ShowCaptcha").RetainInPost();
+            ViewModelProperty<string>("CaptchaCode").NotReadOnly();
         }
     }
 }

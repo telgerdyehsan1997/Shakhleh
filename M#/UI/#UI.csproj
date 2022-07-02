@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -9,23 +9,10 @@
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="SchemaExtensions.cs" />
-  </ItemGroup>
-  <ItemGroup>
+    <PackageReference Include="MSharp" Version="5.2.208" />
+    <PackageReference Include="Olive" Version="2.1.287" />
+    <PackageReference Include="Olive.Entities" Version="2.1.161" />
     <ProjectReference Include="..\..\Domain\Domain.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\Admin\" />
-    <Folder Include="Pages\Api\" />
-    <Folder Include="Pages\Share\Utils\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="SchemaExtensions.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="MSharp" Version="5.2.198" />
-    <PackageReference Include="Olive" Version="2.1.279" />
-    <PackageReference Include="Olive.Entities" Version="2.1.159" />
   </ItemGroup>
   <Target Name="Generate code" AfterTargets="AfterBuild">
     <Exec Condition="'$(MSHARP_BUILD)' != 'FULL'" WorkingDirectory="$(TargetDir)" Command="dotnet msharp.dsl.dll /build /ui" />

@@ -10,8 +10,8 @@ namespace Domain
             DateTime("Date created").Mandatory().Default(cs("LocalTime.Now"));
             Bool("Is used").Mandatory();
 
-            //Bool("Is expired").Mandatory().Calculated()
-            //    .Getter("LocalTime.Now >= DateCreated.AddMinutes(Settings.Current.PasswordResetTicketExpiryMinutes)");
+            Bool("Is expired").Mandatory().Calculated()
+                .Getter("LocalTime.Now >= DateCreated.AddMinutes(Settings.Current.PasswordResetTicketExpiryMinutes)");
         }
     }
 }

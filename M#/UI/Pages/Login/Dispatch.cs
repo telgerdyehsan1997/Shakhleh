@@ -10,7 +10,7 @@ namespace Login
             OnStart(x =>
             {
                 x.If(AppRole.Admin).Go<AdminPage>().RunServerSide();
-                x.ElseIf(AppRole.Customer).Go<CustomerPage>().RunServerSide();
+                x.GentleMessage("TODO: Add redirect logic here and then delete this activity!");
             });
         }
     }

@@ -1,6 +1,5 @@
-﻿namespace Website
+namespace Website
 {
-    using System;
     using Microsoft.AspNetCore;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Hosting;

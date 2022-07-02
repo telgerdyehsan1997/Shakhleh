@@ -6,32 +6,23 @@ namespace App
     {
         public Project()
         {
-            Name("channel.ports").SolutionFile("channel.ports.sln");
-
-            DefaultDateFormat("{0:d}");
-            DefaultDateTimeFormat("{0:g}");
+            Name("Shakhleh").SolutionFile("Shakhleh.sln");
 
             Role("Local.Request");
             Role("Anonymous");
             Role("Admin").SkipQueryStringSecurity();
-            Role("Super Admin").SkipQueryStringSecurity();
-            Role("Customer");
 
-            Layout("Front end").AjaxRedirect().Default().VirtualPath("~/Views/Layouts/FrontEnd.cshtml");
+            Layout("Admin default").AjaxRedirect().Default().VirtualPath("~/Views/Layouts/AdminDefault.cshtml");
+            Layout("Admin default Modal").AjaxRedirect().Modal().VirtualPath("~/Views/Layouts/AdminDefault.Modal.cshtml");
+            Layout("Login").AjaxRedirect().VirtualPath("~/Views/Layouts/Login.cshtml");
             Layout("Blank").AjaxRedirect().VirtualPath("~/Views/Layouts/Blank.cshtml");
-            Layout("Front end Modal").Modal().VirtualPath("~/Views/Layouts/FrontEnd.Modal.cshtml");
-            Layout("Print").AjaxRedirect().VirtualPath("~/Views/Layouts/Print.cshtml");
 
             PageSetting("LeftMenu");
             PageSetting("SubMenu");
             PageSetting("TopMenu");
-            PageSetting("HeaderModule");
-            PageSetting("SubHeaderModule");
 
-
-            StyleRequiredFormElements(true);
-
-
+            AutoTask("Clean old temp uploads").Every(10, TimeUnit.Minute)
+                .Run("await new Olive.Mvc.DiskFileRequestService().DeleteTempFiles(olderThan: 1.Hours());");
         }
     }
 }

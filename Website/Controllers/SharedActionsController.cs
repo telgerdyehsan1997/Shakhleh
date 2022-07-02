@@ -1,54 +1,45 @@
-﻿namespace Controllers
+namespace Controllers
 {
     using System.Threading.Tasks;
-    using Domain;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
-    using Olive;
     using Olive.Mvc;
 
     public class SharedActionsController : BaseController
     {
-        readonly IFileRequestService FileRequestService;
-        readonly IFileAccessorFactory FileAccessorFactory;
+        private readonly IFileAccessorFactory fileAccessor;
 
-        public SharedActionsController(
-            IFileRequestService fileRequestService,
-            IFileAccessorFactory fileAccessorFactory
-        )
+        public SharedActionsController(IFileAccessorFactory fileAccessor)
         {
-            FileRequestService = fileRequestService;
-            FileAccessorFactory = fileAccessorFactory;
+            this.fileAccessor = fileAccessor;
         }
 
-        //[Route("error")]
-        //public ActionResult Error() => View("error");
+        [Route("error")]
+        public ActionResult Error() => View("error");
 
-        //[Route("error/404")]
-        //public ActionResult NotFound404() => View("error-404");
+        [Route("error/404")]
+        public ActionResult NotFound404() => View("error-404");
 
         [HttpPost, Authorize, Route("upload")]
         public async Task<IActionResult> UploadTempFileToServer(IFormFile[] files)
         {
-            return Json(await FileRequestService.TempSaveUploadedFile(files[0]));
+            return Json(await new DiskFileRequestService().TempSaveUploadedFile(files[0]));
         }
 
         [Route("file")]
         public async Task<ActionResult> DownloadFile()
         {
             var path = Request.QueryString.ToString().TrimStart('?');
-            var accessor = await FileAccessorFactory.Create(path, User);
-           // if (!accessor.IsAllowed()) return new UnauthorizedResult();
+            var accessor = await fileAccessor.Create(path, User);
+            if (!accessor.IsAllowed()) return new UnauthorizedResult();
 
             if (accessor.Blob.IsMedia())
                 return await RangeFileContentResult.From(accessor.Blob);
             else return await File(accessor.Blob);
         }
-       
-       
-        [Route("temp-file/{key}")]
-        public Task<ActionResult> DownloadTempFile(string key) => FileRequestService.Download(key);
 
+        [Route("temp-file/{key}")]
+        public Task<ActionResult> DownloadTempFile(string key) => new DiskFileRequestService().Download(key);
     }
 }
