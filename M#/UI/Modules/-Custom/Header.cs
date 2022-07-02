@@ -25,29 +25,9 @@ namespace Modules
                           {logo.Ref}
                           {burger.Ref}
                      <div class=""collapse navbar-collapse"">
-                        @if (User.IsInRole(""Undischarged""))
-                        {{
-                             @(await Component.InvokeAsync<UndischargedMainMenu>())
-                        }}
-                        else {{
                             @(await Component.InvokeAsync<MainMenu>())
-                        }}
                      </div>
-                </nav>
-                @{{var data = await Database.Of<BannerMessage>().Where(x => !x.IsDeactivated).GetList().Select(x => x.Message);}}
-                   @if(data.Count() > 0)
-                    {{
-                       <div class=""tickerwrapper"">
-                            <ul class=""list"">
-                             @foreach (var item in data)
-                            {{
-                               <li class='listitem'>
-                                    <span> @item</span>
-                                </li>
-                            }}
-                         </ul>
-                       </div>
-                  }}");
+                </nav>");
            
             Reference<MainMenu>();
         }
