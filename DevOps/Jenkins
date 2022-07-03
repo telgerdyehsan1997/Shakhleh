@@ -8,7 +8,7 @@ pipeline
     {   
         BUILD_VERSION="v_${BUILD_NUMBER}"
         GIT_REPOSITORY = "https://github.com/telgerdyehsan1997/Shakhleh.git"
-        DESTINATION_PATH = "C:\\Projects\\v_${BUILD_NUMBER}"
+        DESTINATION_PATH = "C:\\Projects\\Shakhleh_Publishes\\v_${BUILD_NUMBER}"
         IIS_WEBSITE_NAME = "Shakhleh"
     }
     agent any
