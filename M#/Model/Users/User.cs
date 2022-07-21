@@ -14,7 +14,7 @@ namespace Domain
             String("Email", 100).Mandatory().Unique().Accepts(TextPattern.EmailAddress);
             String("Password", 100).HashPassword().SaltProperty("Salt").Accepts(TextPattern.Password);
             String("Salt");
-            Bool("Is deactivated").Mandatory();
+            this.Archivable();
         }
     }
 }
