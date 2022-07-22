@@ -1,5 +1,6 @@
 ﻿using Domain;
 using MSharp;
+using UI.Pages.Admin.FoodShops;
 
 namespace Modules
 {
@@ -20,11 +21,11 @@ namespace Modules
             Column(x => x.Phone).HeaderTemplate("شماره تلفن");
 
             ButtonColumn("ویرایش").HeaderText("ویرایش").GridColumnCssClass("actions").Icon(FA.Edit)
-                .OnClick(x => x.Go<Admin.FoodShops.Shops.EnterPage>().Send("item", "item.ID").SendReturnUrl());
+                .OnClick(x => x.Go<Admin.FoodShops.EnterPage>().Send("item", "item.ID").SendReturnUrl());
             this.ArchiveButtonColumn("SocialMedia");
 
             Button("مغازه جدید").Icon(FA.Plus)
-                .OnClick(x => x.Go<Admin.FoodShops.Shops.EnterPage>().SendReturnUrl());
+                .OnClick(x => x.Go<Admin.FoodShops.EnterPage>().SendReturnUrl());
 
             PagerPosition(PagerAt.Bottom);
             PageSize(10);

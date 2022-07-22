@@ -1,7 +1,8 @@
 using MSharp;
 using Domain;
+using Admin.FoodShops;
 
-namespace Admin.FoodShops.Shops
+namespace Admin.FoodShops
 {
     public class EnterPage : SubPage<ShopsPage>
     {
