@@ -1,4 +1,4 @@
-using MSharp;
+﻿using MSharp;
 using Domain;
 
 namespace Modules
@@ -15,10 +15,13 @@ namespace Modules
             UlCssClass("nav flex-column");
             Using("Olive.Security");
 
-            Item("Administrators")
+            Item("ادمین ها")
                 .OnClick(x => x.Go<Admin.Settings.AdministratorsPage>());
 
-            Item("General Settings")
+            Item("مغازه ها")
+                .OnClick(x => x.Go<Admin.FoodShops.ShopsPage>());
+
+            Item("تنظیمات عمومی")
                 .OnClick(x => x.Go<Admin.Settings.GeneralPage>());
 
         }
