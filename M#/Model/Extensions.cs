@@ -1,4 +1,4 @@
-using MSharp;
+﻿using MSharp;
 using Olive;
 using System;
 using System.Collections.Generic;
@@ -14,9 +14,9 @@ namespace Domain
 
             entity.Bool("Is deactivated")
                   .Mandatory()
-                  .TrueText("Archived")
-                  .FalseText("Active")
-                  .NullText("All");
+                  .TrueText("آرشیو")
+                  .FalseText("فعال")
+                  .NullText("همه");
 
             entity.String("ArchiveLogIds");
 

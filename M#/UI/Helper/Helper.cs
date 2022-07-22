@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
@@ -13,8 +13,8 @@ public static class Helper
     {
         listModule.RowCssClass("c#:item.IsDeactivated ? \"row-archived\":\"\"");
         return listModule
-            .ButtonColumn("@(item.IsDeactivated ? \"Unarchive\":\"Archive\")")
-            .HeaderText("Archive")
+            .ButtonColumn("@(item.IsDeactivated ? \"بیرون آوردن از آرشیو\":\"آرشیو کردن\")")
+            .HeaderText("آرشیو")
             .CssClass("c#:item.IsDeactivated ? \"row-archived\":\"\"")
             .GridColumnCssClass("actions-sep")
             .Icon(FA.Archive)
@@ -26,6 +26,7 @@ public static class Helper
     }
     public static PropertyFilterElement<T> ArchiveSearch<T>(this ListModule<T> listModule) where T : GuidEntity, Domain.IArchivable
     {
-        return listModule.Search(x => (x as Domain.IArchivable).IsDeactivated).Label("Status").Control(ControlType.HorizontalRadioButtons).DefaultValueExpression("false");
+        return listModule.Search(x => (x as Domain.IArchivable).IsDeactivated)
+            .Label("وضعیت").Control(ControlType.HorizontalRadioButtons).DefaultValueExpression("false");
     }
 }
