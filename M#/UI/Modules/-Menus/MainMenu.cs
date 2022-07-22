@@ -13,6 +13,9 @@ namespace Modules
             IsViewComponent().UlCssClass("nav flex-column");
             RootCssClass("sidebar-menu");
 
+            var menu = Reference<AdminMainMenu>();
+
+
             Link("Logout")
                  .CssClass("align-bottom logout")
                  .ValidateAntiForgeryToken(false)

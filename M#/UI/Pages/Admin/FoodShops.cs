@@ -7,9 +7,7 @@ namespace Admin
     {
         public FoodShopsPage()
         {
-            Set(PageSettings.LeftMenu, "AdminSettingsMenu");
-
-            OnStart(x => x.Go<Settings.GeneralPage>().RunServerSide());
+            OnStart(x => x.Go<FoodShops.ShopsPage>().RunServerSide());
         }
     }
 }

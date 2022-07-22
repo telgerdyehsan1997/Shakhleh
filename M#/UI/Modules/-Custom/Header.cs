@@ -1,4 +1,4 @@
-using MSharp;
+﻿using MSharp;
 using Domain;
 
 namespace Modules
@@ -11,21 +11,17 @@ namespace Modules
             WrapInForm();
             Using("Olive.Security");
             RootCssClass("header-wrapper");
-            var logo = Image("Logo").CssClass("logo").ImageUrl("~/img/Logo.png")
+            var logo = Image("Logo").CssClass("logo").ImageUrl("~/img/Logo.jpg")
                   .OnClick(x => x.Go("~/"));
 
-            var burger = Link("Burger")
-                .NoText()
-                .Icon("fas")
-                 .CssClass("menu-toggler burger-icon")
+            var menu = Reference<AdminMainMenu>();
 
-                .ExtraTagAttributes("type=\"button\"");
 
-            var login = Link("Login").Icon(FA.UnlockAlt)
+            var login = Link("ورود").Icon(FA.UnlockAlt)
                         .VisibleIf(AppRole.Anonymous)
                         .OnClick(x => x.Go<LoginPage>());
 
-            var logout = Link("Logout")
+            var logout = Link("خروج")
                          .CssClass("align-bottom logout")
                          .ValidateAntiForgeryToken(false)
                          .VisibleIf(CommonCriterion.IsUserLoggedIn)
@@ -37,8 +33,10 @@ namespace Modules
             Markup($@"
             <nav class=""navbar"">
               <div class=""header-left-actions-wrapper"">
-                      {burger.Ref}
                       {logo.Ref}
+              </div>
+            <div class="""">
+                @(await Component.InvokeAsync<AdminMainMenu>())  
               </div>
               <div class=""header-account-wrapper"">
                     {logout.Ref}
