@@ -15,9 +15,6 @@ namespace Modules
             UlCssClass("nav flex-column");
             Using("Olive.Security");
 
-            Item("Contacts")
-                .OnClick(x => x.Go<ContactPage>());
-
             Item("Administrators")
                 .OnClick(x => x.Go<Admin.Settings.AdministratorsPage>());
 
