@@ -12,7 +12,6 @@ namespace Modules
             Field(x => x.FirstName);
             Field(x => x.LastName);
             Field(x => x.Email);
-            Field(x => x.IsDeactivated).AsRadioButtons(Arrange.Vertical);
 
             Button("Cancel").OnClick(x => x.CloseModal());
 

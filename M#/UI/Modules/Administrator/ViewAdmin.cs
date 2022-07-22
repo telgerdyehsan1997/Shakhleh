@@ -11,7 +11,6 @@ namespace Modules
 
             Field(x => x.Name);
             Field(x => x.Email);
-            Field(x => x.IsDeactivated).DisplayExpression("c#:item.IsDeactivated ? \"Yes\" : \"No\"");
 
             Button("Back")
                 .Icon(FA.ChevronLeft)

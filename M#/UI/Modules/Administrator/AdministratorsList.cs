@@ -35,10 +35,6 @@ namespace Modules
 
             Column(x => x.Email);
 
-            Column(x => x.IsDeactivated)
-                .NeedsMerging()
-                .DisplayExpression(cs("item.IsDeactivated"));
-
             ButtonColumn("Edit")
                 .HeaderText("Actions")
                 .GridColumnCssClass("actions")
