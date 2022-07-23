@@ -16,7 +16,6 @@ namespace Modules
             Field(x => x.Email).LabelText("ایمیل");
             Field(x => x.Phone).LabelText("شماره تلفن");
 
-            Button("بازگشت").OnClick(x =>x.ReturnToPreviousPage());
             ViewModelProperty<Domain.Shop>("Shop").FromRequestParam("shop");
 
         }

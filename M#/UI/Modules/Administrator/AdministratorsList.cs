@@ -1,4 +1,4 @@
-using Domain;
+﻿using Domain;
 using MSharp;
 
 namespace Modules
@@ -16,7 +16,7 @@ namespace Modules
 
             //================ Search: ================
             var search = SearchButton("Search")
-                .Icon(FA.Search)
+                .Icon(FA.Search).Text("جستجو")
                 .OnClick(x => x.Reload());
 
             Search(GeneralSearch.AllFields)

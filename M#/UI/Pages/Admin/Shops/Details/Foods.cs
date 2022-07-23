@@ -7,6 +7,8 @@ namespace Admin.Shops
     {
         public FoodsPage()
         {
+            Set(PageSettings.LeftMenu, "AdminShopsMenu");
+
             Add<Modules.FoodList>();
         }
     }

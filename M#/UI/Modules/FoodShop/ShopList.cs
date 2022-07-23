@@ -12,7 +12,7 @@ namespace Modules
 
 
             this.ArchiveSearch();
-            SearchButton("Search").Icon(FA.Search).OnClick(x => x.ReturnView());
+            SearchButton("Search").Text("جستجو").Icon(FA.Search).OnClick(x => x.ReturnView());
 
             LinkColumn(x => x.Name)
                 .HeaderText("نام")

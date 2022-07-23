@@ -16,7 +16,13 @@ namespace Modules
             Using("Olive.Security");
 
             Item("مشخصات")
-                .OnClick(x => x.Go<Admin.Shops.OverviewPage>());
+                .OnClick(x => x.Go<Admin.Shops.OverviewPage>().Send("shop", "info.Shop.ID"));
+
+            Item("غذاها")
+                .OnClick(x => x.Go<Admin.Shops.FoodsPage>().Send("shop", "info.Shop.ID"));
+
+            ViewModelProperty<Domain.Shop>("Shop").FromRequestParam("shop");
+
         }
     }
 }
