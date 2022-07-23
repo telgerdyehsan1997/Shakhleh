@@ -10,6 +10,7 @@ namespace App
 
             Role("Local.Request");
             Role("Anonymous");
+            Role("Customer");
             Role("Admin").SkipQueryStringSecurity();
 
             Layout("Admin default").AjaxRedirect().Default().VirtualPath("~/Views/Layouts/AdminDefault.cshtml");
