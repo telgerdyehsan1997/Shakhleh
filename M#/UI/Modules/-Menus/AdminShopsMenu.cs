@@ -27,8 +27,12 @@ namespace Modules
             Item("مشتریان")
                 .OnClick(x => x.Go<Admin.Shops.CustomersPage>().Send("shop", "info.Shop.ID"));
 
+            Item("سفارشات")
+                .OnClick(x => x.Go<Admin.Shops.OrdersPage>().Send("shop", "info.Shop.ID"));
+
             ViewModelProperty<Domain.Shop>("Shop").FromRequestParam("shop");
 
         }
+        
     }
 }

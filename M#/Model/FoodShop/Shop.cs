@@ -17,6 +17,7 @@ namespace Domain
 
             InverseAssociate<ShopUser>("Users", "Shop");
             InverseAssociate<Food>("Foods", "Shop");
+            InverseAssociate<Order>("Orders", "Shop");
             InverseAssociate<ShopCustomer>("Customers","Shop");
         }
     }
