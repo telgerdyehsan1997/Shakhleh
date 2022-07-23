@@ -15,6 +15,7 @@ namespace Modules
                   .OnClick(x => x.Go("~/"));
 
             var menu = Reference<AdminMainMenu>();
+            var customerMenu = Reference<CustomerMainMenu>();
 
 
             var login = Link("ورود").Icon(FA.UnlockAlt)
@@ -36,7 +37,15 @@ namespace Modules
                       {logo.Ref}
               </div>
             <div class="""">
-                @(await Component.InvokeAsync<AdminMainMenu>())  
+                @if (User.IsInRole(""Admin""))
+         @(await Component.InvokeAsync
+         <AdminMainMenu>
+            ())
+            else if (User.IsInRole(""Customer""))
+            @(await Component.InvokeAsync
+            <CustomerMainMenu>
+               ())
+               
               </div>
               <div class=""header-account-wrapper"">
                     {logout.Ref}
