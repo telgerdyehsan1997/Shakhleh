@@ -7,7 +7,7 @@ namespace Domain
         public ShopCustomer()
         {
 
-            InverseManyToMany<Shop>("Shops", "Customers");
+            Associate<Shop>("Shop").Mandatory();
         }
     }
 }
