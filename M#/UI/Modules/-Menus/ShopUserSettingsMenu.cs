@@ -18,6 +18,9 @@ namespace Modules
             Item("غذاها")
                 .OnClick(x => x.Go<ShopUser.Settings.FoodsPage>());
 
+            Item("کاربران")
+                .OnClick(x => x.Go<ShopUser.Settings.UsersPage>());
+
             ViewModelProperty<Domain.Shop>("Shop");
 
             OnPreBound("Binding Shop")
