@@ -41,7 +41,7 @@ namespace Modules
          @(await Component.InvokeAsync
          <AdminMainMenu>
             ())
-            else if (User.IsInRole(""Customer""))
+            else if (User.IsInRole(""ShopUser""))
             @(await Component.InvokeAsync
             <ShopUserMainMenu>
                ())

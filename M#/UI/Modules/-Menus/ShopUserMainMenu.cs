@@ -12,9 +12,13 @@ namespace Modules
             IsViewComponent();
             UlCssClass("nav");
 
-            Item("سلااااااااااااااام")
+            Item("تنظیمات")
                 .CssClass("nav-item")
                 .Go<ShopUser.SettingsPage>();
+
+            Item("مشتریان")
+                .CssClass("nav-item")
+                .Go<ShopUser.CustomersPage>();
 
         }
     }
