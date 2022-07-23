@@ -74,6 +74,7 @@ namespace Domain
                 FirstName="مختار",
                 LastName="مختاری",
                 IsAdmin= true,
+                Email = "mokhtar@uat.co",
                 Phone= "09211370995",
                 Password = pass.Password,
                 Salt = pass.Salt
