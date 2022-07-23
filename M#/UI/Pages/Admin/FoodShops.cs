@@ -7,7 +7,7 @@ namespace Admin
     {
         public FoodShopsPage()
         {
-            OnStart(x => x.Go<FoodShops.ShopsPage>().RunServerSide());
+            OnStart(x => x.Go<Shops.ShopsPage>().RunServerSide());
         }
     }
 }

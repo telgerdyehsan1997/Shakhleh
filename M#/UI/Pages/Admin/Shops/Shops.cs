@@ -1,13 +1,13 @@
 using MSharp;
 using Domain;
 
-namespace Admin.FoodShops
+namespace Admin.Shops
 {
     public class ShopsPage : SubPage<FoodShopsPage>
     {
         public ShopsPage()
         {
-            Add<Modules.FoodShopList>();
+            Add<Modules.ShopList>();
         }
     }
 }

@@ -3,9 +3,9 @@ using Domain;
 
 namespace Modules
 {
-    public class AdminFoodShopsMenu : MenuModule
+    public class AdminShopsMenu : MenuModule
     {
-        public AdminFoodShopsMenu()
+        public AdminShopsMenu()
         {
             SubItemBehaviour(MenuSubItemBehaviour.ExpandCollapse);
             WrapInForm(false);
@@ -16,7 +16,7 @@ namespace Modules
             Using("Olive.Security");
 
             Item("مشخصات")
-                .OnClick(x => x.Go<Admin.FoodShops.DetailsPage>());
+                .OnClick(x => x.Go<Admin.Shops.OverviewPage>());
         }
     }
 }

@@ -3,9 +3,9 @@ using MSharp;
 
 namespace Modules
 {
-    public class FoodShopForm : FormModule<FoodShop>
+    public class ShopForm : FormModule<Shop>
     {
-        public FoodShopForm()
+        public ShopForm()
         {
             HeaderText("مغازه");
 

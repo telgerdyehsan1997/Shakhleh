@@ -2,9 +2,9 @@
 
 namespace Domain
 {
-    class FoodShop : EntityType
+    class Shop : EntityType
     {
-        public FoodShop()
+        public Shop()
         {
             this.Archivable();
 
@@ -15,8 +15,9 @@ namespace Domain
             String("Phone");
 
 
-            InverseAssociate<FoodShopUser>("Users", "Shop");
-            AssociateManyToMany<FoodShopCustomer>("Customers");
+            InverseAssociate<ShopUser>("Users", "Shop");
+            InverseAssociate<Food>("Foods", "Shop");
+            AssociateManyToMany<ShopCustomer>("Customers");
         }
     }
 }

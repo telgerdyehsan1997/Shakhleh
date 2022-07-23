@@ -2,14 +2,14 @@ using MSharp;
 
 namespace Domain
 {
-    public class FoodShopUser : SubType<User>
+    public class ShopUser : SubType<User>
     {
-        public FoodShopUser()
+        public ShopUser()
         {
 
             Bool("Is admin").Mandatory(value: false);
 
-            Associate<FoodShop>("Shop");
+            Associate<Shop>("Shop");
         }
     }
 }

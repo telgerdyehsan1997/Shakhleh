@@ -19,7 +19,7 @@ namespace Modules
                 .OnClick(x => x.Go<Admin.Settings.AdministratorsPage>());
 
             Item("مغازه ها")
-                .OnClick(x => x.Go<Admin.FoodShops.ShopsPage>());
+                .OnClick(x => x.Go<Admin.Shops.ShopsPage>());
 
             Item("تنظیمات عمومی")
                 .OnClick(x => x.Go<Admin.Settings.GeneralPage>());

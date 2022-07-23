@@ -1,12 +1,12 @@
 ﻿using Domain;
 using MSharp;
-using Admin.FoodShops;
+using Admin.Shops;
 
 namespace Modules
 {
-    public class FoodShopList : ListModule<FoodShop>
+    public class ShopList : ListModule<Shop>
     {
-        public FoodShopList()
+        public ShopList()
         {
             HeaderText("مغازه ها");
 
@@ -16,7 +16,7 @@ namespace Modules
 
             LinkColumn(x => x.Name)
                 .HeaderText("نام")
-                .OnClick(x => x.Go<DetailsPage>().Send("shop", "item.ID"));
+                .OnClick(x => x.Go<OverviewPage>().Send("shop", "item.ID"));
 
             Column(x => x.Description).HeaderTemplate("توضیحات");
             Column(x => x.Address).HeaderTemplate("آدرس");
@@ -25,7 +25,7 @@ namespace Modules
 
             ButtonColumn("ویرایش").HeaderText("ویرایش").GridColumnCssClass("actions").Icon(FA.Edit)
                 .OnClick(x => x.Go<EnterPage>().Send("item", "item.ID").SendReturnUrl());
-            this.ArchiveButtonColumn("SocialMedia");
+            this.ArchiveButtonColumn("Shop");
 
             Button("مغازه جدید").Icon(FA.Plus)
                 .OnClick(x => x.Go<EnterPage>().SendReturnUrl());

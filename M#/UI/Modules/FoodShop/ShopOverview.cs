@@ -3,9 +3,9 @@ using MSharp;
 
 namespace Modules
 {
-    public class FoodShopView : ViewModule<FoodShop>
+    public class ShopOverview : ViewModule<Shop>
     {
-        public FoodShopView()
+        public ShopOverview()
         {
             DataSource("info.Shop");
             HeaderText("مشخصات مغازه");
@@ -17,7 +17,7 @@ namespace Modules
             Field(x => x.Phone).LabelText("شماره تلفن");
 
             Button("بازگشت").OnClick(x =>x.ReturnToPreviousPage());
-            ViewModelProperty<Domain.FoodShop>("Shop").FromRequestParam("shop");
+            ViewModelProperty<Domain.Shop>("Shop").FromRequestParam("shop");
 
         }
     }
