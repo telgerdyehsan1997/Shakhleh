@@ -22,6 +22,8 @@ namespace Domain
 
             await CreateAdmins();
 
+            await CreateShops();
+
             await CreateDiscountTypes();
             await CreateDiscountCalculationTypes();
         }
@@ -40,6 +42,7 @@ namespace Domain
                 DisplayName = "تخفیف بازه زمانی"
             });
         }
+
         async Task CreateDiscountCalculationTypes()
         {
             await Create(new DiscountCalculationType
@@ -54,7 +57,28 @@ namespace Domain
             });
         }
 
-
+        async Task CreateShops()
+        {
+            var mokhtar = await Create(new Shop
+            {
+                Name = "مختار",
+                Address = "تقاطع امت و ایثار",
+                Phone = "09211370996",
+                Description = "برای مختار و یاران",
+                Email = "telgerdyehsan@gmail.com"
+            });
+            var pass = SecurePassword.Create("test");
+            var mokhtarAdmin = await Create(new ShopUser
+            {
+                Shop= mokhtar,
+                FirstName="مختار",
+                LastName="مختاری",
+                IsAdmin= true,
+                Phone= "09211370995",
+                Password = pass.Password,
+                Salt = pass.Salt
+            });
+        }
         private Task<Administrator> AddAdmin(string firstName, string lastName, string email)
         {
             var pass = SecurePassword.Create("test");
