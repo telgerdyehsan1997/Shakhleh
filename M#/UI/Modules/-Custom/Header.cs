@@ -15,7 +15,7 @@ namespace Modules
                   .OnClick(x => x.Go("~/"));
 
             var menu = Reference<AdminMainMenu>();
-            var customerMenu = Reference<CustomerMainMenu>();
+            var customerMenu = Reference<ShopUserMainMenu>();
 
 
             var login = Link("ورود").Icon(FA.UnlockAlt)
@@ -43,7 +43,7 @@ namespace Modules
             ())
             else if (User.IsInRole(""Customer""))
             @(await Component.InvokeAsync
-            <CustomerMainMenu>
+            <ShopUserMainMenu>
                ())
                
               </div>

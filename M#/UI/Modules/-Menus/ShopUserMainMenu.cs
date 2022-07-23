@@ -3,9 +3,9 @@ using Domain;
 
 namespace Modules
 {
-    public class CustomerMainMenu : MenuModule
+    public class ShopUserMainMenu : MenuModule
     {
-        public CustomerMainMenu()
+        public ShopUserMainMenu()
         {
             AjaxRedirect();
             WrapInForm(false);
@@ -14,7 +14,7 @@ namespace Modules
 
             Item("سلااااااااااااااام")
                 .CssClass("nav-item")
-                .Go<Admin.SettingsPage>();
+                .Go<ShopUser.SettingsPage>();
 
         }
     }

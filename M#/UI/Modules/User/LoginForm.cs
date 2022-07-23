@@ -30,11 +30,11 @@ namespace Modules
                     x.RunInTransaction(false);
                     x.ShowPleaseWait();
 
-                    x.CSharp(@"var mvcCaptcha = Website.CaptchaHelper.GetLoginCaptcha();");
-                    x.If("info.ShowCaptcha && !mvcCaptcha.Validate(info.CaptchaCode, Request.Param(mvcCaptcha.ValidatingInstanceKey))")
-                      .CSharp(@"Notify(""Invalid Captcha. Please try again."", ""error"");
-                            info.ShowCaptcha = await LogonFailure.MustShowCaptcha(info.Email, Request.GetIPAddress());
-                            return View(info);");
+                    //x.CSharp(@"var mvcCaptcha = Website.CaptchaHelper.GetLoginCaptcha();");
+                    //x.If("info.ShowCaptcha && !mvcCaptcha.Validate(info.CaptchaCode, Request.Param(mvcCaptcha.ValidatingInstanceKey))")
+                    //  .CSharp(@"Notify(""Invalid Captcha. Please try again."", ""error"");
+                    //        info.ShowCaptcha = await LogonFailure.MustShowCaptcha(info.Email, Request.GetIPAddress());
+                    //        return View(info);");
 
                     x.CSharp("var user = await Domain.User.FindByEmail(info.Email);");
                     x.If("user != null && user.IsDeactivated")

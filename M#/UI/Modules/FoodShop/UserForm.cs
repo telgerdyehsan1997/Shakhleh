@@ -3,7 +3,7 @@ using MSharp;
 
 namespace Modules
 {
-    public class UserForm : FormModule<ShopUser>
+    public class UserForm : FormModule<Domain.ShopUser>
     {
         public UserForm()
         {
