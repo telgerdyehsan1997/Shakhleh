@@ -3,17 +3,18 @@ using MSharp;
 
 namespace Modules
 {
-    public class ShopForm : FormModule<Shop>
+    public class FoodForm : FormModule<Food>
     {
-        public ShopForm()
+        public FoodForm()
         {
-            HeaderText("مغازه");
+            HeaderText("غذا");
 
             Field(x => x.Name).Label("نام");
             Field(x => x.Description).Label("توضیحات");
-            Field(x => x.Address).Label("آدرس");
-            Field(x => x.Email).Label("ایمیل");
-            Field(x => x.Phone).Label("شماره تلفن");
+            Field(x => x.Price).Label("قیمت");
+            Field(x => x.Image).Label("تصویر");
+
+            AutoSet(x => x.Shop).Value("info.Shop");
 
             Button("ذخیره").OnClick(x =>
             {
@@ -22,6 +23,7 @@ namespace Modules
                 x.ReturnToPreviousPage();
             });
             Button("لغو").OnClick(x =>x.ReturnToPreviousPage());
+            ViewModelProperty<Domain.Shop>("Shop").FromRequestParam("shop");
 
         }
     }
