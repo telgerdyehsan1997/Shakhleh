@@ -1,4 +1,4 @@
-using Olive;
+﻿using Olive;
 using Olive.Entities;
 using Olive.Entities.Data;
 using Olive.Security;
@@ -21,12 +21,37 @@ namespace Domain
             await Create(new Settings { Name = "Current", PasswordResetTicketExpiryMinutes = 2 });
 
             await CreateAdmins();
+
+            await CreateDiscountTypes();
+            await CreateDiscountCalculationTypes();
         }
 
         async Task CreateAdmins()
         {
 #pragma warning disable GCop646 // Email addresses should not be hard-coded. Move this to Settings table or Config file.
             await AddAdmin("test", "testington", "admin@uat.co");
+        }
+
+        async Task CreateDiscountTypes()
+        {
+            await Create(new DiscountType
+            {
+                Name = nameof(DiscountType.DateRangeDiscount),
+                DisplayName = "تخفیف بازه زمانی"
+            });
+        }
+        async Task CreateDiscountCalculationTypes()
+        {
+            await Create(new DiscountCalculationType
+            {
+                Name = nameof(DiscountCalculationType.Amount),
+                DisplayName = "براساس مبلغ"
+            });
+            await Create(new DiscountCalculationType
+            {
+                Name = nameof(DiscountCalculationType.Percentage),
+                DisplayName = "براساس درصد"
+            });
         }
 
 
