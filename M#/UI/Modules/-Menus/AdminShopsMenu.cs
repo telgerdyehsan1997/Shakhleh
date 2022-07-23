@@ -21,6 +21,9 @@ namespace Modules
             Item("غذاها")
                 .OnClick(x => x.Go<Admin.Shops.FoodsPage>().Send("shop", "info.Shop.ID"));
 
+            Item("کاربران")
+                .OnClick(x => x.Go<Admin.Shops.UsersPage>().Send("shop", "info.Shop.ID"));
+
             ViewModelProperty<Domain.Shop>("Shop").FromRequestParam("shop");
 
         }

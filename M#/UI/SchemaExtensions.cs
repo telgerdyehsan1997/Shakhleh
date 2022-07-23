@@ -56,6 +56,11 @@ namespace MSharp
         => @this.container.Search(x => x.Password, fl, ln);
         
         [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Administrator> Phone(
+            this ListModule<Domain.Administrator>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Phone, fl, ln);
+        
+        [MethodColor("#AFCD14")]
         public static PropertyFilterElement<Domain.Administrator> Salt(
             this ListModule<Domain.Administrator>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Search(x => x.Salt, fl, ln);
@@ -311,6 +316,11 @@ namespace MSharp
         => @this.container.Search(x => x.Password, fl, ln);
         
         [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.ShopCustomer> Phone(
+            this ListModule<Domain.ShopCustomer>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Phone, fl, ln);
+        
+        [MethodColor("#AFCD14")]
         public static PropertyFilterElement<Domain.ShopCustomer> Salt(
             this ListModule<Domain.ShopCustomer>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Search(x => x.Salt, fl, ln);
@@ -376,6 +386,11 @@ namespace MSharp
         => @this.container.Search(x => x.Password, fl, ln);
         
         [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.ShopUser> Phone(
+            this ListModule<Domain.ShopUser>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Phone, fl, ln);
+        
+        [MethodColor("#AFCD14")]
         public static PropertyFilterElement<Domain.ShopUser> Salt(
             this ListModule<Domain.ShopUser>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Search(x => x.Salt, fl, ln);
@@ -421,6 +436,11 @@ namespace MSharp
         => @this.container.Search(x => x.Password, fl, ln);
         
         [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.User> Phone(
+            this ListModule<Domain.User>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Phone, fl, ln);
+        
+        [MethodColor("#AFCD14")]
         public static PropertyFilterElement<Domain.User> Salt(
             this ListModule<Domain.User>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Search(x => x.Salt, fl, ln);
@@ -464,6 +484,11 @@ namespace MSharp
         public static ViewElement<Domain.Administrator> Password(
             this ViewModule<Domain.Administrator>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Field(x => x.Password, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Administrator> Phone(
+            this ViewModule<Domain.Administrator>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Phone, fl, ln);
         
         [MethodColor("#AFCD14")]
         public static ViewElement<Domain.Administrator> Salt(
@@ -721,6 +746,11 @@ namespace MSharp
         => @this.container.Field(x => x.Password, fl, ln);
         
         [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.ShopCustomer> Phone(
+            this ViewModule<Domain.ShopCustomer>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Phone, fl, ln);
+        
+        [MethodColor("#AFCD14")]
         public static ViewElement<Domain.ShopCustomer> Salt(
             this ViewModule<Domain.ShopCustomer>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Field(x => x.Salt, fl, ln);
@@ -786,6 +816,11 @@ namespace MSharp
         => @this.container.Field(x => x.Password, fl, ln);
         
         [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.ShopUser> Phone(
+            this ViewModule<Domain.ShopUser>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Phone, fl, ln);
+        
+        [MethodColor("#AFCD14")]
         public static ViewElement<Domain.ShopUser> Salt(
             this ViewModule<Domain.ShopUser>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Field(x => x.Salt, fl, ln);
@@ -831,6 +866,11 @@ namespace MSharp
         => @this.container.Field(x => x.Password, fl, ln);
         
         [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.User> Phone(
+            this ViewModule<Domain.User>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Phone, fl, ln);
+        
+        [MethodColor("#AFCD14")]
         public static ViewElement<Domain.User> Salt(
             this ViewModule<Domain.User>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Field(x => x.Salt, fl, ln);
@@ -874,6 +914,11 @@ namespace MSharp
         public static ViewElement<Domain.Administrator, string> Password(
             this ListModule<Domain.Administrator>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Column(x => x.Password, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Administrator, string> Phone(
+            this ListModule<Domain.Administrator>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Phone, fl, ln);
         
         [MethodColor("#0CCC68")]
         public static ViewElement<Domain.Administrator, string> Salt(
@@ -1131,6 +1176,11 @@ namespace MSharp
         => @this.container.Column(x => x.Password, fl, ln);
         
         [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.ShopCustomer, string> Phone(
+            this ListModule<Domain.ShopCustomer>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Phone, fl, ln);
+        
+        [MethodColor("#0CCC68")]
         public static ViewElement<Domain.ShopCustomer, string> Salt(
             this ListModule<Domain.ShopCustomer>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Column(x => x.Salt, fl, ln);
@@ -1171,7 +1221,7 @@ namespace MSharp
         => @this.container.Column(x => x.FirstName, fl, ln);
         
         [MethodColor("#0CCC68")]
-        public static ViewElement<Domain.ShopUser, bool?> IsAdmin(
+        public static ViewElement<Domain.ShopUser, bool> IsAdmin(
             this ListModule<Domain.ShopUser>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Column(x => x.IsAdmin, fl, ln);
         
@@ -1194,6 +1244,11 @@ namespace MSharp
         public static ViewElement<Domain.ShopUser, string> Password(
             this ListModule<Domain.ShopUser>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Column(x => x.Password, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.ShopUser, string> Phone(
+            this ListModule<Domain.ShopUser>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Phone, fl, ln);
         
         [MethodColor("#0CCC68")]
         public static ViewElement<Domain.ShopUser, string> Salt(
@@ -1241,6 +1296,11 @@ namespace MSharp
         => @this.container.Column(x => x.Password, fl, ln);
         
         [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.User, string> Phone(
+            this ListModule<Domain.User>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Phone, fl, ln);
+        
+        [MethodColor("#0CCC68")]
         public static ViewElement<Domain.User, string> Salt(
             this ListModule<Domain.User>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Column(x => x.Salt, fl, ln);
@@ -1279,6 +1339,11 @@ namespace MSharp
         public static StringFormElement Password(
             this FormModule<Domain.Administrator>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Field(x => x.Password, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static StringFormElement Phone(
+            this FormModule<Domain.Administrator>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Phone, fl, ln);
         
         [MethodColor("#AFCD14")]
         public static StringFormElement Salt(
@@ -1516,6 +1581,11 @@ namespace MSharp
         => @this.container.Field(x => x.Password, fl, ln);
         
         [MethodColor("#AFCD14")]
+        public static StringFormElement Phone(
+            this FormModule<Domain.ShopCustomer>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Phone, fl, ln);
+        
+        [MethodColor("#AFCD14")]
         public static StringFormElement Salt(
             this FormModule<Domain.ShopCustomer>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Field(x => x.Salt, fl, ln);
@@ -1571,6 +1641,11 @@ namespace MSharp
         => @this.container.Field(x => x.Password, fl, ln);
         
         [MethodColor("#AFCD14")]
+        public static StringFormElement Phone(
+            this FormModule<Domain.ShopUser>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Phone, fl, ln);
+        
+        [MethodColor("#AFCD14")]
         public static StringFormElement Salt(
             this FormModule<Domain.ShopUser>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Field(x => x.Salt, fl, ln);
@@ -1609,6 +1684,11 @@ namespace MSharp
         public static StringFormElement Password(
             this FormModule<Domain.User>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Field(x => x.Password, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static StringFormElement Phone(
+            this FormModule<Domain.User>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Phone, fl, ln);
         
         [MethodColor("#AFCD14")]
         public static StringFormElement Salt(

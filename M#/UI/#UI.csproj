@@ -17,7 +17,6 @@
   <ItemGroup>
     <Folder Include="Pages\Admin\Shops\Details\Orders\" />
     <Folder Include="Pages\Admin\Shops\Details\Customers\" />
-    <Folder Include="Pages\Admin\Shops\Details\Users\" />
   </ItemGroup>
   <Target Name="Generate code" AfterTargets="AfterBuild">
     <Exec Condition="'$(MSHARP_BUILD)' != 'FULL'" WorkingDirectory="$(TargetDir)" Command="dotnet msharp.dsl.dll /build /ui" />

@@ -7,7 +7,7 @@ namespace Domain
         public ShopUser()
         {
 
-            Bool("Is admin").Mandatory(value: false);
+            Bool("Is admin").Mandatory().Default("false");
 
             Associate<Shop>("Shop");
         }
