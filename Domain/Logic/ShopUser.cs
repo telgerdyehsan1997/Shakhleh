@@ -18,7 +18,7 @@
         public override IEnumerable<string> GetRoles()
         {
 #pragma warning disable GCop177 // Variable declaration is unnecessary due to it being used only for return statement
-            var result = base.GetRoles().Concat("Customer");
+            var result = base.GetRoles().Concat("ShopUser");
 #pragma warning restore GCop177 // Variable declaration is unnecessary due to it being used only for return statement
                                //if (IsAdmin == true)
                                //    result = result.Concat("Customer Admin");
