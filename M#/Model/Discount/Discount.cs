@@ -9,6 +9,8 @@ namespace Domain
             this.Archivable();
 
             String("Name");
+            Percent("Percent").IsPercentage(false);
+            Money("Amount").IsCurrency(false);
             Associate<Shop>("Shop").Mandatory();
 
             Bool("Is Food Specific").Mandatory();
@@ -19,8 +21,12 @@ namespace Domain
             Money("Minimum Amount Of Price To Use").IsCurrency(false);
             Money("Maximum Amount Of Price To Use").IsCurrency(false);
 
+
+            Date("Start");
+            Date("End");
+
             Associate<DiscountCalculationType>("Calculation Type").Mandatory();
-            Associate<DiscountType>("Type").Mandatory();
+            Associate<DiscountType>("Type");
         }
     }
 }
