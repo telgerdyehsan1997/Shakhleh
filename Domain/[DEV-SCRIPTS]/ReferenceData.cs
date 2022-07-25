@@ -22,10 +22,10 @@ namespace Domain
 
             await CreateAdmins();
 
-            await CreateDiscountTypes();
+            await CreateDiscountFoodTypes();
             await CreateDiscountCalculationTypes();
 
-            await CreateShops();
+            //await CreateShops();
 
         }
 
@@ -35,12 +35,17 @@ namespace Domain
             await AddAdmin("test", "testington", "admin@uat.co");
         }
 
-        async Task CreateDiscountTypes()
+        async Task CreateDiscountFoodTypes()
         {
-            await Create(new DiscountType
+            await Create(new DiscountFoodType
             {
-                Name = nameof(DiscountType.DateRangeDiscount),
-                DisplayName = "تخفیف بازه زمانی"
+                Name = nameof(DiscountFoodType.AllFoodsButThereIsExclusion),
+                DisplayName = "همه غذاها به همراه استثناء"
+            });
+            await Create(new DiscountFoodType
+            {
+                Name = nameof(DiscountFoodType.OnlySpecifiedFoods),
+                DisplayName = "فقط غذاهای مشخص شده"
             });
         }
 

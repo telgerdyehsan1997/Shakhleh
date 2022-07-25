@@ -10,7 +10,7 @@ namespace Domain
     partial class Shop
     {
         public async Task<Discount> GetActiveDiscount() =>
-            (await Discounts.Where(x => x.Start <= LocalTime.Today && x.End >= LocalTime.Today)
+            (await Discounts.Where(x =>!x.IsDeactivated && x.Start <= LocalTime.Today && x.End >= LocalTime.Today)
             .GetList()).FirstOrDefault();
     }
 

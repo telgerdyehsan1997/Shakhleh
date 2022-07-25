@@ -2,11 +2,11 @@
 
 namespace Domain
 {
-    class DiscountType : EntityType
+    class DiscountFoodType : EntityType
     {
-        public DiscountType()
+        public DiscountFoodType()
         {
-            InstanceAccessors("DateRangeDiscount");
+            InstanceAccessors("AllFoodsButThereIsExclusion","OnlySpecifiedFoods");
             String("Name").Mandatory().Unique();
             String("Display Name").Mandatory();
         }

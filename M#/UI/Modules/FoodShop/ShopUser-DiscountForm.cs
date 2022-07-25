@@ -43,15 +43,25 @@ namespace Modules
                 .Label("حداکثر میزان خرید برای استفاده از تخفیف");
 
 
-            Field(x => x.IsUserSpecific).ReloadOnChange().Label("مخصوص کاربر خاصی است؟");
-            Field(x => x.DiscountReceivers)
-                .VisibleIf("info.IsUserSpecific")
-                .AsListbox().Label("مشتریان مشمول تخفیف");
+            //Field(x => x.IsUserSpecific).ReloadOnChange().Label("مخصوص کاربر خاصی است؟");
+            //Field(x => x.DiscountReceivers)
+            //    .DataSource("(await info.Item.Users)")
+            //    .VisibleIf("info.IsUserSpecific")
+            //    .AsListbox().Label("مشتریان مشمول تخفیف");
 
-            Field(x => x.IsFoodSpecific).ReloadOnChange().Label("مخصوص غذای خاصی است؟");
+            Field(x => x.FoodType)
+                .ReloadOnChange()
+                .AsRadioButtons(Arrange.Horizontal)
+                .Mandatory()
+                .Label("نوع غذا");
+
             Field(x => x.DiscountedFoods)
-                .VisibleIf("info.IsFoodSpecific")
+                .VisibleIf("info.FoodType.IsAnyOf(DiscountFoodType.OnlySpecifiedFoods)")
                 .AsListbox().Label("غذاهای مورد تخفیف");
+
+            Field(x => x.ExcludedFoods)
+                .VisibleIf("info.FoodType.IsAnyOf(DiscountFoodType.AllFoodsButThereIsExclusion)")
+                .AsListbox().Label("غذاهای بدون تخفیف");
 
             Field(x => x.Start).Label("تاریخ شروع اعتبار");
             Field(x => x.End).Label("تاریخ پایان اعتبار");
@@ -62,6 +72,11 @@ namespace Modules
             Button("ذخیره").OnClick(x =>
             {
                 x.SaveInDatabase();
+                x.CSharp(@"
+                    await Database.Delete(await info.Item.ExcludedFoodsLinks.GetList());
+                    await Database.Save(info.ExcludedFoods.Select(x=>new DiscountExcludedFoodsLink { FoodId=x.ID,DiscountId=info.Item.ID}));
+                    await Database.Delete(await info.Item.DiscountedFoodsLinks.GetList());
+                await Database.Save(info.DiscountedFoods.Select(x => new DiscountDiscountedFoodsLink { FoodId = x.ID, DiscountId = info.Item.ID }));");
                 x.GentleMessage("ذخیره شد.");
                 x.ReturnToPreviousPage();
             });
@@ -69,6 +84,30 @@ namespace Modules
             ViewModelProperty<Domain.Shop>("Shop")
                 .OnBound("info.Shop=Context.Current.User().Extract<ShopUser>().Shop;");
 
+
+            OnBeforeSave("Binding Shop")
+                .Code("item.Shop = info.Shop;");
+
+
+            OnPostBound("Binding Food Options")
+                .Code(@"
+            info.Shop=Context.Current.User().Extract<ShopUser>().Shop;
+            info.DiscountedFoods_Options.Clear();
+            info.DiscountedFoods_Options.Add(new EmptyListItem());
+            info.DiscountedFoods_Options.AddRange(await info.Shop.Foods.GetList());
+
+            info.ExcludedFoods_Options.Clear();
+            info.ExcludedFoods_Options.Add(new EmptyListItem());
+            info.ExcludedFoods_Options.AddRange(await info.Shop.Foods.GetList());
+            ");
+
+            OnBound_GET("Binding Foods")
+                .Code(@"
+                if (!info.Item.IsNew){
+            info.ExcludedFoods = (await info.Item.ExcludedFoods).ToList();
+            info.DiscountedFoods = (await info.Item.DiscountedFoods).ToList();
+
+}");
         }
     }
 }

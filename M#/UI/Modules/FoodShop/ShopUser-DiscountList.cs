@@ -17,8 +17,7 @@ namespace Modules
 
             Column(x => x.Name).HeaderTemplate("نام");
             Column(x => x.CalculationType).HeaderTemplate("نوع محاسبه");
-            Column(x => x.Type).HeaderTemplate("نوع تخفیف");
-            Column(x => x.IsFoodSpecific).HeaderTemplate("مخصوص غذا خاصی است؟");
+            Column(x => x.FoodType).HeaderTemplate("نوع غذاهای مورد تخفیف");
             Column(x => x.IsUserSpecific).HeaderTemplate("مخصوص مشتری خاصی است؟");
             Column(x => x.MinimumAmountOfPriceToUse)
                 .HeaderTemplate("حداقل میزان خرید برای استفاده از تخفیف");

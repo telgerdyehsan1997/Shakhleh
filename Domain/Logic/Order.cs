@@ -32,13 +32,16 @@ namespace Domain
 
             if (discount.CalculationTypeId == DiscountCalculationType.Percentage.ID)
             {
-                var discountedRate = (100 - discount.Percent) / 100;
-                var TotalPriceWithDiscount = TotalPrice * discountedRate;
+                var totalPriceWithDiscount = await GetDiscountedPrice(discount);
                 await Database.Update(this, x => {
-                    x.TotalPriceWithDiscount = TotalPriceWithDiscount;
+                    x.TotalPriceWithDiscount = totalPriceWithDiscount;
                 }, SaveBehaviour.BypassAll);
             }
         }
+
+        public async Task<decimal?> GetDiscountedPrice(Discount discount)
+            => await (await FoodItems.GetList()).Select(x => x.Food)
+            .Sum(async x=>await x.GetDiscountedPrice(discount,this));
     }
 
 }

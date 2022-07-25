@@ -13,8 +13,9 @@ namespace Domain
             Money("Amount").IsCurrency(false);
             Associate<Shop>("Shop").Mandatory();
 
-            Bool("Is Food Specific").Mandatory();
             AssociateManyToMany<Food>("Discounted Foods");
+            AssociateManyToMany<Food>("Excluded Foods");
+
             Bool("Is User Specific").Mandatory();
             AssociateManyToMany<ShopCustomer>("Discount Receivers");
 
@@ -26,7 +27,7 @@ namespace Domain
             Date("End");
 
             Associate<DiscountCalculationType>("Calculation Type").Mandatory();
-            Associate<DiscountType>("Type");
+            Associate<DiscountFoodType>("Food Type");
         }
     }
 }
