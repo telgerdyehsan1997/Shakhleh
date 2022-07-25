@@ -1,5 +1,6 @@
 ﻿using Domain;
 using MSharp;
+using ShopUser.Orders;
 
 namespace Modules
 {
@@ -28,9 +29,10 @@ namespace Modules
                 x.SaveInDatabase();
                 x.CSharp("applying discount code")
                 .Code(@"var discount = await info.Item.Shop.GetActiveDiscount();
+                info.Item.UsedDiscountId = discount.ID;
                 await info.Item.ApplyDiscount(discount);");
                 x.GentleMessage("ذخیره شد.");
-                x.ReturnToPreviousPage();
+                x.Go<FactorOverviewPage>().Send("order", "info.Item.ID");
             });
             Button("لغو").OnClick(x =>x.ReturnToPreviousPage());
             ViewModelProperty<Domain.Shop>("Shop")

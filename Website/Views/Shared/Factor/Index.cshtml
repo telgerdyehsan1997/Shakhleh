@@ -1,0 +1,76 @@
+﻿@model Controllers.FactorViewModel;
+@{
+    Layout = null;
+    var items = await Model.order.FoodItems.GetList();
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Factor</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        *{
+        direction:rtl;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <table class="text-center table">
+            <thead>
+               <tr>
+                  <th class="text-center" scope="col">نام غذا</th>
+                  <th class="text-center" scope="col">تعداد</th>
+                  <th class="text-center" scope="col">قیمت</th>
+               </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in items)
+            {
+               <tr>
+                  <td scope="row">@item.Food</td>
+                  <td scope="row">@item.Count</td>
+                  <td scope="row">@item.Food.Price</td>
+               </tr> 
+            }
+            </tbody>
+         </table>
+
+    </div>
+
+         <div>
+            <div>
+                <label>
+                    قیمت کل:
+                </label>
+                <span style="text-decoration:line-through" @(Model.order.TotalPriceWithDiscount.HasValue?"style='text-decoration:line-through'":"")>
+                    @Model.order.TotalPrice
+                </span>
+            </div>
+            @if (Model.order.TotalPriceWithDiscount.HasValue)
+            {
+                <div>
+                <label>
+                    نام تخفیف:
+                </label>
+                <span>
+                    @Model.order.UsedDiscount.Name
+                </span>
+            </div>
+            <div>
+                <label>
+                    قیمت کل با تخفیف:
+                </label>
+                <span>
+                    @Model.order.TotalPriceWithDiscount
+                </span>
+            </div>
+            }
+        </div>
+   </div>
+</body>
+</html>
