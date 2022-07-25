@@ -9,6 +9,7 @@ namespace Domain
             this.Archivable();
 
             String("Name");
+            String("Description");
             Percent("Percent").IsPercentage(false);
             Money("Amount").IsCurrency(false);
             Associate<Shop>("Shop").Mandatory();

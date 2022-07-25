@@ -16,6 +16,7 @@ namespace Modules
             SearchButton("Search").Text("جستجو").Icon(FA.Search).OnClick(x => x.ReturnView());
 
             Column(x => x.Name).HeaderTemplate("نام");
+            Column(x => x.Description).HeaderTemplate("توضیحات");
             Column(x => x.CalculationType).HeaderTemplate("نوع محاسبه");
             Column(x => x.FoodType).HeaderTemplate("نوع غذاهای مورد تخفیف");
             Column(x => x.IsUserSpecific).HeaderTemplate("مخصوص مشتری خاصی است؟");
