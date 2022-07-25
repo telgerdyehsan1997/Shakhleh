@@ -22,10 +22,11 @@ namespace Domain
 
             await CreateAdmins();
 
-            await CreateShops();
-
             await CreateDiscountTypes();
             await CreateDiscountCalculationTypes();
+
+            await CreateShops();
+
         }
 
         async Task CreateAdmins()
@@ -99,7 +100,15 @@ namespace Domain
                 Shop = mokhtar,
                 Price = 13000
             });
-            
+            var openingDiscount = await Create(new Discount
+            {
+                Name = "تخفیف افتتاحیه",
+                Shop = mokhtar,
+                Percent = 50,
+                CalculationType = DiscountCalculationType.Percentage,
+                Start = System.DateTime.Today,
+                End = System.DateTime.Today,
+            });
         }
         private Task<Administrator> AddAdmin(string firstName, string lastName, string email)
         {

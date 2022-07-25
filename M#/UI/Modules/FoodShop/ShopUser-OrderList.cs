@@ -16,6 +16,8 @@ namespace Modules
             Column(x => x.Customer).HeaderTemplate("مشتری");
             Column(x => x.Details).HeaderTemplate("جزئیات");
             Column(x => x.TotalPrice).HeaderTemplate("قیمت کل");
+            Column(x => x.TotalPriceWithDiscount)
+                .HeaderTemplate("قیمت کل با اعمال تخفیف");
 
             Button("سفارش جدید").Icon(FA.Plus)
                 .OnClick(x => x.Go<EnterPage>().Send("shop", "info.Shop.ID").SendReturnUrl());

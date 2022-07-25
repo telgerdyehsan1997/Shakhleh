@@ -12,6 +12,9 @@ namespace Domain
             Associate<Shop>("Shop").Mandatory();
             Associate<ShopCustomer>("Customer");
             InverseAssociate<OrderItem>("FoodItems","Order");
+
+            Associate<Discount>("Used discount");
+            Money("Total price with discount");
         }
     }
 }

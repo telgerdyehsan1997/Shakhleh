@@ -26,6 +26,9 @@ namespace Modules
             Button("ذخیره").OnClick(x =>
             {
                 x.SaveInDatabase();
+                x.CSharp("applying discount code")
+                .Code(@"var discount = await info.Item.Shop.GetActiveDiscount();
+                await info.Item.ApplyDiscount(discount);");
                 x.GentleMessage("ذخیره شد.");
                 x.ReturnToPreviousPage();
             });
@@ -37,6 +40,7 @@ namespace Modules
                 .Code("item.Shop = info.Shop;");
             OnBeforeSave("Binding Details")
                 .Code(@"item.Details = string.Join(',', (info.FoodItems.ToList()).Select(x => $"" {x.Food.Name} * {x.Count} ""));");
+            
 
         }
     }
