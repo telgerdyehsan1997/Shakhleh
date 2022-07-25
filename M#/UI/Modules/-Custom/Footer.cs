@@ -16,48 +16,9 @@ namespace Modules
             IsInUse().IsViewComponent()
                 .Using("Olive.Security")
                 .RootCssClass("website-footer")
-                .Markup(@"
-           <div>
-               [#BUTTONS(Email)#]
-               [#BUTTONS(LinkedIn)#]
-               [#BUTTONS(Facebook)#]
-               [#BUTTONS(Twitter)#] <br/>
-               [#BUTTONS(SoftwareDevelopment)#] by [#BUTTONS(Geeks)#]
-                &copy; @LocalTime.Now.Year. All rights reserved.
-            </div>");
+                .Markup(@"");
 
 
-
-            Link("Geeks")
-                .OnClick(x => x.Go(DEVELOPER, OpenIn.NewBrowserWindow));
-
-            Link("Email")
-                .NoText()
-                .Icon(FA.EnvelopeSquare, 3)
-                .Tooltip("Contact Us")
-                .OnClick(x => x.Go(EMAIL, OpenIn.NewBrowserWindow));
-
-            Link("LinkedIn")
-                .NoText()
-                .Icon(FA.LinkedinSquare, 3)
-                .Tooltip("LinkedIn")
-                .OnClick(x => x.Go(LINKED_IN, OpenIn.NewBrowserWindow));
-
-            Link("Facebook")
-                .NoText()
-                .Icon(FA.FacebookSquare, 3)
-                .Tooltip("Facebook")
-                .OnClick(x => x.Go(FACEBOOK, OpenIn.NewBrowserWindow));
-
-            Link("Twitter")
-                .NoText()
-                .Icon(FA.TwitterSquare, 3)
-                .Tooltip("Twitter")
-                .OnClick(x => x.Go(TWITTER, OpenIn.NewBrowserWindow));
-
-            Link("Software development")
-                .CssClass("plain-text")
-                .OnClick(x => x.Go(DEVELOPER, OpenIn.NewBrowserWindow));
         }
     }
 }
