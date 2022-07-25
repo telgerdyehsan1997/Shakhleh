@@ -79,6 +79,27 @@ namespace Domain
                 Password = pass.Password,
                 Salt = pass.Salt
             });
+            var bandari = await Create(new Food { 
+            Name="بندری",
+            Description="با سوسیس اضافه",
+            Shop=mokhtar,
+            Price=30000
+            });
+            var hotdog = await Create(new Food
+            {
+                Name = "هات داگ",
+                Description = "با سوسیس اضافه",
+                Shop = mokhtar,
+                Price = 35000
+            });
+            var soda = await Create(new Food
+            {
+                Name = "نوشابه",
+                Description = "خانواده",
+                Shop = mokhtar,
+                Price = 13000
+            });
+            
         }
         private Task<Administrator> AddAdmin(string firstName, string lastName, string email)
         {

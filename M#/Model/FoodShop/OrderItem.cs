@@ -6,7 +6,7 @@ namespace Domain
     {
         public OrderItem()
         {
-            Int16("Count").Min(1).Default("1").Mandatory();
+            Int("Count").Min(1).Default("1").Mandatory();
             Associate<Order>("Order").Mandatory();
             Associate<Food>("Food").Mandatory();
         }

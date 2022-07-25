@@ -2,6 +2,7 @@ namespace Domain
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Linq;
     using System.Threading.Tasks;
     using Olive;
@@ -11,6 +12,7 @@ namespace Domain
 
     partial class Order
     {
-        decimal? GetTotalPrice() => 0;
+        decimal? GetTotalPrice() => FoodItems.GetList().GetAwaiter().GetResult().Sum(x=>x.Food.Price *x.Count);
+
     }
 }

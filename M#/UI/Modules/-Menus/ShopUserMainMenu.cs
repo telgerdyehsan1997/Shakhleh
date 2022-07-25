@@ -20,6 +20,10 @@ namespace Modules
                 .CssClass("nav-item")
                 .Go<ShopUser.CustomersPage>();
 
+            Item("سفارشات")
+                .CssClass("nav-item")
+                .Go<ShopUser.OrdersPage>();
+
         }
     }
 }
