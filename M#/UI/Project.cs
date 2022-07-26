@@ -9,6 +9,7 @@ namespace MSharp
     {
         internal static ProjectRole Local_Request => ProjectRole.Of("Local.Request");
         internal static ProjectRole Anonymous => ProjectRole.Of("Anonymous");
+        internal static ProjectRole ShopUser => ProjectRole.Of("ShopUser");
         internal static ProjectRole Admin => ProjectRole.Of("Admin");
     }
     

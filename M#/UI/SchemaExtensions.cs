@@ -111,6 +111,156 @@ namespace MSharp
         => @this.container.Search(x => x.UserIp, fl, ln);
         
         [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Discount> Amount(
+            this ListModule<Domain.Discount>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Amount, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Discount> ArchiveLogIds(
+            this ListModule<Domain.Discount>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.ArchiveLogIds, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Discount> CalculationType(
+            this ListModule<Domain.Discount>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.CalculationType, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Discount> Description(
+            this ListModule<Domain.Discount>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Description, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Discount> DiscountedFoods(
+            this ListModule<Domain.Discount>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.DiscountedFoods, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Discount> DiscountedFoodsLinks(
+            this ListModule<Domain.Discount>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.DiscountedFoodsLinks, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Discount> DiscountReceivers(
+            this ListModule<Domain.Discount>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.DiscountReceivers, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Discount> DiscountReceiversLinks(
+            this ListModule<Domain.Discount>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.DiscountReceiversLinks, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Discount> End(
+            this ListModule<Domain.Discount>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.End, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Discount> ExcludedFoods(
+            this ListModule<Domain.Discount>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.ExcludedFoods, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Discount> ExcludedFoodsLinks(
+            this ListModule<Domain.Discount>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.ExcludedFoodsLinks, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Discount> FoodType(
+            this ListModule<Domain.Discount>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.FoodType, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Discount> IsDeactivated(
+            this ListModule<Domain.Discount>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.IsDeactivated, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Discount> IsUserSpecific(
+            this ListModule<Domain.Discount>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.IsUserSpecific, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Discount> MaximumAmountOfPriceToUse(
+            this ListModule<Domain.Discount>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.MaximumAmountOfPriceToUse, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Discount> MinimumAmountOfPriceToUse(
+            this ListModule<Domain.Discount>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.MinimumAmountOfPriceToUse, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Discount> Name(
+            this ListModule<Domain.Discount>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Name, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Discount> Percent(
+            this ListModule<Domain.Discount>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Percent, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Discount> Shop(
+            this ListModule<Domain.Discount>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Shop, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Discount> Start(
+            this ListModule<Domain.Discount>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Start, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.DiscountCalculationType> DisplayName(
+            this ListModule<Domain.DiscountCalculationType>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.DisplayName, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.DiscountCalculationType> Name(
+            this ListModule<Domain.DiscountCalculationType>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Name, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.DiscountDiscountReceiversLink> Discount(
+            this ListModule<Domain.DiscountDiscountReceiversLink>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Discount, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.DiscountDiscountReceiversLink> Shopcustomer(
+            this ListModule<Domain.DiscountDiscountReceiversLink>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Shopcustomer, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.DiscountDiscountedFoodsLink> Discount(
+            this ListModule<Domain.DiscountDiscountedFoodsLink>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Discount, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.DiscountDiscountedFoodsLink> Food(
+            this ListModule<Domain.DiscountDiscountedFoodsLink>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Food, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.DiscountExcludedFoodsLink> Discount(
+            this ListModule<Domain.DiscountExcludedFoodsLink>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Discount, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.DiscountExcludedFoodsLink> Food(
+            this ListModule<Domain.DiscountExcludedFoodsLink>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Food, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.DiscountFoodType> DisplayName(
+            this ListModule<Domain.DiscountFoodType>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.DisplayName, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.DiscountFoodType> Name(
+            this ListModule<Domain.DiscountFoodType>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Name, fl, ln);
+        
+        [MethodColor("#AFCD14")]
         public static PropertyFilterElement<Domain.Food> ArchiveLogIds(
             this ListModule<Domain.Food>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Search(x => x.ArchiveLogIds, fl, ln);
@@ -164,6 +314,61 @@ namespace MSharp
         public static PropertyFilterElement<Domain.LogonFailure> IP(
             this ListModule<Domain.LogonFailure>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Search(x => x.IP, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Order> Customer(
+            this ListModule<Domain.Order>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Customer, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Order> DateReceived(
+            this ListModule<Domain.Order>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.DateReceived, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Order> Details(
+            this ListModule<Domain.Order>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Details, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Order> FoodItems(
+            this ListModule<Domain.Order>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.FoodItems, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Order> Shop(
+            this ListModule<Domain.Order>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Shop, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Order> TotalPrice(
+            this ListModule<Domain.Order>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.TotalPrice, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Order> TotalPriceWithDiscount(
+            this ListModule<Domain.Order>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.TotalPriceWithDiscount, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Order> UsedDiscount(
+            this ListModule<Domain.Order>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.UsedDiscount, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.OrderItem> Count(
+            this ListModule<Domain.OrderItem>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Count, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.OrderItem> Food(
+            this ListModule<Domain.OrderItem>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Food, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.OrderItem> Order(
+            this ListModule<Domain.OrderItem>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Order, fl, ln);
         
         [MethodColor("#AFCD14")]
         public static PropertyFilterElement<Domain.PasswordResetTicket> DateCreated(
@@ -241,14 +446,14 @@ namespace MSharp
         => @this.container.Search(x => x.Customers, fl, ln);
         
         [MethodColor("#AFCD14")]
-        public static PropertyFilterElement<Domain.Shop> CustomersLinks(
-            this ListModule<Domain.Shop>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
-        => @this.container.Search(x => x.CustomersLinks, fl, ln);
-        
-        [MethodColor("#AFCD14")]
         public static PropertyFilterElement<Domain.Shop> Description(
             this ListModule<Domain.Shop>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Search(x => x.Description, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Shop> Discounts(
+            this ListModule<Domain.Shop>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Discounts, fl, ln);
         
         [MethodColor("#AFCD14")]
         public static PropertyFilterElement<Domain.Shop> Email(
@@ -269,6 +474,11 @@ namespace MSharp
         public static PropertyFilterElement<Domain.Shop> Name(
             this ListModule<Domain.Shop>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Search(x => x.Name, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static PropertyFilterElement<Domain.Shop> Orders(
+            this ListModule<Domain.Shop>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Search(x => x.Orders, fl, ln);
         
         [MethodColor("#AFCD14")]
         public static PropertyFilterElement<Domain.Shop> Phone(
@@ -326,24 +536,9 @@ namespace MSharp
         => @this.container.Search(x => x.Salt, fl, ln);
         
         [MethodColor("#AFCD14")]
-        public static PropertyFilterElement<Domain.ShopCustomer> Shops(
+        public static PropertyFilterElement<Domain.ShopCustomer> Shop(
             this ListModule<Domain.ShopCustomer>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
-        => @this.container.Search(x => x.Shops, fl, ln);
-        
-        [MethodColor("#AFCD14")]
-        public static PropertyFilterElement<Domain.ShopCustomer> ShopsLinks(
-            this ListModule<Domain.ShopCustomer>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
-        => @this.container.Search(x => x.ShopsLinks, fl, ln);
-        
-        [MethodColor("#AFCD14")]
-        public static PropertyFilterElement<Domain.ShopCustomersLink> Shop(
-            this ListModule<Domain.ShopCustomersLink>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Search(x => x.Shop, fl, ln);
-        
-        [MethodColor("#AFCD14")]
-        public static PropertyFilterElement<Domain.ShopCustomersLink> Shopcustomer(
-            this ListModule<Domain.ShopCustomersLink>.SearchComponents @this, [_F] string fl = null, [_L] int ln = 0)
-        => @this.container.Search(x => x.Shopcustomer, fl, ln);
         
         [MethodColor("#AFCD14")]
         public static PropertyFilterElement<Domain.ShopUser> ArchiveLogIds(
@@ -541,6 +736,156 @@ namespace MSharp
         => @this.container.Field(x => x.UserIp, fl, ln);
         
         [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Discount> Amount(
+            this ViewModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Amount, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Discount> ArchiveLogIds(
+            this ViewModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.ArchiveLogIds, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Discount> CalculationType(
+            this ViewModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.CalculationType, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Discount> Description(
+            this ViewModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Description, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Discount> DiscountedFoods(
+            this ViewModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.DiscountedFoods, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Discount> DiscountedFoodsLinks(
+            this ViewModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.DiscountedFoodsLinks, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Discount> DiscountReceivers(
+            this ViewModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.DiscountReceivers, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Discount> DiscountReceiversLinks(
+            this ViewModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.DiscountReceiversLinks, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Discount> End(
+            this ViewModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.End, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Discount> ExcludedFoods(
+            this ViewModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.ExcludedFoods, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Discount> ExcludedFoodsLinks(
+            this ViewModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.ExcludedFoodsLinks, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Discount> FoodType(
+            this ViewModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.FoodType, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Discount> IsDeactivated(
+            this ViewModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.IsDeactivated, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Discount> IsUserSpecific(
+            this ViewModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.IsUserSpecific, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Discount> MaximumAmountOfPriceToUse(
+            this ViewModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.MaximumAmountOfPriceToUse, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Discount> MinimumAmountOfPriceToUse(
+            this ViewModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.MinimumAmountOfPriceToUse, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Discount> Name(
+            this ViewModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Name, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Discount> Percent(
+            this ViewModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Percent, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Discount> Shop(
+            this ViewModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Shop, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Discount> Start(
+            this ViewModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Start, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.DiscountCalculationType> DisplayName(
+            this ViewModule<Domain.DiscountCalculationType>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.DisplayName, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.DiscountCalculationType> Name(
+            this ViewModule<Domain.DiscountCalculationType>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Name, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.DiscountDiscountReceiversLink> Discount(
+            this ViewModule<Domain.DiscountDiscountReceiversLink>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Discount, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.DiscountDiscountReceiversLink> Shopcustomer(
+            this ViewModule<Domain.DiscountDiscountReceiversLink>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Shopcustomer, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.DiscountDiscountedFoodsLink> Discount(
+            this ViewModule<Domain.DiscountDiscountedFoodsLink>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Discount, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.DiscountDiscountedFoodsLink> Food(
+            this ViewModule<Domain.DiscountDiscountedFoodsLink>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Food, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.DiscountExcludedFoodsLink> Discount(
+            this ViewModule<Domain.DiscountExcludedFoodsLink>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Discount, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.DiscountExcludedFoodsLink> Food(
+            this ViewModule<Domain.DiscountExcludedFoodsLink>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Food, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.DiscountFoodType> DisplayName(
+            this ViewModule<Domain.DiscountFoodType>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.DisplayName, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.DiscountFoodType> Name(
+            this ViewModule<Domain.DiscountFoodType>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Name, fl, ln);
+        
+        [MethodColor("#AFCD14")]
         public static ViewElement<Domain.Food> ArchiveLogIds(
             this ViewModule<Domain.Food>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Field(x => x.ArchiveLogIds, fl, ln);
@@ -594,6 +939,61 @@ namespace MSharp
         public static ViewElement<Domain.LogonFailure> IP(
             this ViewModule<Domain.LogonFailure>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Field(x => x.IP, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Order> Customer(
+            this ViewModule<Domain.Order>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Customer, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Order> DateReceived(
+            this ViewModule<Domain.Order>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.DateReceived, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Order> Details(
+            this ViewModule<Domain.Order>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Details, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Order> FoodItems(
+            this ViewModule<Domain.Order>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.FoodItems, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Order> Shop(
+            this ViewModule<Domain.Order>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Shop, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Order> TotalPrice(
+            this ViewModule<Domain.Order>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.TotalPrice, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Order> TotalPriceWithDiscount(
+            this ViewModule<Domain.Order>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.TotalPriceWithDiscount, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Order> UsedDiscount(
+            this ViewModule<Domain.Order>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.UsedDiscount, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.OrderItem> Count(
+            this ViewModule<Domain.OrderItem>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Count, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.OrderItem> Food(
+            this ViewModule<Domain.OrderItem>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Food, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.OrderItem> Order(
+            this ViewModule<Domain.OrderItem>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Order, fl, ln);
         
         [MethodColor("#AFCD14")]
         public static ViewElement<Domain.PasswordResetTicket> DateCreated(
@@ -671,14 +1071,14 @@ namespace MSharp
         => @this.container.Field(x => x.Customers, fl, ln);
         
         [MethodColor("#AFCD14")]
-        public static ViewElement<Domain.Shop> CustomersLinks(
-            this ViewModule<Domain.Shop>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
-        => @this.container.Field(x => x.CustomersLinks, fl, ln);
-        
-        [MethodColor("#AFCD14")]
         public static ViewElement<Domain.Shop> Description(
             this ViewModule<Domain.Shop>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Field(x => x.Description, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Shop> Discounts(
+            this ViewModule<Domain.Shop>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Discounts, fl, ln);
         
         [MethodColor("#AFCD14")]
         public static ViewElement<Domain.Shop> Email(
@@ -699,6 +1099,11 @@ namespace MSharp
         public static ViewElement<Domain.Shop> Name(
             this ViewModule<Domain.Shop>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Field(x => x.Name, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static ViewElement<Domain.Shop> Orders(
+            this ViewModule<Domain.Shop>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Orders, fl, ln);
         
         [MethodColor("#AFCD14")]
         public static ViewElement<Domain.Shop> Phone(
@@ -756,24 +1161,9 @@ namespace MSharp
         => @this.container.Field(x => x.Salt, fl, ln);
         
         [MethodColor("#AFCD14")]
-        public static ViewElement<Domain.ShopCustomer> Shops(
+        public static ViewElement<Domain.ShopCustomer> Shop(
             this ViewModule<Domain.ShopCustomer>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
-        => @this.container.Field(x => x.Shops, fl, ln);
-        
-        [MethodColor("#AFCD14")]
-        public static ViewElement<Domain.ShopCustomer> ShopsLinks(
-            this ViewModule<Domain.ShopCustomer>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
-        => @this.container.Field(x => x.ShopsLinks, fl, ln);
-        
-        [MethodColor("#AFCD14")]
-        public static ViewElement<Domain.ShopCustomersLink> Shop(
-            this ViewModule<Domain.ShopCustomersLink>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Field(x => x.Shop, fl, ln);
-        
-        [MethodColor("#AFCD14")]
-        public static ViewElement<Domain.ShopCustomersLink> Shopcustomer(
-            this ViewModule<Domain.ShopCustomersLink>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
-        => @this.container.Field(x => x.Shopcustomer, fl, ln);
         
         [MethodColor("#AFCD14")]
         public static ViewElement<Domain.ShopUser> ArchiveLogIds(
@@ -971,6 +1361,156 @@ namespace MSharp
         => @this.container.Column(x => x.UserIp, fl, ln);
         
         [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Discount, int?> Amount(
+            this ListModule<Domain.Discount>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Amount, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Discount, string> ArchiveLogIds(
+            this ListModule<Domain.Discount>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.ArchiveLogIds, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Discount, Domain.DiscountCalculationType> CalculationType(
+            this ListModule<Domain.Discount>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.CalculationType, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Discount, string> Description(
+            this ListModule<Domain.Discount>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Description, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Discount, Task<IEnumerable<Food>>> DiscountedFoods(
+            this ListModule<Domain.Discount>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.DiscountedFoods, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Discount, IDatabaseQuery<Domain.DiscountDiscountedFoodsLink>> DiscountedFoodsLinks(
+            this ListModule<Domain.Discount>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.DiscountedFoodsLinks, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Discount, Task<IEnumerable<ShopCustomer>>> DiscountReceivers(
+            this ListModule<Domain.Discount>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.DiscountReceivers, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Discount, IDatabaseQuery<Domain.DiscountDiscountReceiversLink>> DiscountReceiversLinks(
+            this ListModule<Domain.Discount>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.DiscountReceiversLinks, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Discount, DateTime?> End(
+            this ListModule<Domain.Discount>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.End, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Discount, Task<IEnumerable<Food>>> ExcludedFoods(
+            this ListModule<Domain.Discount>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.ExcludedFoods, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Discount, IDatabaseQuery<Domain.DiscountExcludedFoodsLink>> ExcludedFoodsLinks(
+            this ListModule<Domain.Discount>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.ExcludedFoodsLinks, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Discount, Domain.DiscountFoodType> FoodType(
+            this ListModule<Domain.Discount>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.FoodType, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Discount, bool> IsDeactivated(
+            this ListModule<Domain.Discount>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.IsDeactivated, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Discount, bool> IsUserSpecific(
+            this ListModule<Domain.Discount>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.IsUserSpecific, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Discount, decimal?> MaximumAmountOfPriceToUse(
+            this ListModule<Domain.Discount>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.MaximumAmountOfPriceToUse, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Discount, decimal?> MinimumAmountOfPriceToUse(
+            this ListModule<Domain.Discount>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.MinimumAmountOfPriceToUse, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Discount, string> Name(
+            this ListModule<Domain.Discount>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Name, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Discount, decimal?> Percent(
+            this ListModule<Domain.Discount>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Percent, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Discount, Domain.Shop> Shop(
+            this ListModule<Domain.Discount>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Shop, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Discount, DateTime?> Start(
+            this ListModule<Domain.Discount>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Start, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.DiscountCalculationType, string> DisplayName(
+            this ListModule<Domain.DiscountCalculationType>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.DisplayName, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.DiscountCalculationType, string> Name(
+            this ListModule<Domain.DiscountCalculationType>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Name, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.DiscountDiscountReceiversLink, Domain.Discount> Discount(
+            this ListModule<Domain.DiscountDiscountReceiversLink>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Discount, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.DiscountDiscountReceiversLink, Domain.ShopCustomer> Shopcustomer(
+            this ListModule<Domain.DiscountDiscountReceiversLink>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Shopcustomer, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.DiscountDiscountedFoodsLink, Domain.Discount> Discount(
+            this ListModule<Domain.DiscountDiscountedFoodsLink>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Discount, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.DiscountDiscountedFoodsLink, Domain.Food> Food(
+            this ListModule<Domain.DiscountDiscountedFoodsLink>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Food, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.DiscountExcludedFoodsLink, Domain.Discount> Discount(
+            this ListModule<Domain.DiscountExcludedFoodsLink>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Discount, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.DiscountExcludedFoodsLink, Domain.Food> Food(
+            this ListModule<Domain.DiscountExcludedFoodsLink>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Food, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.DiscountFoodType, string> DisplayName(
+            this ListModule<Domain.DiscountFoodType>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.DisplayName, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.DiscountFoodType, string> Name(
+            this ListModule<Domain.DiscountFoodType>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Name, fl, ln);
+        
+        [MethodColor("#0CCC68")]
         public static ViewElement<Domain.Food, string> ArchiveLogIds(
             this ListModule<Domain.Food>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Column(x => x.ArchiveLogIds, fl, ln);
@@ -996,7 +1536,7 @@ namespace MSharp
         => @this.container.Column(x => x.Name, fl, ln);
         
         [MethodColor("#0CCC68")]
-        public static ViewElement<Domain.Food, decimal?> Price(
+        public static ViewElement<Domain.Food, int?> Price(
             this ListModule<Domain.Food>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Column(x => x.Price, fl, ln);
         
@@ -1024,6 +1564,61 @@ namespace MSharp
         public static ViewElement<Domain.LogonFailure, string> IP(
             this ListModule<Domain.LogonFailure>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Column(x => x.IP, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Order, Domain.ShopCustomer> Customer(
+            this ListModule<Domain.Order>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Customer, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Order, DateTime> DateReceived(
+            this ListModule<Domain.Order>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.DateReceived, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Order, string> Details(
+            this ListModule<Domain.Order>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Details, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Order, IDatabaseQuery<Domain.OrderItem>> FoodItems(
+            this ListModule<Domain.Order>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.FoodItems, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Order, Domain.Shop> Shop(
+            this ListModule<Domain.Order>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Shop, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Order, int?> TotalPrice(
+            this ListModule<Domain.Order>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.TotalPrice, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Order, int?> TotalPriceWithDiscount(
+            this ListModule<Domain.Order>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.TotalPriceWithDiscount, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Order, Domain.Discount> UsedDiscount(
+            this ListModule<Domain.Order>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.UsedDiscount, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.OrderItem, int> Count(
+            this ListModule<Domain.OrderItem>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Count, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.OrderItem, Domain.Food> Food(
+            this ListModule<Domain.OrderItem>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Food, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.OrderItem, Domain.Order> Order(
+            this ListModule<Domain.OrderItem>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Order, fl, ln);
         
         [MethodColor("#0CCC68")]
         public static ViewElement<Domain.PasswordResetTicket, DateTime> DateCreated(
@@ -1096,19 +1691,19 @@ namespace MSharp
         => @this.container.Column(x => x.ArchiveLogIds, fl, ln);
         
         [MethodColor("#0CCC68")]
-        public static ViewElement<Domain.Shop, Task<IEnumerable<ShopCustomer>>> Customers(
+        public static ViewElement<Domain.Shop, IDatabaseQuery<Domain.ShopCustomer>> Customers(
             this ListModule<Domain.Shop>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Column(x => x.Customers, fl, ln);
-        
-        [MethodColor("#0CCC68")]
-        public static ViewElement<Domain.Shop, IDatabaseQuery<Domain.ShopCustomersLink>> CustomersLinks(
-            this ListModule<Domain.Shop>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
-        => @this.container.Column(x => x.CustomersLinks, fl, ln);
         
         [MethodColor("#0CCC68")]
         public static ViewElement<Domain.Shop, string> Description(
             this ListModule<Domain.Shop>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Column(x => x.Description, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Shop, IDatabaseQuery<Domain.Discount>> Discounts(
+            this ListModule<Domain.Shop>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Discounts, fl, ln);
         
         [MethodColor("#0CCC68")]
         public static ViewElement<Domain.Shop, string> Email(
@@ -1129,6 +1724,11 @@ namespace MSharp
         public static ViewElement<Domain.Shop, string> Name(
             this ListModule<Domain.Shop>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Column(x => x.Name, fl, ln);
+        
+        [MethodColor("#0CCC68")]
+        public static ViewElement<Domain.Shop, IDatabaseQuery<Domain.Order>> Orders(
+            this ListModule<Domain.Shop>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Column(x => x.Orders, fl, ln);
         
         [MethodColor("#0CCC68")]
         public static ViewElement<Domain.Shop, string> Phone(
@@ -1186,24 +1786,9 @@ namespace MSharp
         => @this.container.Column(x => x.Salt, fl, ln);
         
         [MethodColor("#0CCC68")]
-        public static ViewElement<Domain.ShopCustomer, Task<IEnumerable<Shop>>> Shops(
+        public static ViewElement<Domain.ShopCustomer, Domain.Shop> Shop(
             this ListModule<Domain.ShopCustomer>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
-        => @this.container.Column(x => x.Shops, fl, ln);
-        
-        [MethodColor("#0CCC68")]
-        public static ViewElement<Domain.ShopCustomer, IDatabaseQuery<Domain.ShopCustomersLink>> ShopsLinks(
-            this ListModule<Domain.ShopCustomer>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
-        => @this.container.Column(x => x.ShopsLinks, fl, ln);
-        
-        [MethodColor("#0CCC68")]
-        public static ViewElement<Domain.ShopCustomersLink, Domain.Shop> Shop(
-            this ListModule<Domain.ShopCustomersLink>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Column(x => x.Shop, fl, ln);
-        
-        [MethodColor("#0CCC68")]
-        public static ViewElement<Domain.ShopCustomersLink, Domain.ShopCustomer> Shopcustomer(
-            this ListModule<Domain.ShopCustomersLink>.ColumnComponents @this, [_F] string fl = null, [_L] int ln = 0)
-        => @this.container.Column(x => x.Shopcustomer, fl, ln);
         
         [MethodColor("#0CCC68")]
         public static ViewElement<Domain.ShopUser, string> ArchiveLogIds(
@@ -1396,6 +1981,141 @@ namespace MSharp
         => @this.container.Field(x => x.UserIp, fl, ln);
         
         [MethodColor("#AFCD14")]
+        public static NumberFormElement Amount(
+            this FormModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Amount, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static StringFormElement ArchiveLogIds(
+            this FormModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.ArchiveLogIds, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static AssociationFormElement CalculationType(
+            this FormModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.CalculationType, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static StringFormElement Description(
+            this FormModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Description, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static AssociationFormElement DiscountedFoodsLinks(
+            this FormModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.DiscountedFoodsLinks, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static AssociationFormElement DiscountReceiversLinks(
+            this FormModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.DiscountReceiversLinks, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static DateTimeFormElement End(
+            this FormModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.End, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static AssociationFormElement ExcludedFoodsLinks(
+            this FormModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.ExcludedFoodsLinks, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static AssociationFormElement FoodType(
+            this FormModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.FoodType, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static BooleanFormElement IsDeactivated(
+            this FormModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.IsDeactivated, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static BooleanFormElement IsUserSpecific(
+            this FormModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.IsUserSpecific, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static NumberFormElement MaximumAmountOfPriceToUse(
+            this FormModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.MaximumAmountOfPriceToUse, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static NumberFormElement MinimumAmountOfPriceToUse(
+            this FormModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.MinimumAmountOfPriceToUse, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static StringFormElement Name(
+            this FormModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Name, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static NumberFormElement Percent(
+            this FormModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Percent, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static AssociationFormElement Shop(
+            this FormModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Shop, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static DateTimeFormElement Start(
+            this FormModule<Domain.Discount>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Start, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static StringFormElement DisplayName(
+            this FormModule<Domain.DiscountCalculationType>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.DisplayName, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static StringFormElement Name(
+            this FormModule<Domain.DiscountCalculationType>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Name, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static AssociationFormElement Discount(
+            this FormModule<Domain.DiscountDiscountReceiversLink>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Discount, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static AssociationFormElement Shopcustomer(
+            this FormModule<Domain.DiscountDiscountReceiversLink>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Shopcustomer, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static AssociationFormElement Discount(
+            this FormModule<Domain.DiscountDiscountedFoodsLink>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Discount, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static AssociationFormElement Food(
+            this FormModule<Domain.DiscountDiscountedFoodsLink>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Food, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static AssociationFormElement Discount(
+            this FormModule<Domain.DiscountExcludedFoodsLink>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Discount, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static AssociationFormElement Food(
+            this FormModule<Domain.DiscountExcludedFoodsLink>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Food, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static StringFormElement DisplayName(
+            this FormModule<Domain.DiscountFoodType>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.DisplayName, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static StringFormElement Name(
+            this FormModule<Domain.DiscountFoodType>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Name, fl, ln);
+        
+        [MethodColor("#AFCD14")]
         public static StringFormElement ArchiveLogIds(
             this FormModule<Domain.Food>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Field(x => x.ArchiveLogIds, fl, ln);
@@ -1449,6 +2169,56 @@ namespace MSharp
         public static StringFormElement IP(
             this FormModule<Domain.LogonFailure>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Field(x => x.IP, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static AssociationFormElement Customer(
+            this FormModule<Domain.Order>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Customer, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static DateTimeFormElement DateReceived(
+            this FormModule<Domain.Order>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.DateReceived, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static StringFormElement Details(
+            this FormModule<Domain.Order>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Details, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static AssociationFormElement FoodItems(
+            this FormModule<Domain.Order>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.FoodItems, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static AssociationFormElement Shop(
+            this FormModule<Domain.Order>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Shop, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static NumberFormElement TotalPriceWithDiscount(
+            this FormModule<Domain.Order>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.TotalPriceWithDiscount, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static AssociationFormElement UsedDiscount(
+            this FormModule<Domain.Order>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.UsedDiscount, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static NumberFormElement Count(
+            this FormModule<Domain.OrderItem>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Count, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static AssociationFormElement Food(
+            this FormModule<Domain.OrderItem>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Food, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static AssociationFormElement Order(
+            this FormModule<Domain.OrderItem>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Order, fl, ln);
         
         [MethodColor("#AFCD14")]
         public static DateTimeFormElement DateCreated(
@@ -1511,14 +2281,19 @@ namespace MSharp
         => @this.container.Field(x => x.ArchiveLogIds, fl, ln);
         
         [MethodColor("#AFCD14")]
-        public static AssociationFormElement CustomersLinks(
+        public static AssociationFormElement Customers(
             this FormModule<Domain.Shop>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
-        => @this.container.Field(x => x.CustomersLinks, fl, ln);
+        => @this.container.Field(x => x.Customers, fl, ln);
         
         [MethodColor("#AFCD14")]
         public static StringFormElement Description(
             this FormModule<Domain.Shop>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Field(x => x.Description, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static AssociationFormElement Discounts(
+            this FormModule<Domain.Shop>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Discounts, fl, ln);
         
         [MethodColor("#AFCD14")]
         public static StringFormElement Email(
@@ -1539,6 +2314,11 @@ namespace MSharp
         public static StringFormElement Name(
             this FormModule<Domain.Shop>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Field(x => x.Name, fl, ln);
+        
+        [MethodColor("#AFCD14")]
+        public static AssociationFormElement Orders(
+            this FormModule<Domain.Shop>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+        => @this.container.Field(x => x.Orders, fl, ln);
         
         [MethodColor("#AFCD14")]
         public static StringFormElement Phone(
@@ -1591,19 +2371,9 @@ namespace MSharp
         => @this.container.Field(x => x.Salt, fl, ln);
         
         [MethodColor("#AFCD14")]
-        public static AssociationFormElement ShopsLinks(
-            this FormModule<Domain.ShopCustomer>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
-        => @this.container.Field(x => x.ShopsLinks, fl, ln);
-        
-        [MethodColor("#AFCD14")]
         public static AssociationFormElement Shop(
-            this FormModule<Domain.ShopCustomersLink>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
+            this FormModule<Domain.ShopCustomer>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
         => @this.container.Field(x => x.Shop, fl, ln);
-        
-        [MethodColor("#AFCD14")]
-        public static AssociationFormElement Shopcustomer(
-            this FormModule<Domain.ShopCustomersLink>.FieldComponents @this, [_F] string fl = null, [_L] int ln = 0)
-        => @this.container.Field(x => x.Shopcustomer, fl, ln);
         
         [MethodColor("#AFCD14")]
         public static StringFormElement ArchiveLogIds(

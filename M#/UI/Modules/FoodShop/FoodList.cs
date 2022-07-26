@@ -17,7 +17,7 @@ namespace Modules
 
             Column(x => x.Name).HeaderTemplate("نام");
             Column(x => x.Description).HeaderTemplate("توضیحات");
-            Column(x => x.Price).HeaderTemplate("آدرس");
+            Column(x => x.Price).HeaderTemplate("قیمت");
             Column(x => x.Image).HeaderTemplate("ایمیل");
 
             ButtonColumn("ویرایش").HeaderText("ویرایش").GridColumnCssClass("actions").Icon(FA.Edit)
