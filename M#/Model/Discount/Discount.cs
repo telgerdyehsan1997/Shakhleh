@@ -11,7 +11,7 @@ namespace Domain
             String("Name");
             String("Description");
             Percent("Percent").IsPercentage(false);
-            Money("Amount").IsCurrency(false);
+            Int("Amount");
             Associate<Shop>("Shop").Mandatory();
 
             AssociateManyToMany<Food>("Discounted Foods");

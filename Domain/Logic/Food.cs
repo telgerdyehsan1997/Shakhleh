@@ -9,9 +9,9 @@ namespace Domain
 
     partial class Food
     {
-        private decimal? _discountedPrice;
+        private int? _discountedPrice;
 
-        public async Task<decimal?> GetDiscountedPrice(Discount discount, Order order)
+        public async Task<int?> GetDiscountedPrice(Discount discount, Order order)
         {
             if (_discountedPrice.HasValue) return _discountedPrice;
 
@@ -37,7 +37,7 @@ namespace Domain
             if (discount.CalculationTypeId.IsAnyOf(DiscountCalculationType.Percentage)) 
             {
                 var discountedRate = (100 - discount.Percent.Value) / 100;
-                _discountedPrice = Price.Value * discountedRate;
+                _discountedPrice = (int)(Price.Value * discountedRate);
                 return _discountedPrice;
             }
 

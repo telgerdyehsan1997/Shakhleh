@@ -12,7 +12,7 @@ namespace Domain
             String("Description");
 
             SecureImage("Image");
-            Money("Price").IsCurrency(false);
+            Int("Price");
 
             Associate<Shop>("Shop");
         }

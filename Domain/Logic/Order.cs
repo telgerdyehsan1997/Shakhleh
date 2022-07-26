@@ -13,7 +13,7 @@ namespace Domain
 
     partial class Order
     {
-        decimal? GetTotalPrice() => FoodItems.GetList().GetAwaiter().GetResult().Sum(x => x.Food.Price * x.Count);
+        int? GetTotalPrice() => FoodItems.GetList().GetAwaiter().GetResult().Sum(x => x.Food.Price * x.Count);
 
         public async Task ApplyDiscount(Discount discount)
         {
@@ -39,9 +39,9 @@ namespace Domain
             }
         }
 
-        public async Task<decimal?> GetDiscountedPrice(Discount discount)
-            => await (await FoodItems.GetList()).Select(x => x.Food)
-            .Sum(async x=>await x.GetDiscountedPrice(discount,this));
+        public async Task<int?> GetDiscountedPrice(Discount discount)
+            => await (await FoodItems.GetList())
+            .Sum(async x=>(await x.Food.GetDiscountedPrice(discount, this))*x.Count);
     }
 
 }

@@ -10,6 +10,7 @@ namespace Modules
             HeaderText("تخفیف");
 
             Field(x => x.Name).Label("نام");
+            Field(x => x.Description).Label("توضیحات");
 
             Field(x => x.CalculationType)
                 .ReloadOnChange()

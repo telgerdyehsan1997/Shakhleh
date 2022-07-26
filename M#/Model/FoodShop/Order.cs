@@ -8,13 +8,13 @@ namespace Domain
         {
             BigString("Details");
             DateTime("DateReceived").Mandatory();
-            Money("Total price").Calculated().Getter("GetTotalPrice()");
+            Int("Total price").Calculated().Getter("GetTotalPrice()");
             Associate<Shop>("Shop").Mandatory();
             Associate<ShopCustomer>("Customer");
             InverseAssociate<OrderItem>("FoodItems","Order");
 
             Associate<Discount>("Used discount");
-            Money("Total price with discount");
+            Int("Total price with discount");
         }
     }
 }
