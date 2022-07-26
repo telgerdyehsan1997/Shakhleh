@@ -29,8 +29,11 @@ namespace Modules
                 x.SaveInDatabase();
                 x.CSharp("applying discount code")
                 .Code(@"var discount = await info.Item.Shop.GetActiveDiscount();
-                info.Item.UsedDiscountId = discount.ID;
-                await info.Item.ApplyDiscount(discount);");
+                if (discount!=null)
+                {
+                    info.Item.UsedDiscountId = discount.ID;
+                    await info.Item.ApplyDiscount(discount);
+                }");
                 x.GentleMessage("ذخیره شد.");
                 x.Go<FactorOverviewPage>().Send("order", "info.Item.ID");
             });
