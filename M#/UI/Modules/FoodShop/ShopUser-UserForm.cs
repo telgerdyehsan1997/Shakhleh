@@ -27,6 +27,9 @@ namespace Modules
             ViewModelProperty<Domain.Shop>("Shop")
                 .OnBound("info.Shop=Context.Current.User().Extract<ShopUser>().Shop;");
 
+            OnBeforeSave("Binding Shop")
+                .Code("item.Shop = info.Shop;");
+
         }
     }
 }

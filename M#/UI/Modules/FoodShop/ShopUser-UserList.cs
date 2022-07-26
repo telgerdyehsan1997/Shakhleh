@@ -1,6 +1,6 @@
 ﻿using Domain;
 using MSharp;
-using Admin.Shops.Details.Users;
+using ShopUser.Settings.Users;
 
 namespace Modules
 {
