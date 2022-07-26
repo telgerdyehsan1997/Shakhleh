@@ -13,6 +13,10 @@ namespace Modules
             DataSource("(await info.Shop.Orders.GetList())");
 
             DataSource("(await info.Shop.Orders.GetList())");
+            LinkColumn("View")
+                .Text("جزئیات کامل")
+                .HeaderText("جزئیات کامل")
+                .OnClick(x => x.Go<FactorOverviewPage>().Send("order", "item.ID"));
             Column(x => x.Customer).HeaderTemplate("مشتری");
             Column(x => x.Details).HeaderTemplate("جزئیات");
             Column(x => x.TotalPrice).HeaderTemplate("قیمت کل");

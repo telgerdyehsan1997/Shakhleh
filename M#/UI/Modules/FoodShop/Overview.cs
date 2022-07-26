@@ -20,6 +20,7 @@ namespace Modules
                     <th>نام غذا</th>
                     <th>تعداد</th>
                     <th>قیمت این تعداد غذا</th>
+                    <th>قیمت واحد غذا</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +30,7 @@ namespace Modules
                         <td>@item.Food.Name</td>
                         <td>@item.Count</td>
                         <td>@(item.Count*item.Food.Price)</td>
+                        <td>@item.Food.Price</td>
                 </tr>
                     }
             </tbody>
