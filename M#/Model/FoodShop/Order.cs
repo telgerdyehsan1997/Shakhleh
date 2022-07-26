@@ -15,6 +15,7 @@ namespace Domain
 
             Associate<Discount>("Used discount");
             Int("Total price with discount");
+            DateTime("Order date").Mandatory();
         }
     }
 }

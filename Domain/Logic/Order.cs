@@ -42,6 +42,13 @@ namespace Domain
         public async Task<int?> GetDiscountedPrice(Discount discount)
             => await (await FoodItems.GetList())
             .Sum(async x=>(await x.Food.GetDiscountedPrice(discount, this))*x.Count);
+
+
+        protected override Task OnSaving(CancelEventArgs e)
+        {
+            OrderDate = LocalTime.Now;
+            return base.OnSaving(e);
+        }
     }
 
 }
